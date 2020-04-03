@@ -18,11 +18,13 @@ Source : https://www.kaggle.com/tunguz/big-five-personality-test#codebook.txt
 It is a dataset containing over a million of answers to a personality test, from people all around the globe. It is taken from Kaggle, and has a usability score of 9.7.
 
 For each users, there are 5 essential variables that are being measured :
-EXT - Extroversion.
-AGR - Agreeableness
-CSN - Conscientiousness
-EST - Neuroticism
-OPN - Openness to Experience
+
+1. **EXT** - *Extroversion.
+2. **AGR** - *Agreeableness
+3. **CSN** - *Conscientiousness
+4. **EST** - *Neuroticism
+5. **OPN** - *Openness to Experience
+
 And other variables such as the localisation of the user and their time spent to answer each of the questions.
 
 The preprocessing required is pretty basic : handle the outliers, drop the NaNs, check that each value is included in their corresponding domain and cast each variable to their real type.
