@@ -47,35 +47,21 @@ We have a dataset containing the result of 1 015 341 big five personality tests,
 We cleaned the dataset by removing participants when they have multiple IP adresses, no location, when they did not answer to more than 90 percent of the test or when they were outlier in the time they take to answer. 
 We can see on the graph below the distribution of time taken to answer. They're are a lot of 0. Some of them are due to participant skipping questions, we have no explanation for other, so they are discarded.
 ![alt text](https://github.com/com-480-data-visualization/com-480-project-tadaviz/blob/master/times.jpeg)
+
 After preprocessing, we end up with 677 156 participants from 220 different countries. We then compute the total score in each trait for each participant and normalize it. From this we obtain the following graph showing the number of participant by country.
-Graph
-And here are the mean score for each trait for the five countries with the most participants.
-Tab
+![alt text](https://github.com/com-480-data-visualization/com-480-project-tadaviz/blob/master/country.jpeg)
 
 ### 2.4 – Related work
 
 * What others have already done with the data ?
+
 Does the growth in COVID-19 cases have anything to do with Big 5 Personality traits? : https://www.kaggle.com/bluewizard/covid-19-and-the-big-5-personality-test
-This study used the same dataset combined with another one concerning the COVID-19 growth. It made some explorations with country-level aggregates on both datasets to determine whether there is some correlation between the growth of the virus and the scores on each of the Big 5 personality traits.
 
 * Why is your approach original ?
-
-Compared to the study cited above, we will focus more on the psychological aspect to draw some interesting conclusions which we hope to show clearly through accessible visualizations.
-
+ 
+ 
 * What source of inspiration do you take ? Visualization that you found on other websites or magazines :
 
-For visualizing the scores on each of the Big 5 personality traits, we think that radar graphs would be perfect. 
-Here are some nice radio graphs :
-
-* https://www.informationisbeautifulawards.com/showcase/2809-quartetto-sincronie-performing-beethoven-op-74-num-10
-
-* https://dribbble.com/shots/2498804-Radar-Graph/attachments/491097
-
-* https://dribbble.com/shots/3249998-Radar-Graph
-
-Concerning map visualizations, we will define colours associated to each personality traits, and look forward to doing something like the following :
-
-* https://www.informationisbeautifulawards.com/showcase/3135-streetscapes-mozart-marx-and-a-dictator
 
 
 ## Milestone 2 (Friday 1st May, 5pm)
