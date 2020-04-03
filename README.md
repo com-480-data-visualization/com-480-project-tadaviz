@@ -11,7 +11,7 @@
 
 ## Milestone 1 (Friday 3rd April, 5pm)
 
-<u>2.1 Dataset<u>
+### 2.1 Dataset
   
 The dataset is called “The Big Five Personality Test”. 
 Source : https://www.kaggle.com/tunguz/big-five-personality-test#codebook.txt
@@ -27,7 +27,7 @@ And other variables such as the localisation of the user and their time spent to
 
 The preprocessing required is pretty basic : handle the outliers, drop the NaNs, check that each value is included in their corresponding domain and cast each variable to their real type.
 
-2.2 Problematic
+### 2.2 Problematic
 
 With our visualization, we want to show to what extent cultures can shape our personality.  we would like to see whether some countries have a dominant personality trait. We would also like to know which questions require the most reflexion time, and whether there is a difference between countries regarding that aspect. Using the approximate localisation of users, we could draw some interesting map visualizations.
 
@@ -37,12 +37,12 @@ Moreover, through clustering and visualization, we want to explore the hypothesi
 
 Our motivation is to answer these questions with simple yet subtle visualization techniques, hoping that we could teach something interesting to the target audience, which generally speaking can be anyone.
 
-2.3 Exploratory Data Analysis
+### 2.3 Exploratory Data Analysis
 
 After pre-processing, we have over 700k valid answers to the personality test.
 *other stats*
 
-2.4 – Related work
+### 2.4 – Related work
 
 What others have already done with the data ?
 Does the growth in COVID-19 cases have anything to do with Big 5 Personality traits? : https://www.kaggle.com/bluewizard/covid-19-and-the-big-5-personality-test
