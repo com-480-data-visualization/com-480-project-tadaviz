@@ -14,7 +14,9 @@
 ### 2.1 Dataset
   
 The dataset is called “The Big Five Personality Test”. 
+
 Source : https://www.kaggle.com/tunguz/big-five-personality-test#codebook.txt
+
 It is a dataset containing over a million of answers to a personality test, from people all around the globe. It is taken from Kaggle, and has a usability score of 9.7.
 
 For each users, there are 5 essential variables that are being measured :
