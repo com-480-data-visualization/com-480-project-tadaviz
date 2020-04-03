@@ -48,13 +48,14 @@ After pre-processing, we have over 700k valid answers to the personality test.
 
 ### 2.4 – Related work
 
-What others have already done with the data ?
+* What others have already done with the data ?
+
 Does the growth in COVID-19 cases have anything to do with Big 5 Personality traits? : https://www.kaggle.com/bluewizard/covid-19-and-the-big-5-personality-test
 
-Why is your approach original ?
+* Why is your approach original ?
  
  
-What source of inspiration do you take ? Visualization that you found on other websites or magazines :
+* What source of inspiration do you take ? Visualization that you found on other websites or magazines :
 
 
 
