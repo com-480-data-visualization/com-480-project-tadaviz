@@ -53,17 +53,17 @@ After preprocessing, we end up with 677 156 participants from 220 different coun
 
 ### 2.4 – Related work
 
-* What others have already done with the data ?
+##### What others have already done with the data ?
 
 Does the growth in COVID-19 cases have anything to do with Big 5 Personality traits? : https://www.kaggle.com/bluewizard/covid-19-and-the-big-5-personality-test
 
 This study used the same dataset combined with another one concerning the COVID-19 growth. It made some explorations with country-level aggregates on both datasets to determine whether there is some correlation between the growth of the virus and the scores on each of the Big 5 personality traits.
 
-* Why is your approach original ?
+##### Why is your approach original ?
 
 Compared to the study cited above, we will focus more on the psychological aspect to draw some interesting conclusions which we hope to show clearly through accessible visualizations.
 
-* What source of inspiration do you take ? Visualization that you found on other websites or magazines :
+##### What source of inspiration do you take ? Visualization that you found on other websites or magazines :
 
 For visualizing the scores on each of the Big 5 personality traits, we think that radar graphs would be perfect. 
 Here are some nice radio graphs :
