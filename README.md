@@ -43,9 +43,9 @@ Our motivation is to answer these questions with simple yet subtle visualization
 
 ### 2.3 Exploratory Data Analysis
 
-We have a dataset containing the result of 1 015 341 big five personality tests, conducted from march 2016 to november 2018. There is 110 variables, 50 answers from the test and the corresponding time the participants take to answers. There is also diverse informations such as the screen size of the participants, the date at wich they attempted the test, the total time they took to complete it and the location. 
-We cleaned the dataset by removing participants when they have multiple IP adresses, no location, when they did not answer to more than 90 percent of the test or when they were outlier in the time they take to answer. 
-We can see on the graph below the distribution of time taken to answer. They're are a lot of 0. Some of them are due to participant skipping questions, we have no explanation for other, so they are discarded.
+We have a dataset containing the result of 1 015 341 big five personality tests, conducted from march 2016 to november 2018. There are 110 variables, 50 answers from the test and the corresponding time the participants take to answers. There are also diverse informations such as the screen size of the participants, the date at wich they attempted the test, the total time they took to complete it and the location. 
+We cleaned the dataset by removing participants when they have multiple IP adresses, no location, when they did not answer to more than 90 percent of the test or when they were outliers because of the time they took to answer. 
+We can see on the graph below the distribution of time taken to answer. There are a lot of 0. Some of them are due to participant skipping questions, while for other, there is simply no explanation, so we discarded them.
 ![alt text](https://github.com/com-480-data-visualization/com-480-project-tadaviz/blob/master/times.jpeg)
 
 After preprocessing, we end up with 677 156 participants from 220 different countries. We then compute the total score in each trait for each participant and normalize it. From this we obtain the following graph showing the number of participant by country.
