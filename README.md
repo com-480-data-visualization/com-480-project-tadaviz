@@ -19,11 +19,11 @@ It is a dataset containing over a million of answers to a personality test, from
 
 For each users, there are 5 essential variables that are being measured :
 
-1. **EXT** - *Extroversion.
-2. **AGR** - *Agreeableness
-3. **CSN** - *Conscientiousness
-4. **EST** - *Neuroticism
-5. **OPN** - *Openness to Experience
+1. **EXT** - *Extroversion*
+2. **AGR** - *Agreeableness*
+3. **CSN** - *Conscientiousness*
+4. **EST** - *Neuroticism*
+5. **OPN** - *Openness to Experience*
 
 And other variables such as the localisation of the user and their time spent to answer each of the questions.
 
