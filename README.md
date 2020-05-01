@@ -86,11 +86,14 @@ Concerning map visualizations, we will define colours associated to each persona
 
 For this purpose, a dynamic map is the best suited. The map will be our **core visualization** and will be interactive. We hope to implement it using *Leaftlet.js*. Not only it will show the dominant personality trait, the user will also to be able to visualize other information such as the happiness level of countries or their average response time per personality questions. Here is a sketch of the visualization we hope to achieve: 
 
+
 ![Interactive Map S](https://user-images.githubusercontent.com/36303330/80799084-377d1e00-8ba6-11ea-82e5-91212d5872ed.png)
+
 
 The user will be able to zoom in and out as he wishes, and will get to choose in the top-left tab between 3 criteria for visualization (other criteria may be added later): 
 
 - The **dominant trait** : Each country will be displayed in the color associated to its dominant personality trait. Moreover, when the user hovers over a country, the following radar graph should be displayed :  
+
 
 ![Radar Graph S](https://user-images.githubusercontent.com/36303330/80799089-3b10a500-8ba6-11ea-8abe-004ed2034050.jpg)
 
@@ -100,17 +103,21 @@ The user will be able to zoom in and out as he wishes, and will get to choose in
  
    > The black polygon corresponds to the average values, whereas the colored polygon corresponds to the average values in a given country. We think of implementing this graph using *D3.js*.
  
+ 
 - The **trait corresponding to the longest response time**: Each country will be displayed in the color associated to the personality trait for which the questions had the longest response time in average. The labels will be the same as the labels for the Dominant Trait visualization. When the user hovers over a country, a radar graph should be displayed in the same manner, but this time, with the average response time for the questions associated to a given personality trait. This criterion might be interesting to visualize as it could be interesting to see if people from a given country are in average more “preoccupied” by questions for a given personality trait. 
 
 - The **happiness level**: We plan on using an extra dataset, which could give us the happiness level of each country. This will be visualized using a heat map, which could indicate whether a happiness level of a given country is high or not. For this visualization, the labels will indicate the happiness level for given colors. When the user hovers over a country, a small window will appear and display the exact value of the associated happiness level. 
 
+
 Additionally to this visualization, we also want to make an interactive barplot to visualize the distribution of the answers to a given question, for a given country. The user will get to choose these two parameters, and visualize the associated distribution. When he hovers over one of the bars, information will be displayed in a window, such as the value of the number of answers in this case.  Other interesting parameters to visualize might be added later on. This barplot will be implemented using *D3.js*, or libraries providing inbuilt interactive barplots. 
+ 
  
 ![Bar Plots S](https://user-images.githubusercontent.com/36303330/80799086-3946e180-8ba6-11ea-9ac9-eb2742568b61.png)
 
+
 For all these visualizations, notes from lectures 6 and 7 about channels, design and dos and don’ts will be taken into consideration. 
 
-##### Extra ideas 
+#### Extra ideas 
 
 - Besides making visualizations at the scale of countries, we could also make them at the scale of cities. For the dynamic map, that would require a function that determine in which scale the user wants to visualize by comparing the zooming degree to a threshold. The visualizations and radar graphs should be adapted accordingly. 
 
@@ -119,6 +126,7 @@ For all these visualizations, notes from lectures 6 and 7 about channels, design
 - We could add a functionality which allows the user to do the Big Five Personality Test on our website,  displays his values for the 5 personality traits, and gives him the country which would suit him the best accordingly! 
 
 - We could also run a 5-dimension clustering algorithm over all the answers to the test (by computing the average value for each personality trait for each test), and make a 2D visualization to see whether there are some patterns or not
+
 
 ## Milestone 3 (Thursday 28th May, 5pm)
 
