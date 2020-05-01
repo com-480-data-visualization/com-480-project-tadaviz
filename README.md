@@ -82,10 +82,13 @@ Concerning map visualizations, we will define colours associated to each persona
 
 ## Milestone 2 (Friday 1st May, 5pm)
 
-**10% of the final grade**
+  Our project’s principal goal is to show to what extent cultures can shape our personality. Thus, we would like to study, for each country, which personality trait is dominant, and make an interactive visualization which could convey this information the most easily. 
 
-![Bar Plots](https://user-images.githubusercontent.com/36303330/80798770-7199f000-8ba5-11ea-8bdb-7a0f1914a722.png)
+For this purpose, a dynamic map is the best suited. The map will be our **core visualization** and will be interactive. We hope to implement it using Leaftlet.js. Not only it will show the dominant personality trait, the user will also to be able to visualize other information such as the happiness level of countries or their average response time per personality questions. Here is a sketch of the visualization we hope to achieve: 
 
+![Interactive Map S](https://user-images.githubusercontent.com/36303330/80799084-377d1e00-8ba6-11ea-82e5-91212d5872ed.png)
+
+The user will be able to zoom in and out as he wishes, and will get to choose in the top-left tab between 3 criteria for visualization (other criteria may be added later): 
 
 
 ## Milestone 3 (Thursday 28th May, 5pm)
