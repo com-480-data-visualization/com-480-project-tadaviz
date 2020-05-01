@@ -84,6 +84,7 @@ Concerning map visualizations, we will define colours associated to each persona
 
 **10% of the final grade**
 
+![Bar Plots](https://user-images.githubusercontent.com/36303330/80798770-7199f000-8ba5-11ea-8bdb-7a0f1914a722.png)
 
 
 
