@@ -127,6 +127,10 @@ For all these visualizations, notes from lectures 6 and 7 about channels, design
 
 - We could also run a 5-dimension clustering algorithm over all the answers to the test (by computing the average value for each personality trait for each test), and make a 2D visualization to see whether there are some patterns or not
 
+#### Project prototype preview
+
+Here is the link to the project's propotype : https://codepen.io/robinszym/full/GRpjjjJ 
+The website contains the basic skeleton of the dynamic map using *leaftlet.js*.
 
 ## Milestone 3 (Thursday 28th May, 5pm)
 
