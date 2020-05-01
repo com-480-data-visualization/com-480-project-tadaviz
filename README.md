@@ -129,9 +129,7 @@ For all these visualizations, notes from lectures 6 and 7 about channels, design
 
 #### Project prototype preview
 
-Here is the link to the project's propotype : https://codepen.io/robinszym/full/GRpjjjJ.
-
-The website contains the basic skeleton of the dynamic map using *leaftlet.js*.
+The project prototype is available in the HTML folder of the git.
 
 ## Milestone 3 (Thursday 28th May, 5pm)
 
