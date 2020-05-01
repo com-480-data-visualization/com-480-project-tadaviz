@@ -94,11 +94,11 @@ The user will be able to zoom in and out as he wishes, and will get to choose in
 
 ![Radar Graph S](https://user-images.githubusercontent.com/36303330/80799089-3b10a500-8ba6-11ea-8abe-004ed2034050.jpg)
 
-    Each vertex corresponds to one of the 5 personality traits. Thanks to this radar graph, we can easily visualize the average value for each personality trait for a given country.  
+> Each vertex corresponds to one of the 5 personality traits. Thanks to this radar graph, we can easily visualize the average value for each personality trait for a given country.  
 
-    There are 5 axes, the center corresponds to a value of 1, and the closer a vertex of a polygon gets to the vertex of the outer polygon, the closer to the value of 5 the associated personality trait is. 
+> There are 5 axes, the center corresponds to a value of 1, and the closer a vertex of a polygon gets to the vertex of the outer polygon, the closer to the value of 5 the associated personality trait is. 
  
-    The black polygon corresponds to the average values, whereas the colored polygon corresponds to the average values in a given country. We think of implementing this graph using *D3.js*.
+> The black polygon corresponds to the average values, whereas the colored polygon corresponds to the average values in a given country. We think of implementing this graph using *D3.js*.
  
 - The **trait corresponding to the longest response time**: Each country will be displayed in the color associated to the personality trait for which the questions had the longest response time in average. The labels will be the same as the labels for the Dominant Trait visualization. When the user hovers over a country, a radar graph should be displayed in the same manner, but this time, with the average response time for the questions associated to a given personality trait. This criterion might be interesting to visualize as it could be interesting to see if people from a given country are in average more “preoccupied” by questions for a given personality trait. 
 
