@@ -129,7 +129,7 @@ For all these visualizations, notes from lectures 6 and 7 about channels, design
 
 #### Project prototype preview
 
-The project prototype is available [here](https://com-480-data-visualization.github.io/com-480-project-tadaviz/HTML/map/map.html)
+The project prototype is available [here](https://com-480-data-visualization.github.io/com-480-project-tadaviz)
 
 ## Milestone 3 (Thursday 28th May, 5pm)
 
