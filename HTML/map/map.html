@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<title>World Map</title>
+	<title>Map</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
@@ -9,27 +9,28 @@
    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
    crossorigin=""></script>
 	<link rel="stylesheet" href="interactive-map.css">
-  <link rel="stylesheet" href="mapstyle.css">
+  <link rel="stylesheet" href="map.css">
   </head>
   <body>
     <div id="buttons">
       <div class="card">
-        <button>Map</button>
-      </div>
-      <div class="separator">
+      <button onclick="window.location.href = '../map/map.html';">Map</button>
+    </div>
+    <div class="separator">
+
+    </div>
+    <div class="card">
+      <button onclick="window.location.href = '../stats/stats.html';">Stats</button>
+
+    </div>
+    <div class="separator">
+
+    </div>
+    <div class="card">
+      <button onclick="window.location.href = '../questions/questions.html';">Take the test!</button>
 
       </div>
-      <div class="card">
-        <button>Stats</button>
-
-      </div>
-      <div class="separator">
-
-      </div>
-      <div class="card">
-        <button>Take the test!</button>
-
-      </div>
+    </div>
     </div>
     <div id="mapid" ></div>
     <svg id="plot" viewBox="-10 -10 220 120" width=50% height=50%></svg>
