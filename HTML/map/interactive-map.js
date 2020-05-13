@@ -1,259 +1,260 @@
-var mapboxAccessToken = 'pk.eyJ1IjoiZ3VpbGhlbTAxIiwiYSI6ImNrOW54czJzMjA2aXQzaHBweWU4am43MzIifQ.Vd6MuN_xonNgovvUSfGBQw';
-var map = L.map('mapid').setView([37.8, 0.0], 2.5);
-
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=' + mapboxAccessToken, {
-    id: 'mapbox/light-v9',
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			//'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox/light-v9',
-    tileSize: 512,
-    zoomOffset: -1
-}).addTo(map);
-
-L.geoJson(countriesData).addTo(map);
-
-function getColor(d) {
-    return d > 100000 ? '#800026' :
-           d > 50000  ? '#E31A1C' :
-           d > 25000  ? '#FC4E2A' :
-           d > 10000  ? '#FD8D3C' :
-           d > 5000   ? '#FEB24C' :
-           d > 1000   ? '#FED976' :
-           d > 200   ? '#FFEDA0' :
-                      '#f0f0f0';
+//options to desactivate zoom and navigation
+let mapoptions = {
+  boxZoom: false,
+  dragging: false,
+  doubleClickZoom: false,
+  zoomControl:false,
+  minZoom: 2,
+  maxZoom: 2
 }
+// set the map element
+let map = L.map('mapid',mapoptions).setView([37.8, 0.0], 2);
+// will contain the layer of the countries
+let geojson;
+// will point to the current layer selected, aka a country
+let current_layer;
+// will point to the layer previously selected
+let old_layer;
+// will be set to true if we click again on the same country
+let second_click = false;
+// interactive panel:
+// panel where user can choose what to show on the map
+let selection = L.control({position: 'topleft'});
+// panel that will show data about the country
+let info = L.control({position: 'topright'});
+// panel that will show the legend of selected option, if there is one
+let legend = L.control({position: 'bottomleft'});
 
 
-function style(feature) {
-    return {
-        fillColor: getColor(feature.properties.n_respondents),
-        weight: 1,
-        opacity: 1,
-        color: 'white',
-        fillOpacity: 0.7
-    };
-}
 
-L.geoJson(countriesData, {style: style}).addTo(map);
+//Interactive layer
+////////////////////////////////////////////////////////////////////////////////
+
+
 
 
 function highlightFeature(e) {
-    var layer = e.target;
+    current_layer = e.target;
+    second_click = false
 
-    layer.setStyle({
+    //check if the selected country is the same as previous selection
+    if (old_layer){
+      //resetHighlight(old_layer)
+      let current_country= current_layer.feature.properties.admin
+      let old_country = old_layer.feature.properties.admin
+      if ( current_country == old_country){
+        second_click = true
+      }
+    }
+
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        current_layer.bringToFront();
+    }
+    //update if a new country is clicked on or reset the layer if the same
+    //country is selected
+    if (second_click){
+      info.update();
+      old_layer = undefined;
+      current_layer = undefined;
+    }else{
+      info.update(current_layer.feature.properties);
+      old_layer = current_layer;
+    }
+    legend.update()
+
+}
+
+function onEachFeature(feature, layer) {
+    layer.on({
+        // call highlightFeature() when a country is clicked on
+        click: highlightFeature,
+    });
+}
+
+geojson= L.geoJson(countries_shape, {
+    style: defaultstyle,
+    onEachFeature: onEachFeature
+}).addTo(map);
+////////////////////////////////////////////////////////////////////////////////
+
+//selection panel
+////////////////////////////////////////////////////////////////////////////////
+
+
+selection.onAdd = function (map) {
+    // define the option of the selection element here
+    this._div = L.DomUtil.create('div', 'selection');
+    this._select = document.createElement('SELECT');
+
+    //this._select.setAttribute('onchange','hideinfocase(info)')
+    option0 = document.createElement('OPTION');
+    option0.innerHTML = '-';
+    option0.setAttribute('value','none');
+    option1 = document.createElement('OPTION');
+    option1.innerHTML = 'Respondents';
+    option1.setAttribute('value','resp');
+    option2 = document.createElement('OPTION');
+    option2.innerHTML = 'Radio graph';
+    option2.setAttribute('value','rgraph');
+    option3 = document.createElement('OPTION');
+    option3.innerHTML = 'Medium of trait';
+    option3.setAttribute('value','mtrait');
+    option4 = document.createElement('OPTION');
+    option4.innerHTML = 'Sensitive trait';
+    option4.setAttribute('value','strait');
+
+    this._select.appendChild(option0);
+    this._select.appendChild(option1);
+    this._select.appendChild(option2);
+    this._select.appendChild(option3);
+    this._select.appendChild(option4);
+
+    this._div.appendChild(this._select);
+
+    // store the current option choice
+    this._option= 'none'
+    // event listener of selection, induce change in legend and data panel
+    //depending on the option selected
+    L.DomEvent.on(this._select,'click',function(){
+      if (selection._select){
+        selection._option= selection._select.value;
+      };
+      if (current_layer !=undefined){
+        info.update(current_layer.feature.properties)
+      }else {
+        info.update()
+      }
+      legend.update()
+    })
+
+
+
+    return this._div
+}
+
+selection.addTo(map)
+////////////////////////////////////////////////////////////////////////////////
+
+//Data panel
+////////////////////////////////////////////////////////////////////////////////
+
+
+info.onAdd = function (map) {
+    //create the data container
+    this._div = L.DomUtil.create('div', 'info');
+    this._datadiv = L.DomUtil.create('div');
+    this._div.appendChild(this._datadiv)
+
+
+    this.update();
+
+    return this._div;
+};
+
+info.update = function (props) {
+  this._datadiv.innerHTML = ''
+  // display data according to the current choice
+  switch(selection._option){
+    case 'none':
+      show_instruction(this._datadiv,props)
+      break;
+    case 'resp':
+      show_respondents(this._datadiv, props)
+      break;
+    case 'rgraph':
+      show_graph(this._datadiv, props)
+      break;
+    case 'mtrait':
+      show_score(this._datadiv, props)
+      break;
+    case 'strait':
+    show_sensitive_trait(this._datadiv, props)
+      break
+    default:
+  }
+
+
+
+
+};
+
+
+// a method to display or hide element of info panel element
+info._display = function (options) {
+/*
+  if (options == 'none') {
+    this._div.style.display = "none";
+    if (current_layer !=undefined){
+      this.update(current_layer.feature.properties)
+    }else {
+      this.update()
+    }
+  } else {
+    this._div.style.display = "block";
+
+    if (current_layer !=undefined){
+      this.update(current_layer.feature.properties)
+    }else {
+      this.update()
+    }
+  }
+  */
+}
+
+info.addTo(map);
+////////////////////////////////////////////////////////////////////////////////
+
+//Legend panel
+////////////////////////////////////////////////////////////////////////////////
+
+
+legend.onAdd = function (map) {
+
+    this._div = L.DomUtil.create('div', 'info legend');
+    this._div.style.display = "none";
+    return this._div;
+};
+
+
+legend.update = function () {
+  switch(selection._option){
+    case 'none':
+      geojson.setStyle(defaultstyle)
+      this._div.style.display = "none";
+      break;
+    case 'resp':
+      geojson.setStyle(respondentstyle);
+      this._div.style.display = "block"
+      respondents_legend(this._div);
+      break;
+    case 'rgraph':
+      geojson.setStyle(defaultstyle)
+      this._div.style.display = "none";
+      break;
+    case 'mtrait':
+      geojson.setStyle(defaultstyle)
+      this._div.style.display = "none";
+      break;
+    case 'strait':
+      geojson.setStyle(sensitivitystyle);
+      this._div.style.display = "block"
+      sentitivity_legend(this._div);
+      break;
+    default:
+  }
+  /*style of current selected layer is defined here because a change of option induce
+  a change of style of all the map and so if it was define above highlight feature
+  will be erased*/
+  if (current_layer) {
+    current_layer.setStyle({
         weight: 5,
         color: '#666',
         dashArray: '',
         fillOpacity: 0.7
     });
-
-    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-        layer.bringToFront();
-    }
-    info.update(layer.feature.properties);
-}
-
-
-function resetHighlight(e) {
-    geojson.resetStyle(e.target);
-    info.update();
-}
-
-
-var geojson;
-
-
-function zoomToFeature(e) {
-    map.fitBounds(e.target.getBounds());
-}
-
-
-function onEachFeature(feature, layer) {
-    layer.on({
-        mouseover: highlightFeature,
-        mouseout: resetHighlight,
-        click: zoomToFeature
-    });
-}
-
-geojson = L.geoJson(countriesData, {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
-
-
-
-var info = L.control();
-
-info.onAdd = function (map) {
-    //create the control container
-    this._div = L.DomUtil.create('div', 'info');
-
-    // add a radio container as attribute to info and create the checkbox
-    this._radiodiv = L.DomUtil.create('radio');
-    this._div.appendChild(this._radiodiv)
-
-    let checkbox1 = document.createElement("input")
-    checkbox1.setAttribute('type','radio')
-    checkbox1.setAttribute('name','checkbox')
-    let label1 = document.createElement('label')
-    label1.innerHTML = 'Number of respondents by country <br>'
-    this._radiodiv.appendChild(checkbox1)
-    this._radiodiv.appendChild(label1)
-
-    //this._radiodiv.appendChild(document.createElement("input"))
-
-    let checkbox2 = document.createElement("input")
-    checkbox2.setAttribute('type','radio')
-    checkbox2.setAttribute('name','checkbox')
-    let label2 = document.createElement('label')
-    label2.innerHTML = 'Radio graph by country<br>'
-    this._radiodiv.appendChild(checkbox2)
-    this._radiodiv.appendChild(label2)
-
-    let checkbox3 = document.createElement("input")
-    checkbox3.setAttribute('type','radio')
-    checkbox3.setAttribute('name','checkbox')
-    let label3 = document.createElement('label')
-    label3.innerHTML = 'Score by country<br>'
-    this._radiodiv.appendChild(checkbox3)
-    this._radiodiv.appendChild(label3)
-
-    // add a container to display Data
-    this._datadiv = L.DomUtil.create('div');
-    this._div.appendChild(this._datadiv)
-
-
-
-
-    this.update();
-    return this._div;
-};
-
-info.update = function (props) {
-
-  // find the checked radio and save its index into a new info attribute
-
-  Array.prototype.forEach.call(this._radiodiv.getElementsByTagName('input'),
-  (item, i) => {
-    if (item.checked){
-      this.current_choice = i
-    }
-  });
-
-  // check the right checkbox
-  if(this.current_choice){
-    this._radiodiv.getElementsByTagName('input')[this.current_choice].checked=true
   }
 
-
-  //empty the data div from previous content
-  this._datadiv.innerHTML = ''
-
-  // display data according to the current choice
-  switch(this.current_choice){
-    case 0:
-
-      show_respondents(this._datadiv)
-      break;
-    case 1:
-      show_graph(this._datadiv)
-      break;
-    case 2:
-      show_score(this._datadiv)
-      break;
-    default:
-
-  }
-
-
-  function show_respondents(container) {
-    function text_to_show(count){
-      if (count>200){
-        return count + ' respondents'
-      } else {
-        return 'Not enough data'
-      }
-    }
-    container.innerHTML = ''
-    container.innerHTML = (props ?
-        '<b>' + props.ADMIN + '</b><br />' + text_to_show(props.n_respondents)
-        : 'Hover over a state');
-  }
-  function show_graph(container) {
-    container.innerHTML = ''
-    if (props){
-      container.innerHTML +='<b>' + props.ADMIN + '</b> <br />'
-      let svg =  document.createElementNS("http://www.w3.org/2000/svg", "svg")
-      svg.setAttribute("width", "100");
-      svg.setAttribute("height", "100");
-      cir = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-      cir.setAttribute("cx", 50 );
-      cir.setAttribute("cy", 50 );
-      cir.setAttribute("r", 50);
-      cir.setAttribute("fill", "blue");
-      text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-      text.setAttribute("x", '50%' );
-      text.setAttribute("y", '50%' );
-      text.setAttribute("text-anchor", 'middle' )
-      text.innerHTML = props.ADMIN;
-      svg.appendChild(cir)
-      svg.appendChild(text)
-      container.appendChild(svg)
-    } else {
-      container.innerHTML = 'Hover over a state';
-    }
-  }
-
-  function show_score(container){
-    container.innerHTML = ''
-    country_code=''
-    if (props){
-      ISO2_code.forEach((item, i) => {
-        if (item['Name']==props.ADMIN){
-          country_code =item['Code']
-        }
-      });
-      if (country_score[country_code]){
-        container.innerHTML ='<b>' + props.ADMIN + '</b> <br /><b> EST </b>: '
-        + country_score[country_code]['EST'] + '<br /><b> EXT </b>: '
-        + country_score[country_code]['EXT'] + '<br /><b> CSN </b>: '
-        + country_score[country_code]['CSN'] + '<br /><b> AGR </b>: '
-        + country_score[country_code]['AGR'] + '<br /><b> OPN </b>: '
-        + country_score[country_code]['OPN']  
-      }else {
-        container.innerHTML ='No data'
-      }
-
-    } else {
-      container.innerHTML = 'Hover over a state';
-    }
-  }
-
-};
-
-info.addTo(map);
-
-
-
-
-var legend = L.control({position: 'bottomright'});
-
-legend.onAdd = function (map) {
-
-    var div = L.DomUtil.create('div', 'info legend'),
-        grades = [200, 1000, 5000, 10000, 25000, 50000, 100000],
-        labels = ['no data'];
-    div.innerHTML += '<i style="background:' + getColor(grades[i] + 1) +
-    '"></i> ' +'No or not enough data' + '<br>'
-    for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    }
-
-    return div;
 };
 
 legend.addTo(map);
