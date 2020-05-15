@@ -133,5 +133,10 @@ The project prototype is available [here](https://com-480-data-visualization.git
 
 ## Milestone 3 (Thursday 28th May, 5pm)
 
+Two new datasets : 
+
+- World Happiness dataset : https://www.kaggle.com/unsdsn/world-happiness#2019.csv
+- Population by countries & country codes : https://www.kaggle.com/erikbruin/countries-of-the-world-iso-codes-and-population#countries_by_population_2019.csv
+
 **80% of the final grade**
 
