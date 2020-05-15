@@ -30,7 +30,7 @@ let legend = L.control({position: 'bottomleft'});
 //Interactive layer
 ////////////////////////////////////////////////////////////////////////////////
 
-
+var acc = 0
 
 
 function highlightFeature(e) {
@@ -95,7 +95,7 @@ selection.onAdd = function (map) {
     option1.innerHTML = 'Respondents';
     option1.setAttribute('value','resp');
     option2 = document.createElement('OPTION');
-    option2.innerHTML = 'Radio graph';
+    option2.innerHTML = 'Radar graph';
     option2.setAttribute('value','rgraph');
     option3 = document.createElement('OPTION');
     option3.innerHTML = 'Medium of trait';
@@ -146,14 +146,13 @@ info.onAdd = function (map) {
     this._datadiv = L.DomUtil.create('div');
     this._div.appendChild(this._datadiv)
 
-
     this.update();
 
     return this._div;
 };
 
 info.update = function (props) {
-  this._datadiv.innerHTML = ''
+  this._datadiv.innerHTML = '<div class="radarChart"></div>';
   // display data according to the current choice
   switch(selection._option){
     case 'none':
@@ -163,7 +162,7 @@ info.update = function (props) {
       show_respondents(this._datadiv, props)
       break;
     case 'rgraph':
-      show_graph(this._datadiv, props)
+      show_graph(this._datadiv, props, acc);
       break;
     case 'mtrait':
       show_score(this._datadiv, props)

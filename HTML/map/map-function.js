@@ -1,3 +1,4 @@
+
 function getSensColor(t) {
     return t == 'EXT' ? '#b71540' :
            t == 'OPN'  ? '#e58e26' :
@@ -73,25 +74,59 @@ function show_respondents(container,props) {
       '<b>' + props.name + '</b><br />' + text_to_show(respondents_by_country[props.iso_a2])
       : 'Click on a country');
 }
-function show_graph(container,props) {
+function show_graph(container,props,acc) {
+
   if (props){
-    container.innerHTML ='<b>' + props.name + '</b> <br />'
-    let svg =  document.createElementNS("http://www.w3.org/2000/svg", "svg")
-    svg.setAttribute("width", "100");
-    svg.setAttribute("height", "100");
-    cir = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    cir.setAttribute("cx", 50 );
-    cir.setAttribute("cy", 50 );
-    cir.setAttribute("r", 50);
-    cir.setAttribute("fill", "blue");
-    text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    text.setAttribute("x", '50%' );
-    text.setAttribute("y", '50%' );
-    text.setAttribute("text-anchor", 'middle' )
-    text.innerHTML = props.name;
-    svg.appendChild(cir)
-    svg.appendChild(text)
-    container.appendChild(svg)
+    ISO2_code.forEach((item, i) => {
+      if (item['Name']==props.name){
+        country_code = item['Code']
+      }
+    });
+    if (country_score[country_code]){
+
+      // Load data
+      var data = [
+            [//Country
+            {axis:"EXT",value:Math.round(country_score[country_code]['EXT']*1000)/1000},
+            {axis:"EST",value:Math.round(country_score[country_code]['EST']*1000)/1000},
+            {axis:"AGR",value:Math.round(country_score[country_code]['AGR']*1000)/1000},
+            {axis:"CSN",value:Math.round(country_score[country_code]['CSN']*1000)/1000},
+            {axis:"OPN",value:Math.round(country_score[country_code]['OPN']*1000)/1000},
+            ],[//Global
+              {axis:"EXT",value:Math.round(global_score['EXT']*1000)/1000},
+              {axis:"EST",value:Math.round(global_score['EST']*1000)/1000},
+              {axis:"AGR",value:Math.round(global_score['AGR']*1000)/1000},
+              {axis:"CSN",value:Math.round(global_score['CSN']*1000)/1000},
+              {axis:"OPN",value:Math.round(global_score['OPN']*1000)/1000},
+            ]
+          ];
+
+      var margin = {top: 50, right: 50, bottom: 50, left: 50},
+        width = Math.min(300, window.innerWidth - 10) - margin.left - margin.right,
+        height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+
+      // Draw the chart
+      var color = d3.scale.ordinal()
+        .range(["#EDC951","#CC333F","#00A0B0"]);
+
+      var radarChartOptions = {
+        w: width,
+        h: height,
+        margin: margin,
+        //maxValue: 0.5,
+        levels: 5,
+        roundStrokes: true,
+        color: color
+      };
+
+      //Call function to draw the Radar chart
+      //container.innerHTML = '<div class="radarChart"></div>';
+      RadarChart(".radarChart", data, radarChartOptions);
+
+    } else {
+      container.innerHTML = '<b>' + props.name + '</b> <br />' + 'No data'
+    }
+
   } else {
     container.innerHTML = 'Click on a country';
   }
@@ -107,13 +142,13 @@ function show_score(container, props){
       }
     });
     if (country_score[country_code]){
-      container.innerHTML ='<b>' + props.name + '</b> <br /><b>' + codebook['EST'] + '</b>: '
-      + country_score[country_code]['EST'] + '<br /><b> '+codebook['EXT']+' </b>: '
-      + country_score[country_code]['EXT'] + '<br /><b>'+codebook['CSN']+' </b>: '
-      + country_score[country_code]['CSN'] + '<br /><b> '+codebook['AGR']+' </b>: '
-      + country_score[country_code]['AGR'] + '<br /><b> '+codebook['OPN']+' </b>: '
-      + country_score[country_code]['OPN']
-    }else {
+      container.innerHTML ='<b>' + props.name + '</b> <br /><b>' +
+      codebook['EST'] + '</b>: ' + country_score[country_code]['EST'] + '<br /><b> '+
+      codebook['EXT']+' </b>: '  + country_score[country_code]['EXT'] + '<br /><b>' +
+      codebook['CSN']+' </b>: '  + country_score[country_code]['CSN'] + '<br /><b> '+
+      codebook['AGR']+' </b>: '  + country_score[country_code]['AGR'] + '<br /><b> '+
+      codebook['OPN']+' </b>: '  + country_score[country_code]['OPN']
+    } else {
       container.innerHTML = '<b>' + props.name + '</b> <br />' + 'No data'
     }
 
