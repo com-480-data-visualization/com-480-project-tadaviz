@@ -2,7 +2,7 @@ function getSensColor(t) {
     return t == 'EXT' ? '#b71540' :
            t == 'OPN'  ? '#e58e26' :
            t == 'AGR'  ? '#079992' :
-           t == 'CSN'  ? '#0c2461' :
+           t == 'CSN'  ? '#1e3799' :
            t == 'EST'   ? '#0a3d62' :
            '#f0f0f0';
 }
