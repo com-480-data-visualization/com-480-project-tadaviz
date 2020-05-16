@@ -1,14 +1,19 @@
+let westbound = L.latLng(180, -180),
+eastbound = L.latLng(-70,180),
+bounds = L.latLngBounds(westbound, eastbound);
+
+
 //options to desactivate zoom and navigation
 let mapoptions = {
-  boxZoom: false,
-  dragging: false,
-  doubleClickZoom: false,
+  zoomSnap: 0.14,
   zoomControl:false,
-  minZoom: 2,
-  maxZoom: 2
+  minZoom: 2.28,
+  maxZoom: 6,
+  maxBounds: bounds
 }
 // set the map element
-let map = L.map('mapid',mapoptions).setView([37.8, 0.0], 2);
+let map = L.map('mapid',mapoptions).setView([60, 0.0],2);
+map.fitBounds(bounds)
 // will contain the layer of the countries
 let geojson;
 // will point to the current layer selected, aka a country
@@ -68,7 +73,7 @@ function highlightFeature(e) {
 function onEachFeature(feature, layer) {
     layer.on({
         // call highlightFeature() when a country is clicked on
-        click: highlightFeature,
+        mouseover: highlightFeature,
     });
 }
 
