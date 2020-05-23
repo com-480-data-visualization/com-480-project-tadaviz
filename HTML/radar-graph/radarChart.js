@@ -72,6 +72,31 @@ function RadarChart(id, data, options) {
 	//Wrapper for the grid & axes
 	var axisGrid = g.append("g").attr("class", "axisWrapper");
 
+	//Draw the background pentagons
+	axisGrid.selectAll(".levels")
+	   .data(d3.range(1,(cfg.levels+1)).reverse())
+	   .enter()
+		.append("polygon")
+		.attr("class", "gridPentagon")
+		.attr("points", function(d, i){
+			var l = radius/cfg.levels*d;
+			var points = "";
+			for (i = 0; i < 5; i++) {
+				angle = (Math.PI/10) + ((2*Math.PI)/5) * i;
+			  var x = Math.cos(angle) * l;
+				var y = Math.sin(-angle) * l;
+				points = points.concat(x.toString(),",", y.toString()," ");
+			}
+			console.log(points);
+			//return "10,10 30,50 800,50";
+			return points;
+		})
+		.style("fill", "#CDCDCD")
+		.style("stroke", "#CDCDCD")
+		.style("fill-opacity", cfg.opacityCircles)
+		.style("filter" , "url(#glow)");
+
+	/***
 	//Draw the background circles
 	axisGrid.selectAll(".levels")
 	   .data(d3.range(1,(cfg.levels+1)).reverse())
@@ -82,7 +107,7 @@ function RadarChart(id, data, options) {
 		.style("fill", "#CDCDCD")
 		.style("stroke", "#CDCDCD")
 		.style("fill-opacity", cfg.opacityCircles)
-		.style("filter" , "url(#glow)");
+		.style("filter" , "url(#glow)");**/
 
 	//Text indicating at what % each level is
 	axisGrid.selectAll(".axisLabel")

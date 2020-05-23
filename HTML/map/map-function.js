@@ -115,7 +115,7 @@ function show_graph(container,props,acc) {
         margin: margin,
         //maxValue: 0.5,
         levels: 5,
-        roundStrokes: true,
+        roundStrokes: false,
         color: color
       };
 
