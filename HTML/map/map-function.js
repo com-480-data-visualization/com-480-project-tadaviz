@@ -86,18 +86,19 @@ function show_graph(container,props,acc) {
 
       // Load data
       var data = [
+            [//Global
+              {axis:"EXT",value:Math.round(global_score['EXT']*1000)/1000},
+              {axis:"EST",value:Math.round(global_score['EST']*1000)/1000},
+              {axis:"AGR",value:Math.round(global_score['AGR']*1000)/1000},
+              {axis:"CSN",value:Math.round(global_score['CSN']*1000)/1000},
+              {axis:"OPN",value:Math.round(global_score['OPN']*1000)/1000},
+            ],
             [//Country
             {axis:"EXT",value:Math.round(country_score[country_code]['EXT']*1000)/1000},
             {axis:"EST",value:Math.round(country_score[country_code]['EST']*1000)/1000},
             {axis:"AGR",value:Math.round(country_score[country_code]['AGR']*1000)/1000},
             {axis:"CSN",value:Math.round(country_score[country_code]['CSN']*1000)/1000},
             {axis:"OPN",value:Math.round(country_score[country_code]['OPN']*1000)/1000},
-            ],[//Global
-              {axis:"EXT",value:Math.round(global_score['EXT']*1000)/1000},
-              {axis:"EST",value:Math.round(global_score['EST']*1000)/1000},
-              {axis:"AGR",value:Math.round(global_score['AGR']*1000)/1000},
-              {axis:"CSN",value:Math.round(global_score['CSN']*1000)/1000},
-              {axis:"OPN",value:Math.round(global_score['OPN']*1000)/1000},
             ]
           ];
 
@@ -107,13 +108,13 @@ function show_graph(container,props,acc) {
 
       // Draw the chart
       var color = d3.scale.ordinal()
-        .range(["#EDC951","#CC333F","#00A0B0"]);
+        .range(["#90C1C1","#00A0B0","#EDC951","#CC333F"]);
 
       var radarChartOptions = {
         w: width,
         h: height,
         margin: margin,
-        //maxValue: 0.5,
+        maxValue: 0.8,
         levels: 5,
         roundStrokes: false,
         color: color
