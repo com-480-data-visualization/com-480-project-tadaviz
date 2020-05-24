@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>Questions</title>
   <link rel="stylesheet" href="questions.css">
+  <link rel="stylesheet" href="radio_buttons.css">
+
 
 </head>
 <body>
@@ -15,13 +17,13 @@
 
   <div id="buttons">
     <div class="card">
-      <button>Map</button>
+      <button>World Map</button>
     </div>
     <div class="separator">
 
     </div>
     <div class="card">
-      <button>Stats</button>
+      <button>Statistics</button>
 
     </div>
     <div class="separator">
@@ -36,7 +38,7 @@
   your answers to the rest of the world. Please answer each question based on how much you agree with the statement.
   1 being stongly disagree and 5 strongly agree. The range goes from 1 to 5 from left to right. </p>
   <div id="questions">
-    <div class="question" id="placeholder">
+    <div class="rb-box" id="placeholder">
     <!--
       <p class="question_text">I AZSDQSDQSDQSDSfeel social</p>
       <div class="radio_group">
@@ -51,15 +53,25 @@
     <div class="stats inactive">
       <img alt="up button" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjQ1MS44NDZweCIgaGVpZ2h0PSI0NTEuODQ3cHgiIHZpZXdCb3g9IjAgMCA0NTEuODQ2IDQ1MS44NDciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ1MS44NDYgNDUxLjg0NzsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTM0NS40NDEsMjQ4LjI5MkwxNTEuMTU0LDQ0Mi41NzNjLTEyLjM1OSwxMi4zNjUtMzIuMzk3LDEyLjM2NS00NC43NSwwYy0xMi4zNTQtMTIuMzU0LTEyLjM1NC0zMi4zOTEsMC00NC43NDQNCgkJTDI3OC4zMTgsMjI1LjkyTDEwNi40MDksNTQuMDE3Yy0xMi4zNTQtMTIuMzU5LTEyLjM1NC0zMi4zOTQsMC00NC43NDhjMTIuMzU0LTEyLjM1OSwzMi4zOTEtMTIuMzU5LDQ0Ljc1LDBsMTk0LjI4NywxOTQuMjg0DQoJCWM2LjE3Nyw2LjE4LDkuMjYyLDE0LjI3MSw5LjI2MiwyMi4zNjZDMzU0LjcwOCwyMzQuMDE4LDM1MS42MTcsMjQyLjExNSwzNDUuNDQxLDI0OC4yOTJ6Ii8+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" class="up_arrow" onclick="remove_stats(0)">
     </div>
-    <button class="submit-button" onclick="submit()">Submit</button>
-    <div class="submit-display inactive">
-      <h2  class="submit-text">The country you are closer to is : </h2>
-      <h1  class="submit-country">France </h1>
+    <!-- Button -->
+    <!--
+    <div class="button-box">
+      <button class="button trigger">Submit!</button>
+    </div>
+    -->
+    <div class="button-box">
+      <button class="submit-button button trigger" onclick="submit()">Submit</button>
+      <div class="submit-display inactive">
+        <h2  class="submit-text">The country you are closer to is : </h2>
+        <h1  class="submit-country">France </h1>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- partial -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script  src="./radio_buttons.js"></script>
 <script  src="./questions.js"></script>
 
 </body>

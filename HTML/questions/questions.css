@@ -1,6 +1,7 @@
 /*Header and margin layout*/
 
-  /*style of the three top buttons*/
+/*style of the three top buttons*/
+
 #buttons {
   position: relative;
   margin-left: auto;
@@ -12,6 +13,7 @@
   align-items: center;
   justify-content: space-around;
 }
+/*
 button {
   width: 163px;
   height: 46.06px;
@@ -26,6 +28,7 @@ button {
   border: 2px solid rgba(199, 248, 60, 0.6);
 }
 
+*/
 button:hover {
   background: #d2fba4;
   border: 2px solid #c7f83c;
@@ -34,11 +37,13 @@ button:hover {
 button:active {
   border: 2px solid #1d741b;
 }
+
 .separator {
   width: 0px;
   height: 60px;
   border: 1px solid #000000;
 }
+
 input {
   margin-left: auto;
   margin-right: auto;
@@ -56,6 +61,7 @@ input {
   top:0%;
   box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.2);
 }
+
 /*left margin*/
 .left{
   left:0%;
@@ -82,6 +88,8 @@ p{
 }
 
 /*Questionaire styling*/
+
+/*
 #questions {
   margin-left: auto;
   margin-right: auto;
@@ -99,6 +107,7 @@ p{
   align-items: center;
   flex-direction: column;
 }
+*/
 
 .radio_group {
   position:relative;
@@ -211,13 +220,16 @@ img:hover {
 }
 
 
-
 /*final result display */
+
 .submit-button{
+  /*
   border-radius: 0px;
   left :50%;
+  */
   transform:translate(0,100%);
 }
+
 .submit-display{
   top:10%;
   position:fixed;
@@ -227,12 +239,14 @@ img:hover {
   align-self:center;
   border: 5px solid black;
 }
+
 .submit-text{
   position: relative;
   width:100%;
   text-align:center;
   top:30%;
 }
+
 .submit-country{
   color:rgba(0,0,0,0);
   position: relative;
