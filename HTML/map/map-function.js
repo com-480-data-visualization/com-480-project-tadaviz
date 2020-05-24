@@ -108,7 +108,7 @@ function show_graph(container,props,acc) {
 
       // Draw the chart
       var color = d3.scale.ordinal()
-        .range(["#00A161","#00A0B0","#EDC951","#CC333F"]);
+        .range(["#D041A1","#30C0D0","#EDC951","#CC333F"]);
 
       var radarChartOptions = {
         w: width,
