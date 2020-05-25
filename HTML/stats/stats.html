@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>Stats</title>
   <link rel="stylesheet" href="stats.css">
+  <link rel="stylesheet" href="../barplot/bar_plot.css">
+  <link rel="stylesheet" href="dropdown.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
 
 </head>
 <body>
@@ -27,6 +31,30 @@
 
   </div>
 </div>
+
+<div id='layout'>
+
+  <!--Drop down menu-->
+  <nav>
+		<menu>
+			<menuitem id = "question">
+				<a>Question</a>
+			</menuitem>
+      <menuitem id = "criterion">
+        <a>Criterion</a>
+      </menuitem>
+		</menu>
+	</nav>
+
+  <!-- <h2>Bar chart example</h2> -->
+  <div id='container'>
+    <svg viewBox='0 0 800 600'/>
+  </div>
+
+</div>
+
+<!--
+</div>
 <div id="graph">
  <button class="stat_buttons">Country
   </button>
@@ -37,7 +65,17 @@
   </div>
 
 </div>
+-->
+
 <!-- partial -->
+
+<script src="../barplot/bar_plot.js"></script>
+<script src="stats.js"></script>
+<script src="dropdown.js"></script>
+<script src="../../Data/questions_corpus.js"></script>
+<script src="../../Data/global_distributions.js"></script>
+<script src="../../Data/country_distributions.js"></script>
+
 
 </body>
 </html>

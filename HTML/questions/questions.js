@@ -95,15 +95,18 @@ function activate_stats(question_id, question_value){
   if (questions[question_id].classList.contains("inactive")) {
     questions[question_id].classList.remove("inactive");
     questions[question_id].classList.add("active");
-    make_graph(question_id);
+    //make_graph(question_id);
   }
   //questions[questions_id].classList.add("fadeIn");
   //questions[questions_id].
 }
 
-function remove_stats(question_id){
+async function remove_stats(question_id){
   questions[question_id].classList.remove("active");
+  questions[question_id].classList.add("deactivate");
   questions[question_id].classList.add("inactive");
+  await new Promise(r => setTimeout(r, 1000));
+  questions[question_id].classList.remove("deactivate");
 }
 
 function update_value(id, value){
@@ -139,16 +142,15 @@ function whenDocumentLoaded(action) {
 }
 
 whenDocumentLoaded(() => {
-  /* <3 Salut mon super-poto voila un Exemple de comment remplir le vecteur data <3 :
-   <3 Noublie pas de supprimer cette section quand tu auras remplie avec les vraies données <3*/
-
   let data = [];
   for (k in questions_corpus){
-    let answers = [];
-    for (n in ["0.0", "1.0", "2.0", "3.0", "4.0", "5.0"]){
-      answers.push(global_distributions[k][n]);
+    if (k == 'EXT1'){
+      let answers = [];
+      for (n in ["0.0", "1.0", "2.0", "3.0", "4.0", "5.0"]){
+        answers.push(global_distributions[k][n]);
+      }
+      data.push({"name": questions_corpus[k], "time": 0, "answers": answers});
     }
-    data.push({"name": questions_corpus[k], "time": 0, "answers": answers});
   }
 
   add_questions(data);
