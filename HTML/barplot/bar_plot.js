@@ -51,10 +51,12 @@ class Barplot{
     const total = this.distribution.reduce(function(total,x){return total+x},0);
 
     chart.append('g')
+      .attr('class', 'axisBottom')
       .attr('transform', `translate(0, ${height})`)
       .call(d3.axisBottom(xScale));
 
     chart.append('g')
+      .attr('class', 'axisLeft')
       .call(d3.axisLeft(yScale));
 
     // vertical grid lines
@@ -215,20 +217,15 @@ class Barplot{
     const margin = this.margin;
     const total = this.distribution.reduce(function(total,x){return total+x},0);
 
-    chart
+
+    chart.selectAll(".axisLeft")
       .transition()
       .call(d3.axisLeft(yScale));
 
-    // vertical grid lines
-    // chart.append('g')
-    //   .attr('class', 'grid')
-    //   .attr('transform', `translate(0, ${height})`)
-    //   .call(makeXLines()
-    //     .tickSize(-height, 0, 0)
-    //     .tickFormat('')
-    //   )
+    console.log("okok");
 
-    chart.append('g')
+    chart.selectAll(".grid")
+      .transition()
       .attr('class', 'grid')
       .call(this.makeYLines()
         .tickSize( - width - 2 * margin, 0, 0)

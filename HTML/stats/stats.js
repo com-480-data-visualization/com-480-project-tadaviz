@@ -24,7 +24,7 @@ whenDocumentLoaded(() => {
 
 	// Load the dropdown menu
 	let question_menu = document.getElementById("question");
-	let criterion_menu = document.getElementById("criterion");
+	//let criterion_menu = document.getElementById("criterion");
 
 	// Questions dropdown menu
 	let personalities = ["EXT", "EST", "AGR", "CSN", "OPN"];
@@ -44,8 +44,10 @@ whenDocumentLoaded(() => {
 	question_menu.innerHTML += question_HTML;
 
 	// Criterion dropdown menu
+	/*
 	let criterion_HTML = '<menu><menuitem><a>Answer Distribution</a></menuitem><menuitem><a>Response Time</a></menuitem></menu>'
 	criterion_menu.innerHTML += criterion_HTML;
+	*/
 
 	// Load data in the bar plot
 	let data = [];
