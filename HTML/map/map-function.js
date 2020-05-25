@@ -29,6 +29,18 @@ function respondentstyle(feature) {
     };
 }
 
+function dominantstyle(feature) {
+    item = country_trait[feature.properties.iso_a2]
+    trait = (item? item["dominant trait"]:undefined)
+    return {
+        fillColor: getSensColor(trait),
+        weight: 1,
+        opacity: 1,
+        color: 'white',
+        fillOpacity: 0.7
+    };
+}
+
 function sensitivitystyle(feature) {
     item = country_sensitive_trait[feature.properties.iso_a2]
     trait = (item? item["Trait associated to longest response time"]:undefined)
@@ -51,7 +63,7 @@ function defaultstyle() {
     };
 }
 
-codebook = {'EXT':'extraversion','EST':'emotional stability','CSN':'consciousness','AGR':'agreeableness','OPN':'openness'};
+codebook = {'EXT':'extraversion','EST':'emotional stability','CSN':'consciousness','AGR':'agreeableness','OPN':'openness to new experience'};
 
 function show_instruction(container,props) {
   container.innerHTML = (props ?
@@ -75,7 +87,7 @@ function show_respondents(container,props) {
       : 'Click on a country');
 }
 function show_graph(container,props,acc) {
-
+  container.innerHTML = '<div class="radarChart"></div>';
   if (props){
     ISO2_code.forEach((item, i) => {
       if (item['Name']==props.name){
@@ -83,7 +95,7 @@ function show_graph(container,props,acc) {
       }
     });
     if (country_score[country_code]){
-
+      container.innerHTML = '<b>' + props.name + '</b> <br />' + container.innerHTML
       // Load data
       var data = [
             [//Global
@@ -123,7 +135,14 @@ function show_graph(container,props,acc) {
       //Call function to draw the Radar chart
       //container.innerHTML = '<div class="radarChart"></div>';
       RadarChart(".radarChart", data, radarChartOptions);
-
+      //var country = document.createTextNode('<b>' + props.name + '</b> <br />');
+      trait = country_trait[country_code]["dominant trait"]
+      container.innerHTML +='<b>' + props.name + '</b> <br />'+
+      'Respondents from this country show a strong ' + codebook[trait]+'<br />';
+      let note_link = document.createElement('A');
+      note_link.innerHTML = 'Note about scale normalization';
+      note_link.setAttribute('href',"javascript:;");
+      container.appendChild(note_link);
     } else {
       container.innerHTML = '<b>' + props.name + '</b> <br />' + 'No data'
     }
@@ -150,7 +169,7 @@ function show_score(container, props){
       codebook['AGR']+' </b>: '  + country_score[country_code]['AGR'] + '<br /><b> '+
       codebook['OPN']+' </b>: '  + country_score[country_code]['OPN']
     } else {
-      container.innerHTML = '<b>' + props.name + '</b> <br />' + 'No data'
+      container.innerHTML +=  'No data'
     }
 
   } else {
@@ -194,7 +213,7 @@ function respondents_legend(container) {
 
 }
 
-function sentitivity_legend(container) {
+function trait_legend(container) {
   let labels = ['EXT','OPN','AGR','CSN','EST'];
   container.innerHTML = '<b>Sensitive Trait</b><br/><br/> '
   container.innerHTML += '<i style="background:' + getSensColor() +
