@@ -1,63 +1,89 @@
-const inputField = document.querySelector('.country');
-const dropdown = document.querySelector('.country_list');
-const dropdownArray = [... document.querySelectorAll('li')];
-console.log(typeof dropdownArray)
-dropdown.classList.add('open');
-inputField.focus(); // Demo purposes only
-let valueArray = [];
-dropdownArray.forEach(item => {
-  valueArray.push(item.textContent);
-});
+'use strict';
 
-const closeDropdown = () => {
-  dropdown.classList.remove('open');
-}
+// VARIABLES
+let inputField;
 
-inputField.addEventListener('input', () => {
-  dropdown.classList.add('open');
-  let inputValue = inputField.value.toLowerCase();
-  let valueSubstring;
-  if (inputValue.length > 0) {
-    for (let j = 0; j < valueArray.length; j++) {
-      if (!(inputValue.substring(0, inputValue.length) === valueArray[j].substring(0, inputValue.length).toLowerCase())) {
-        dropdownArray[j].classList.add('closed');
-      } else {
-        dropdownArray[j].classList.remove('closed');
-      }
-    }
-  } else {
-    for (let i = 0; i < dropdownArray.length; i++) {
-      dropdownArray[i].classList.remove('closed');
-    }
-  }
-});
+// Adds the event listeners to the DOM objects
+function refresh(){
 
-dropdownArray.forEach(item => {
-  item.addEventListener('click', (evt) => {
-    inputField.value = item.textContent;
-    dropdownArray.forEach(dropdown => {
-      dropdown.classList.add('closed');
-    });
+  // Initializations
+  inputField = document.querySelector('.country');
+  let dropdown = document.querySelector('.country_list');
+  let dropdownArray = [... document.querySelectorAll('li')];
+  inputField.value = "GLOBAL";
+
+  //dropdown.classList.add('open');
+  //inputField.focus(); // Demo purposes only
+
+  let valueArray = [];
+  dropdownArray.forEach(item => {
+    valueArray.push(item.textContent);
   });
-})
 
-inputField.addEventListener('focus', () => {
-   inputField.placeholder = 'Type to filter';
-   dropdown.classList.add('open');
-   dropdownArray.forEach(dropdown => {
-     dropdown.classList.remove('closed');
-   });
-});
-
-inputField.addEventListener('blur', () => {
-   inputField.placeholder = 'Select state';
-  dropdown.classList.remove('open');
-});
-
-document.addEventListener('click', (evt) => {
-  const isDropdown = dropdown.contains(evt.target);
-  const isInput = inputField.contains(evt.target);
-  if (!isDropdown && !isInput) {
+  // To close the dropdown menu
+  const closeDropdown = () => {
     dropdown.classList.remove('open');
   }
-});
+
+  // When the user writes in the search field
+  inputField.addEventListener('input', () => {
+    dropdown.classList.add('open');
+    let inputValue = inputField.value.toLowerCase();
+    let valueSubstring;
+    if (inputValue.length > 0) {
+      for (let j = 0; j < valueArray.length; j++) {
+        if (!(inputValue.substring(0, inputValue.length) === valueArray[j].substring(0, inputValue.length).toLowerCase())) {
+          dropdownArray[j].classList.add('closed');
+        } else {
+          dropdownArray[j].classList.remove('closed');
+        }
+      }
+    } else {
+      for (let i = 0; i < dropdownArray.length; i++) {
+        dropdownArray[i].classList.remove('closed');
+      }
+    }
+  });
+
+  // When the user clicks on one of the items
+  dropdownArray.forEach(item => {
+    item.addEventListener('click', (evt) => {
+      inputField.value = item.textContent;
+      dropdownArray.forEach(dropdown => {
+        dropdown.classList.add('closed');
+      });
+      // Update the bar plot based on the current question and chosen country
+      update_bar_plot(current_question_id, inputField.value);
+    });
+  })
+
+  // When the user clicks on the search bar
+  inputField.addEventListener('focus', () => {
+     inputField.placeholder = 'Type to filter';
+     dropdown.classList.add('open');
+     dropdownArray.forEach(dropdown => {
+       dropdown.classList.remove('closed');
+     });
+  });
+
+
+  // When the user doesn't focus on the search bar
+  inputField.addEventListener('blur', () => {
+    inputField.placeholder = 'Select country';
+    dropdown.classList.remove('open');
+  });
+
+  // When the user clicks outside of the search bar while he was focusing it
+  document.addEventListener('click', (evt) => {
+    const isDropdown = dropdown.contains(evt.target);
+    const isInput = inputField.contains(evt.target);
+    if (!isDropdown && !isInput) {
+      dropdown.classList.remove('open');
+    }
+  });
+};
+
+function get_search_value(){
+  console.log(inputField.value);
+  return inputField.value;
+}
