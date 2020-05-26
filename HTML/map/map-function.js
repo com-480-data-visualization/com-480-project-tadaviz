@@ -87,7 +87,7 @@ function show_respondents(container,props) {
       : 'Click on a country');
 }
 function show_graph(container,props,acc) {
-  container.innerHTML = '<div class="radarChart"></div>';
+  //container.innerHTML = '<div class="radarChart"></div>';
   if (props){
     ISO2_code.forEach((item, i) => {
       if (item['Name']==props.name){
@@ -95,7 +95,8 @@ function show_graph(container,props,acc) {
       }
     });
     if (country_score[country_code]){
-      container.innerHTML = '<b>' + props.name + '</b> <br />' + container.innerHTML
+      container.innerHTML = '<b>' + props.name + '</b> <br />'
+      container.setAttribute('class','radarChart')
       // Load data
       var data = [
             [//Global
@@ -137,10 +138,12 @@ function show_graph(container,props,acc) {
       RadarChart(".radarChart", data, radarChartOptions);
       //var country = document.createTextNode('<b>' + props.name + '</b> <br />');
       trait = country_trait[country_code]["dominant trait"]
-      container.innerHTML +='<b>' + props.name + '</b> <br />'+
-      'Respondents from this country show a strong ' + codebook[trait]+'<br />';
+      container.innerHTML +=
+      '<br />Respondents from this country show a <br /> strong ' +
+      codebook[trait]+'<br />';
       let note_link = document.createElement('A');
-      note_link.innerHTML = 'Note about scale normalization';
+      onclick = "window.location.href = '../stats/stats.html';"
+      note_link.innerHTML = '<a  href="../stats/stats.html" style="pointer-events: all;">Note about scale normalization</a>';
       note_link.setAttribute('href',"javascript:;");
       container.appendChild(note_link);
     } else {
