@@ -95,6 +95,16 @@ function activate_stats(question_id, question_value){
   if (questions[question_id].classList.contains("inactive")) {
     questions[question_id].classList.remove("inactive");
     questions[question_id].classList.add("active");
+
+
+    questions[question_id].classList.innerHTML = "<div id='container'><svg viewBox='0 0 800 600'/></div>";
+    console.log(questions[question_id].classList);
+    // Barplot for EXT1
+    console.log("okok");
+    bar_plot = new Barplot({"name": "I am the life of the party.", "id": "EXT1", "distribution": [0.1,0.3,0.4,0.5,0.6], "x": ["0", "1", "2", "3", "4", "5"]}, 80, 700, 600);
+    bar_plot.make_plot();
+
+
     //make_graph(question_id);
   }
   //questions[questions_id].classList.add("fadeIn");
@@ -145,13 +155,12 @@ whenDocumentLoaded(() => {
   let data = [];
   for (k in questions_corpus){
     if (k == 'EXT1'){
-      let answers = [];
+      let distribution = [];
       for (n in ["0.0", "1.0", "2.0", "3.0", "4.0", "5.0"]){
-        answers.push(global_distributions[k][n]);
+        distribution.push(global_distributions[k][n]);
       }
-      data.push({"name": questions_corpus[k], "time": 0, "answers": answers});
+      data.push({"name": questions_corpus[k], "id":k, "time": 0, "distribution": distribution, "x": ["0", "1", "2", "3", "4", "5"]});
     }
   }
-
   add_questions(data);
 });
