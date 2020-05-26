@@ -13,8 +13,9 @@ let questions_step = 1;
 
 class Question {
 
-  constructor(name,id){
+  constructor(name, question_id, id){
     this.name = name;
+    this.question_id = question_id;
     this.id = id;
     this.output = [];
     this.add_name(this.output, this.name);
@@ -22,7 +23,7 @@ class Question {
   }
 
   add_name(output){
-    output.push('<p class ="question_text">'+ this.name +'</p>');
+    output.push('<p class ="question_text">'+ this.question_id + " : " + this.name +'</p>');
   }
 
   add_radio_group(output){
@@ -62,6 +63,7 @@ function whenDocumentLoaded(action) {
 whenDocumentLoaded(() => {
   let data = [];
   for (k in questions_corpus){
+    console.log(k);
     if (k.substring(0,3) == personalities[questions_step - 1]){
       let distribution = [];
       for (n in ["0.0", "1.0", "2.0", "3.0", "4.0", "5.0"]){
@@ -79,7 +81,7 @@ whenDocumentLoaded(() => {
 function add_questions(data){
   let questions_HTML=[];
   for(let i=0; i<data.length; i++){
-    const question_HTML = new Question(data[i].name,i).get_HTML();
+    const question_HTML = new Question(data[i].name, data[i].id, i).get_HTML();
     questions_HTML.push(question_HTML);
   }
   container.innerHTML = questions_HTML.join('');
