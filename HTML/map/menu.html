@@ -1,18 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Big5 Visualisation</title>
-  <link rel="stylesheet" href="HTML/indexstyle.css">
-
-</head>
-<body>
-
-<div id=background>
-  <h1 id=title>The big five visualisation.</h1>
-  <h2 id=presentation>This is an attempt to visualize the data of a million answers of the big five personality test. </h2>
+<html>
+  <head>
+    <link rel="stylesheet" href="menu.css">
+  </head>
   <div class="content">
-    <div class="card" onclick="window.location.href = 'HTML/map/map.html';">
+    <div class="fixcard">
 
           <div class="icon">
             <svg class="bi bi-map" width="3em" height="3em" viewBox="0 0 16 16"
@@ -25,27 +17,27 @@
             </svg>
           </div>
           <p class="title">Map</p>
-          <p class="text">Click to see how traits are distributed around the world.</p>
 
     </div>
     <!-- end card -->
     <!-- card -->
-    <div class="card" onclick="window.location.href = 'HTML/stats/stats.html';">
+    <div class="card">
 
           <div class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-             width="3em" height="3em" viewBox="0 0 24 24">
-              <path d="M5 19h-4v-8h4v8zm6 0h-4v-18h4v18zm6 0h-4v-12h4v12zm6
-              0h-4v-4h4v4zm1 2h-24v2h24v-2z"/>
+            <svg class="bi bi-graph-up" width="3em" height="3em" viewBox="0 0 16 16"
+            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h1v16H0V0zm1 15h15v1H1v-1z"/>
+              <path fill-rule="evenodd" d="M14.39 4.312L10.041 9.75 7 6.707l-3.646
+              3.647-.708-.708L7 5.293 9.959 8.25l3.65-4.563.781.624z"/>
+              <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1
+              .5.5v4a.5.5 0 0 1-1 0V4h-3.5a.5.5 0 0 1-.5-.5z"/>
             </svg>
           </div>
           <p class="title">Statistic</p>
-          <p class="text">Check all the stats about the place of your interest.</p>
-
     </div>
     <!-- end card -->
     <!-- card -->
-    <div class="card" onclick="window.location.href = 'HTML/questions/questions.html';">
+    <div class="card">
 
           <div class="icon">
             <svg class="bi bi-person-lines-fill" width="3em" height="3em" viewBox=
@@ -59,20 +51,7 @@
             </svg>
           </div>
           <p class="title">Take the test</p>
-          <p class="text">Discover what trait describe you and which country fit
-          you best.</p>
-
     </div>
 
   </div>
-
-   </div>
-
-
-
-
-</div>
-<!-- partial -->
-
-</body>
 </html>

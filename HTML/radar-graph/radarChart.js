@@ -87,7 +87,6 @@ function RadarChart(id, data, options) {
 				var y = Math.sin(-angle) * l;
 				points = points.concat(x.toString(),",", y.toString()," ");
 			}
-			console.log(points);
 			//return "10,10 30,50 800,50";
 			return points;
 		})

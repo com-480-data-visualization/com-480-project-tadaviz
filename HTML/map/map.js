@@ -93,7 +93,6 @@ function clickFeature(e){
 
 function mouseoverFeature(e){
   layer=true
-
   if (!click){
     current_layer = e.target;
     highlightFeature(current_layer)
@@ -211,6 +210,13 @@ info.onAdd = function (map) {
     this._datadiv = L.DomUtil.create('div');
     this._div.appendChild(this._datadiv)
 
+
+    /*L.DomEvent.on(this._div,'mouseover',function(){
+      console.log('caskouille')
+    })
+    L.DomEvent.on(this._div,'mouseout',function(){
+      console.log('caskouille2')
+    })*/
     this.update();
 
     return this._div;
