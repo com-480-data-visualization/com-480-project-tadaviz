@@ -126,18 +126,28 @@ p{
 /* stat-box style */
 
 .inactive {
-  animation-name:grow;
+  animation-name: degrow;
   animation-duration:1s;
-  animation-fill-mode:reverse;
-  display:none;
+  animation-fill-mode:forwards;
+  display: none;
 }
+
 .active {
   display: block;
-  position:relative;
+  position: relative;
   animation-name: grow;
   animation-duration:1s;
   animation-fill-mode:forwards;
   }
+
+.deactivate {
+  display: block;
+  position: relative;
+  animation-name: degrow;
+  animation-duration:1s;
+  animation-fill-mode:forwards;
+}
+
 .bar{
   min-width:10px;
   max-width:40px;
@@ -147,12 +157,14 @@ p{
 .bar:hover{
   fill:gold;
 }
+
 .stats {
   width: 100%;
   background: rgba(199, 248, 60, 0.17);
   border: 1px solid #000000;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .graph{
   opacity:0;
   position:absolute;
@@ -164,6 +176,7 @@ p{
   animation-duration: 3s;
   animation-fill-mode:forwards;
 }
+
 .info_box{
   position:absolute;
   left:70%;
@@ -179,6 +192,7 @@ p{
   animation-duration: 3s;
   animation-fill-mode:forwards;
 }
+
 .axis{
   bottom:3%;
   height:100%;
@@ -187,7 +201,8 @@ p{
 .custom_grid{
   opacity:0.2;
 }
-  .up_arrow{
+
+.up_arrow{
     position:absolute;
     width:25px;
     height:25px;
@@ -198,11 +213,11 @@ p{
     box-shadow:  0 0 2px 1px rgba(0, 0, 0, 0.3);
     transform: translate(-50%,50%) rotate(-90deg) ;
     padding:5px;
-  background-position: center;
-
+    background-position: center;
 }
+
 img:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  box-shadow: 0 0 5px 5px rgba(0, 140, 186, 0.5);
 }
 
 
@@ -214,6 +229,7 @@ img:hover {
   font-size: 50px;
   text-align:center;
 }
+
 .text-time-explanation{
   position:relative;
   top:100%;
@@ -266,10 +282,25 @@ img:hover {
 @keyframes grow {
     0% {
       height: 0px;
+      width: auto;
       background: white;
     }
     100% {
       height: 400px;
+      width: auto;
+      background: rgba(199, 248, 60, 0.17);
+    }
+}
+
+@keyframes degrow {
+    100% {
+      height: 0px;
+      width: auto;
+      background: white;
+    }
+    0% {
+      height: 400px;
+      width: auto;
       background: rgba(199, 248, 60, 0.17);
     }
 }

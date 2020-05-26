@@ -1,3 +1,5 @@
+
+
 #buttons {
   position: relative;
 
@@ -41,20 +43,22 @@ button:active {
   height: 60px;
   border: 1px solid #000000;
 }
+
+/**
 #graph{
-margin-top: 70px;
+margin-top: auto;
 margin-left: auto;
 margin-right: auto;
-
- 
 min-width: 500px;
 width: 70%;
-height: 500px;
-
-background: rgba(199, 248, 60, 0.17);
+height: 600px;
+background: rgba(50, 100, 200, 0.80);
 border: 1px solid #000000;
 box-sizing: border-box;
 }
+**/
+
+/*
 
 .stat_buttons{
   position: relative;
@@ -65,8 +69,8 @@ box-sizing: border-box;
   width:20%;
 }
 .stat_buttons:hover {
-  /*width: 163px;
-  height: 46.06px;*/
+  width: 163px;
+  height: 46.06px;
   background: white;
   border: 2px solid #c7f83c;
   box-sizing: border-box;
@@ -84,9 +88,10 @@ box-sizing: border-box;
   width:20%;
   height:20%;
   border: 2px solid #1d741b;
-  
+
 }
 .stat_text{
   transform : translate(15%, -50%);
-  
+
 }
+*/
