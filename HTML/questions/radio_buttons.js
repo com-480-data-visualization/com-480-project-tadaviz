@@ -16,10 +16,10 @@ $(document).delegate(".trigger",'click',function(){
     //Bidimensional array push:
     survey.push([i + (questions_step - 1)*10, rbValue]); //Bidimensional array: [ [1,3], [2,4] ]
   };
-  debug();
+  /*debug();*/
 });
 
-function save_data(){
+/*function save_data(){
   //Push data:
   for (i=1; i<=$(".rb").length; i++) {
     var rb = "rb" + (i-1);
@@ -27,11 +27,7 @@ function save_data(){
     //Bidimensional array push:
     survey.push([i + (questions_step - 1)*10, rbValue]); //Bidimensional array: [ [1,3], [2,4] ]
   }
-  /*
-  //Debug:
-  debug();
-  */
-};
+};*/
 
 //Debug:
 function debug(){

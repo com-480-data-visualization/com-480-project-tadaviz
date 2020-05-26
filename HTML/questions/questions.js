@@ -9,10 +9,6 @@ let test = document.getElementsByClassName("radio_group");
 let add_else = document.getElementById("buttons");
 let questions_step = 1;
 
-//Vector image of the upward arrow in uri form
-//Prevents multiple unecessary request to other servers
-let up_arrow_data="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjQ1MS44NDZweCIgaGVpZ2h0PSI0NTEuODQ3cHgiIHZpZXdCb3g9IjAgMCA0NTEuODQ2IDQ1MS44NDciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ1MS44NDYgNDUxLjg0NzsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTM0NS40NDEsMjQ4LjI5MkwxNTEuMTU0LDQ0Mi41NzNjLTEyLjM1OSwxMi4zNjUtMzIuMzk3LDEyLjM2NS00NC43NSwwYy0xMi4zNTQtMTIuMzU0LTEyLjM1NC0zMi4zOTEsMC00NC43NDQNCgkJTDI3OC4zMTgsMjI1LjkyTDEwNi40MDksNTQuMDE3Yy0xMi4zNTQtMTIuMzU5LTEyLjM1NC0zMi4zOTQsMC00NC43NDhjMTIuMzU0LTEyLjM1OSwzMi4zOTEtMTIuMzU5LDQ0Ljc1LDBsMTk0LjI4NywxOTQuMjg0DQoJCWM2LjE3Nyw2LjE4LDkuMjYyLDE0LjI3MSw5LjI2MiwyMi4zNjZDMzU0LjcwOCwyMzQuMDE4LDM1MS42MTcsMjQyLjExNSwzNDUuNDQxLDI0OC4yOTJ6Ii8+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==";
-
 //// QUESTION CLASS
 
 class Question {
@@ -109,14 +105,26 @@ async function next_questions(){
   // If it's the final update, change the button
   if (questions_step == 5){
     document.getElementById("button-box").innerHTML =
-    '<button class="submit-button button trigger" onclick="submit()">Submit</button>'
-
+    '<button class="submit-button button trigger" onclick="submit()" id="submit_button">Submit</button>'+
+    '<div class="modal-overlay">'+
+      '<div class="modal">'+
+        '<a class="close-modal"><svg viewBox="0 0 20 20">'+
+        '<path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path></svg>'+
+        '</a>' + // close modal
+        '<div class="modal-content" id="m_content">'+
+          '<h3>Some content here</h3>'+
+        '</div>' + // content
+      '</div>' + // modal
+    '</div>'; // overlay
   }
 }
 
 async function submit(){
+
+  /*
   // Save the last answers
   save_data();
+  */
 
   // Let the other js file compute the last answers
   await new Promise(r => setTimeout(r, 50));
@@ -138,43 +146,40 @@ async function submit(){
     question_idx += 1;
   }
 
-  // questions[questions_id].classList.remove("active");
-  document.getElementsByClassName("submit-display")[0].classList.remove("inactive");
-}
-
-/*
-function ComputeScore(){
-  const AGR=10;
-  const EXT=20;
-  const OPN=30;
-  const CSN=40;
-  const EST=50;
-  for(i=0;i<40,i++){
-
-}
-*/
-/*function activate_stats(question_id, question_value){
-  if (question_id - 1 >= 0) {
-    //remove_stats(questions_id-1);
+  // Compute the matching country
+  let matching_country = '';
+  let best_distance = 10000.0;
+  for(cs in country_raw_mean_score){
+    let l2_distance = 0;
+    for(p in personalities){
+      const s = parseFloat(scores[personalities[p]]);
+      const c_s = parseFloat(country_raw_mean_score[cs][personalities[p]]);
+      l2_distance += (s-c_s)**2;
+    }
+    if (Math.sqrt(l2_distance) < best_distance){
+      matching_country = cs;
+      best_distance = Math.sqrt(l2_distance);
+    }
   }
-  if (questions[question_id].classList.contains("inactive")) {
-    questions[question_id].classList.remove("inactive");
-    questions[question_id].classList.add("active");
+  console.log(survey);
+  console.log(scores);
+  console.log(country_raw_mean_score['KH'])
+  console.log(best_distance);
+  console.log(matching_country);
 
+  // Display the matching country
+  let modal_content = document.getElementById("m_content");
+  m_content.innerHTML = "Congratulations ! The country that best matches your personality is..." + matching_country.toUpperCase() +" !";
 
-    questions[question_id].classList.innerHTML = "<div id='container'><svg viewBox='0 0 800 600'/></div>";
-    console.log(questions[question_id].classList);
-    // Barplot for EXT1
-    console.log("okok");
-    bar_plot = new Barplot({"name": "I am the life of the party.", "id": "EXT1", "distribution": [0.1,0.3,0.4,0.5,0.6], "x": ["0", "1", "2", "3", "4", "5"]}, 80, 700, 600);
-    bar_plot.make_plot();
-    //make_graph(question_id);
-  }
-}*/
-/*async function remove_stats(question_id){
-  questions[question_id].classList.remove("active");
-  questions[question_id].classList.add("deactivate");
-  questions[question_id].classList.add("inactive");
-  await new Promise(r => setTimeout(r, 1000));
-  questions[question_id].classList.remove("deactivate");
-}*/
+  await new Promise(r => setTimeout(r, 200));
+
+  // Deactivate the submit button
+  let submit_button = document.getElementById("submit_button");
+  submit_button.onclick = function(){};
+
+  /*
+  // OR
+  document.getElementById("button-box").innerHTML =
+  '<button class="submit-button button trigger" id="submit_button">Submit</button>';
+  */
+}
