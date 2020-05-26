@@ -1,12 +1,13 @@
 //// VARIABLES
 
-let NBR_ANSWER = 5;
+const NBR_ANSWER = 5;
+const personalities = ["EXT", "EST", "AGR", "CSN", "OPN"];
 let questions = document.getElementsByClassName("stats");
 let graph_questions = d3.selectAll(".stats");
 let container = document.getElementById("placeholder");
 let test = document.getElementsByClassName("radio_group");
 let add_else = document.getElementById("buttons");
-//let answers = [];
+let questions_step = 1;
 
 //Vector image of the upward arrow in uri form
 //Prevents multiple unecessary request to other servers
@@ -22,11 +23,6 @@ class Question {
     this.output = [];
     this.add_name(this.output, this.name);
     this.add_radio_group(this.output, this.name, this.id);
-    this.add_stats(this.output, this.id);
-    //container.innerHTML=output.join('');
-    //questions=document.getElementsByClassName("stats");
-    //graph_questions=d3.selectAll(".stats");
-    //console.log(questions);
   }
 
   add_name(output){
@@ -35,40 +31,19 @@ class Question {
 
   add_radio_group(output){
     let radio_group=[];
-
-    /**
-    for(let i = 0; i < NBR_ANSWER; i++){
-      radio_group.push('<input type="radio" name=' + this.name+' class="circle" value=' + i +
-      ' onclick="activate_stats('+ this.id +','+i+')"> ');
-    }
-    radio_group = '<div class="radio_group">' + radio_group.join('') + '</div></div>';
-    **/
-
     for(let i = 1; i <= NBR_ANSWER; i++){
+      // default active radio button
       if (i == 3){
-        /*
         radio_group.push('<div class="rb-tab rb-tab-active" data-value="' + i.toString() +
         '"><div class="rb-spot"><span class="rb-txt">'+ i.toString() + '</span></div></div>');
-        */
-        radio_group.push('<div class="rb-tab rb-tab-active" data-value="' + i.toString() +
-        '" onclick="activate_stats('+ this.id +','+i+')" ><div class="rb-spot"><span class="rb-txt">'+ i.toString() + '</span></div></div>');
       }
       else{
-        /*
         radio_group.push('<div class="rb-tab" data-value="' + i.toString() +
         '"><div class="rb-spot"><span class="rb-txt">'+ i.toString() + '</span></div></div>');
-        */
-        radio_group.push('<div class="rb-tab" data-value="' + i.toString() +
-        '" onclick="activate_stats('+ this.id +','+i+')" ><div class="rb-spot"><span class="rb-txt">'+ i.toString() + '</span></div></div>');
       }
     }
     radio_group = '<div id="rb-'+ this.id.toString() + '" class="rb">' + radio_group.join('') + '</div></div>'
     output.push(radio_group);
-  }
-
-  add_stats(output){
-    output.push('<div id=stat' + this.id + ' class="stats inactive"><img alt="up button" src=' + up_arrow_data +
-    ' class="up_arrow" onclick="remove_stats(' + this.id + ')"></div>');
   }
 
   get_HTML(){
@@ -76,69 +51,6 @@ class Question {
   }
 
 }
-
-//// FUNCTIONS
-
-function add_questions(data){
-  let questions_HTML=[];
-  for(let i=0; i<data.length; i++){
-    const question_HTML = new Question(data[i].name,i).get_HTML();
-    questions_HTML.push(question_HTML);
-  }
-  container.innerHTML=questions_HTML.join('');
-}
-
-function activate_stats(question_id, question_value){
-  if (question_id - 1 >= 0) {
-    //remove_stats(questions_id-1);
-  }
-  if (questions[question_id].classList.contains("inactive")) {
-    questions[question_id].classList.remove("inactive");
-    questions[question_id].classList.add("active");
-
-
-    questions[question_id].classList.innerHTML = "<div id='container'><svg viewBox='0 0 800 600'/></div>";
-    console.log(questions[question_id].classList);
-    // Barplot for EXT1
-    console.log("okok");
-    bar_plot = new Barplot({"name": "I am the life of the party.", "id": "EXT1", "distribution": [0.1,0.3,0.4,0.5,0.6], "x": ["0", "1", "2", "3", "4", "5"]}, 80, 700, 600);
-    bar_plot.make_plot();
-
-
-    //make_graph(question_id);
-  }
-  //questions[questions_id].classList.add("fadeIn");
-  //questions[questions_id].
-}
-
-async function remove_stats(question_id){
-  questions[question_id].classList.remove("active");
-  questions[question_id].classList.add("deactivate");
-  questions[question_id].classList.add("inactive");
-  await new Promise(r => setTimeout(r, 1000));
-  questions[question_id].classList.remove("deactivate");
-}
-
-function update_value(id, value){
-  answers[id] = value;
-}
-
-function submit(){
-  // questions[questions_id].classList.remove("active");
- document.getElementsByClassName("submit-display")[0].classList.remove("inactive");
-}
-
-/*
-function ComputeScore(){
-  const AGR=10;
-  const EXT=20;
-  const OPN=30;
-  const CSN=40;
-  const EST=50;
-  for(i=0;i<40,i++){
-
-}
-*/
 
 //// ON LOAD
 
@@ -154,7 +66,7 @@ function whenDocumentLoaded(action) {
 whenDocumentLoaded(() => {
   let data = [];
   for (k in questions_corpus){
-    if (k == 'EXT1'){
+    if (k.substring(0,3) == personalities[questions_step - 1]){
       let distribution = [];
       for (n in ["0.0", "1.0", "2.0", "3.0", "4.0", "5.0"]){
         distribution.push(global_distributions[k][n]);
@@ -164,3 +76,105 @@ whenDocumentLoaded(() => {
   }
   add_questions(data);
 });
+
+
+//// FUNCTIONS
+
+function add_questions(data){
+  let questions_HTML=[];
+  for(let i=0; i<data.length; i++){
+    const question_HTML = new Question(data[i].name,i).get_HTML();
+    questions_HTML.push(question_HTML);
+  }
+  container.innerHTML = questions_HTML.join('');
+}
+
+
+async function next_questions(){
+  // Update the questions
+  await new Promise(r => setTimeout(r, 50));
+  questions_step += 1;
+  let data = [];
+  for (k in questions_corpus){
+    if (k.substring(0,3) == personalities[questions_step-1]){
+      let distribution = [];
+      for (n in ["0.0", "1.0", "2.0", "3.0", "4.0", "5.0"]){
+        distribution.push(global_distributions[k][n]);
+      }
+      data.push({"name": questions_corpus[k], "id":k, "time": 0, "distribution": distribution, "x": ["0", "1", "2", "3", "4", "5"]});
+    }
+  }
+  add_questions(data);
+
+  // If it's the final update, change the button
+  if (questions_step == 5){
+    document.getElementById("button-box").innerHTML =
+    '<button class="submit-button button trigger" onclick="submit()">Submit</button>'
+
+  }
+}
+
+async function submit(){
+  // Save the last answers
+  save_data();
+
+  // Let the other js file compute the last answers
+  await new Promise(r => setTimeout(r, 50));
+
+  // Compute the score of the participant
+  let scores = {'EXT':0, 'EST':0, 'AGR':0, 'CSN':0, 'OPN':0}
+  let question_idx = 0;
+  for(s in data_scoring){
+    const answer = survey[question_idx][1];
+    let category;
+    if (question_idx%10 == 9){
+      // Cases when 'EXT10' for instance
+      category = s.substring(0, s.length - 2);
+    }
+    else{
+      category = s.substring(0, s.length - 1);
+    }
+    scores[category] += (parseInt(answer,10) * parseInt(data_scoring[s]['score'], 10));
+    question_idx += 1;
+  }
+
+  // questions[questions_id].classList.remove("active");
+  document.getElementsByClassName("submit-display")[0].classList.remove("inactive");
+}
+
+/*
+function ComputeScore(){
+  const AGR=10;
+  const EXT=20;
+  const OPN=30;
+  const CSN=40;
+  const EST=50;
+  for(i=0;i<40,i++){
+
+}
+*/
+/*function activate_stats(question_id, question_value){
+  if (question_id - 1 >= 0) {
+    //remove_stats(questions_id-1);
+  }
+  if (questions[question_id].classList.contains("inactive")) {
+    questions[question_id].classList.remove("inactive");
+    questions[question_id].classList.add("active");
+
+
+    questions[question_id].classList.innerHTML = "<div id='container'><svg viewBox='0 0 800 600'/></div>";
+    console.log(questions[question_id].classList);
+    // Barplot for EXT1
+    console.log("okok");
+    bar_plot = new Barplot({"name": "I am the life of the party.", "id": "EXT1", "distribution": [0.1,0.3,0.4,0.5,0.6], "x": ["0", "1", "2", "3", "4", "5"]}, 80, 700, 600);
+    bar_plot.make_plot();
+    //make_graph(question_id);
+  }
+}*/
+/*async function remove_stats(question_id){
+  questions[question_id].classList.remove("active");
+  questions[question_id].classList.add("deactivate");
+  questions[question_id].classList.add("inactive");
+  await new Promise(r => setTimeout(r, 1000));
+  questions[question_id].classList.remove("deactivate");
+}*/

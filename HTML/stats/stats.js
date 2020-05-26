@@ -27,7 +27,7 @@ whenDocumentLoaded(() => {
 	//let criterion_menu = document.getElementById("criterion");
 
 	// Questions dropdown menu
-	let personalities = ["EXT", "EST", "AGR", "CSN", "OPN"];
+	const personalities = ["EXT", "EST", "AGR", "CSN", "OPN"];
 	let question_HTML = '<menu>';
 	let sub_HTML = '';
 	for (p in personalities){

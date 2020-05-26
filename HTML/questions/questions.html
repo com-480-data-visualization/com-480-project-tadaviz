@@ -5,8 +5,9 @@
   <title>Questions</title>
   <link rel="stylesheet" href="questions.css">
   <link rel="stylesheet" href="radio_buttons.css">
+  <link rel="stylesheet" href="modal.css">
+  <!--<link rel="stylesheet" href="../stats/select_dropdown.css">-->
   <link rel="stylesheet" href="../barplot/bar_plot.css">
-
 
 </head>
 <body>
@@ -41,45 +42,53 @@
   <div id="questions">
     <div class="rb-box" id="placeholder">
     <!--
-      <p class="question_text">I AZSDQSDQSDQSDSfeel social</p>
-      <div class="radio_group">
-        <input type="radio" name="question1" class="circle" onclick="activate_stats(0)">
-        <input type="radio" name="question1" class="circle" onclick="activate_stats(0)">
-        <input type="radio" name="question1" class="circle" onclick="activate_stats(0)">
-        <input type="radio" name="question1" class="circle" onclick="activate_stats(0)">
-        <input type="radio" name="question1" class="circle" onclick="activate_stats(0)">
-      </div>
+      radio buttons
     -->
     </div>
-    <div class="stats inactive">
-      <img alt="up button" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjQ1MS44NDZweCIgaGVpZ2h0PSI0NTEuODQ3cHgiIHZpZXdCb3g9IjAgMCA0NTEuODQ2IDQ1MS44NDciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ1MS44NDYgNDUxLjg0NzsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTM0NS40NDEsMjQ4LjI5MkwxNTEuMTU0LDQ0Mi41NzNjLTEyLjM1OSwxMi4zNjUtMzIuMzk3LDEyLjM2NS00NC43NSwwYy0xMi4zNTQtMTIuMzU0LTEyLjM1NC0zMi4zOTEsMC00NC43NDQNCgkJTDI3OC4zMTgsMjI1LjkyTDEwNi40MDksNTQuMDE3Yy0xMi4zNTQtMTIuMzU5LTEyLjM1NC0zMi4zOTQsMC00NC43NDhjMTIuMzU0LTEyLjM1OSwzMi4zOTEtMTIuMzU5LDQ0Ljc1LDBsMTk0LjI4NywxOTQuMjg0DQoJCWM2LjE3Nyw2LjE4LDkuMjYyLDE0LjI3MSw5LjI2MiwyMi4zNjZDMzU0LjcwOCwyMzQuMDE4LDM1MS42MTcsMjQyLjExNSwzNDUuNDQxLDI0OC4yOTJ6Ii8+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" class="up_arrow" onclick="remove_stats(0)">
-    </div>
-    <!-- Button -->
-    <!--
-    <div class="button-box">
-      <button class="button trigger">Submit!</button>
-    </div>
-    -->
-    <div class="button-box">
-      <button class="submit-button button trigger" onclick="submit()">Submit</button>
-      <div class="submit-display inactive">
-        <h2  class="submit-text">The country you are closer to is : </h2>
-        <h1  class="submit-country">France </h1>
-      </div>
+    <div class="button-box" id ="button-box">
+      <button class="button trigger" onclick="next_questions()">Next</button>
+
+      <!--
+      <button class="button trigger" onclick="submit()">Submit</button>
+      -->
+
+      <body>
+      <button class="submit-button">Click For Modal</button>
+      <!-- modal -->
+      <div class="modal-overlay">
+        <div class="modal">
+
+          <a class="close-modal">
+            <svg viewBox="0 0 20 20">
+              <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+            </svg>
+          </a><!-- close modal -->
+
+          <div class="modal-content">
+            <h3>Some content here</h3>
+          </div><!-- content -->
+
+        </div><!-- modal -->
+      </div><!-- overlay -->
+      </body>
+
+
     </div>
   </div>
 </div>
 
 <!-- partial -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./modal.js"></script>
 <script  src="./radio_buttons.js"></script>
 <script src="../barplot/bar_plot.js"></script>
 <!--<script  src="./bar_plot.js"></script>-->
 <script  src="./questions.js"></script>
-<script  src="./questions.js"></script>
 <script src="../../Data/questions_corpus.js"></script>
 <script src="../../Data/global_distributions.js"></script>
 <script src="../../Data/country_distributions.js"></script>
+<script src="../../Data/country_raw_mean_score.js"></script>
+<script src="../../Data/data_scoring.js"></script>
 
 </body>
 </html>
