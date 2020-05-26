@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Stats</title>
   <link rel="stylesheet" href="stats.css">
+  <link rel="stylesheet" href="select_dropdown.css">
   <link rel="stylesheet" href="../barplot/bar_plot.css">
   <link rel="stylesheet" href="dropdown.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -31,6 +32,12 @@
 
   </div>
 </div>
+<!--<h1><span>Visualize</span> answers from <span> the world</span> <br />select a country</h1>-->
+<form>
+  <input class="country" type="text" value="" placeholder="Country...">
+  <ul class="country_list" id="country_list">
+  </ul>
+</form>
 
 <div id='layout'>
 
@@ -47,7 +54,6 @@
       -->
 		</menu>
 	</nav>
-
   <!-- <h2>Bar chart example</h2> -->
   <div id='container'>
     <svg viewBox='0 0 800 600'/>
@@ -74,9 +80,11 @@
 <script src="../barplot/bar_plot.js"></script>
 <script src="stats.js"></script>
 <script src="dropdown.js"></script>
+<script src="select_dropdown.js"></script>
 <script src="../../Data/questions_corpus.js"></script>
 <script src="../../Data/global_distributions.js"></script>
 <script src="../../Data/country_distributions.js"></script>
+
 
 
 </body>
