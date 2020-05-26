@@ -40,7 +40,7 @@ class Barplot{
       .scale(this.yScale)
   }
 
-  make_plot(){
+  async make_plot(){
 
     const xScale = this.xScale;
     const yScale = this.yScale;
@@ -53,10 +53,12 @@ class Barplot{
     chart.append('g')
       .attr('class', 'axisBottom')
       .attr('transform', `translate(0, ${height})`)
+      .transition()
       .call(d3.axisBottom(xScale));
 
     chart.append('g')
       .attr('class', 'axisLeft')
+      .transition()
       .call(d3.axisLeft(yScale));
 
     // vertical grid lines
@@ -70,6 +72,7 @@ class Barplot{
 
     chart.append('g')
       .attr('class', 'grid')
+      .transition()
       .call(this.makeYLines()
         .tickSize( - width - 2 * margin, 0, 0)
         .tickFormat('')
@@ -79,6 +82,8 @@ class Barplot{
       .data(this.pair_distribution)
       .enter()
       .append('g')
+
+    await new Promise(r => setTimeout(r, 100));
 
     barGroups
       .append('rect')
@@ -111,6 +116,7 @@ class Barplot{
         const y =  yScale(actual[0])
 
         const line = chart.append('line')
+          .transition()
           .attr('id', 'limit')
           .attr('x1', 0)
           .attr('y1', y)
@@ -118,6 +124,7 @@ class Barplot{
           .attr('y2', y)
 
         barGroups.append('text')
+          .transition()
           .attr('class', 'divergence')
           .attr('x', (a) =>  xScale(a[1]) +  xScale.bandwidth() / 2)
           .attr('y', (a) =>  yScale(a[0]) + 30)
@@ -151,8 +158,11 @@ class Barplot{
         chart.selectAll('.divergence').remove()
       })
 
+    await new Promise(r => setTimeout(r, 500));
+
     barGroups
       .append('text')
+      .transition()
       .attr('class', 'value')
       .attr('x', (a) => xScale(a[1]) + xScale.bandwidth() / 2)
       .attr('y', (a) => yScale(a[0]) + 30)
@@ -160,6 +170,7 @@ class Barplot{
       .text((a) => `${Math.round(a[0]/total*10000)/100}%`)
 
     this.svg.append('text')
+      .transition()
       .attr('class', 'label')
       .attr('x', - (height / 2) - margin)
       .attr('y', margin / 10)
@@ -168,6 +179,7 @@ class Barplot{
       .text('Number of answers')
 
     this.svg.append('text')
+      .transition()
       .attr('class', 'label')
       .attr('x', height / 2 + 2.6*margin)
       .attr('y', height + margin * 1.7)
@@ -175,6 +187,7 @@ class Barplot{
       .text('Answer')
 
     this.svg.append('text')
+      .transition()
       .attr('class', 'title')
       .attr('x', height / 2 + 2.6*margin)
       .attr('y', 40)
@@ -194,7 +207,7 @@ class Barplot{
 
 
 
-  update_plot(data){
+  async update_plot(data){
 
     this.name = data["name"];
     this.id = data["id"];
@@ -270,6 +283,7 @@ class Barplot{
         const y =  yScale(actual[0])
 
         const line = chart.append('line')
+          .transition()
           .attr('id', 'limit')
           .attr('x1', 0)
           .attr('y1', y)
@@ -277,6 +291,7 @@ class Barplot{
           .attr('y2', y)
 
         barGroups.append('text')
+          .transition()
           .attr('class', 'divergence')
           .attr('x', (a) =>  xScale(a[1]) +  xScale.bandwidth() / 2)
           .attr('y', (a) =>  yScale(a[0]) + 30)
@@ -311,6 +326,8 @@ class Barplot{
       })
 
     this.svg.selectAll(".value").remove();
+
+    await new Promise(r => setTimeout(r, 500));
 
     barGroups
       .append('text')
