@@ -5,15 +5,15 @@ bounds = L.latLngBounds(westbound, eastbound);
 
 //options to desactivate zoom and navigation
 let mapoptions = {
-  zoomSnap: 0.14,
+  zoomSnap: 0.05,
   zoomControl:false,
-  minZoom: 2.28,
+  minZoom: 2.35,
   maxZoom: 6,
   maxBounds: bounds,
   doubleClickZoom: false
 }
 // set the map element
-let map = L.map('mapid',mapoptions).setView([60, 0.0],2);
+let map = L.map('mapid',mapoptions).setView([60, 0.0],2.35);
 map.fitBounds(bounds)
 // will contain the layer of the countries
 let geojson;
