@@ -124,8 +124,8 @@ function show_graph(container,props,acc) {
         .range(["#D041A1","#30C0D0","#EDC951","#CC333F"]);
 
       var radarChartOptions = {
-        w: width,
-        h: height,
+        w: width/1.5, // Change the size of the radar graph here
+        h: height/1.5, // Change the size of the radar graph here
         margin: margin,
         maxValue: 1,
         levels: 5,

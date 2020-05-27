@@ -70,7 +70,9 @@ function RadarChart(id, data, options) {
 	/////////////////////////////////////////////////////////
 
 	//Wrapper for the grid & axes
-	var axisGrid = g.append("g").attr("class", "axisWrapper");
+	var axisGrid = g
+	.append("g")
+	.attr("class", "axisWrapper")
 
 	//Draw the background pentagons
 	axisGrid.selectAll(".levels")
@@ -94,6 +96,9 @@ function RadarChart(id, data, options) {
 		.style("stroke", "#CDCDCD")
 		.style("fill-opacity", cfg.opacityCircles)
 		.style("filter" , "url(#glow)");
+/*		.transition()
+		.duration(100);*/
+
 
 	/***
 	//Draw the background circles
@@ -129,7 +134,8 @@ function RadarChart(id, data, options) {
 		.data(allAxis)
 		.enter()
 		.append("g")
-		.attr("class", "axis");
+		.attr("class", "axis")
+
 	//Append the lines
 	axis.append("line")
 		.attr("x1", 0)
@@ -138,7 +144,11 @@ function RadarChart(id, data, options) {
 		.attr("y2", function(d, i){ return rScale(maxValue*1.1) * Math.sin(angleSlice*i - Math.PI/2); })
 		.attr("class", "line")
 		.style("stroke", "white")
-		.style("stroke-width", "2px");
+		.style("stroke-width", "2px")
+		.style("stroke-opacity", .5)
+		.style("stroke-linecap", "round")
+		/*.style("stroke-dasharray", ("10,3"))*/
+		;
 
 	//Append the labels at each axis
 	axis.append("text")
@@ -148,6 +158,7 @@ function RadarChart(id, data, options) {
 		.attr("dy", "0.35em")
 		.attr("x", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.cos(angleSlice*i - Math.PI/2); })
 		.attr("y", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.sin(angleSlice*i - Math.PI/2); })
+		/*.transition()*/
 		.text(function(d){return d})
 		.call(wrap, cfg.wrapWidth);
 
@@ -180,6 +191,7 @@ function RadarChart(id, data, options) {
 		.style("fill-opacity", cfg.opacityArea)
 		.on('mouseover', function (d,i){
 			//Dim all blobs
+			console.log("mouse over");
 			d3.selectAll(".radarArea")
 				.transition().duration(200)
 				.style("fill-opacity", 0.1);
@@ -203,6 +215,7 @@ function RadarChart(id, data, options) {
 		.style("stroke", function(d,i) { return cfg.color(i); })
 		.style("fill", "none")
 		.style("filter" , "url(#glow)");
+		/*.transition();*/
 
 	//Append the circles
 	blobWrapper.selectAll(".radarCircle")
@@ -236,6 +249,7 @@ function RadarChart(id, data, options) {
 		.style("fill", "none")
 		.style("pointer-events", "all")
 		.on("mouseover", function(d,i) {
+			console.log("mouse over");
 			newX =  parseFloat(d3.select(this).attr('cx')) - 10;
 			newY =  parseFloat(d3.select(this).attr('cy')) - 10;
 
