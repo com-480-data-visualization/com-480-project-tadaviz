@@ -63,7 +63,6 @@ function whenDocumentLoaded(action) {
 whenDocumentLoaded(() => {
   let data = [];
   for (k in questions_corpus){
-    console.log(k);
     if (k.substring(0,3) == personalities[questions_step - 1]){
       let distribution = [];
       for (n in ["0.0", "1.0", "2.0", "3.0", "4.0", "5.0"]){
@@ -110,11 +109,15 @@ async function next_questions(){
     '<button class="submit-button button trigger" onclick="submit()" id="submit_button">Submit</button>'+
     '<div class="modal-overlay">'+
       '<div class="modal">'+
-        '<a class="close-modal"><svg viewBox="0 0 20 20">'+
-        '<path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path></svg>'+
+        '<a class="close-modal">'+
+        //'<path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path></svg>'+
+        '<svg class="bi bi-x-circle" viewBox="0 0 16 16" fill="black" xmlns="http://www.w3.org/2000/svg">'+
+          '<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>'+
+          '<path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>'+
+          '<path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>'+
+        '</svg>'+
         '</a>' + // close modal
         '<div class="modal-content" id="m_content">'+
-          '<h3>Some content here</h3>'+
         '</div>' + // content
       '</div>' + // modal
     '</div>'; // overlay
@@ -159,19 +162,55 @@ async function submit(){
       l2_distance += (s-c_s)**2;
     }
     if (Math.sqrt(l2_distance) < best_distance){
-      matching_country = cs;
+      len = 0
+      c = ''
+      ISO2_code.forEach((item, i) => {
+        if (item['Code']==cs){
+          matching_country = item['Name']
+        }
+        if (item['Name'].length > len){
+          len = item['Name'].length
+          c = item['Name']
+        }
+      console.log(len)
+      });
+      console.log(c)
       best_distance = Math.sqrt(l2_distance);
     }
   }
-  console.log(survey);
-  console.log(scores);
-  console.log(country_raw_mean_score['KH'])
-  console.log(best_distance);
-  console.log(matching_country);
+  //sessionStorage.setItem('label', 'value')
+Object.keys(scores).forEach((item, i) => {
+  console.log(item)
+  localStorage.setItem(item, scores[item])
+});
+
+country_to_display=''
+matching_country+='!'
+matching_country.split("").forEach((item, i) => {
+  country_to_display+='<b>'+item+'</b>'
+});
 
   // Display the matching country
   let modal_content = document.getElementById("m_content");
-  m_content.innerHTML = "Congratulations ! The country that best matches your personality is..." + matching_country.toUpperCase() +" !";
+  m_content.innerHTML =
+  '<section class="container">'+
+
+    '<div id="first" class="title">'+
+      "<span class='text'>Congratulation!</span>"+
+    '</div>'+
+
+    '<div id="second" class="title">'+
+      "<span class='text'>The country</span>"+
+      "<span class='text'>That fit you best</span>"+
+      "<span class='text'>is ...</span>"+
+    '</div>'+
+    '<div class="animate response">'+
+
+  			country_to_display+'</br>'+
+        '<button id="resultbutton"onclick="window.location.href = '+"'results.html'"+';">Learn more </button>'+
+  	'</div>'+
+
+  '</section>';
 
   await new Promise(r => setTimeout(r, 200));
 

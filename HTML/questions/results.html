@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Results</title>
+  <link rel="stylesheet" href="results.css">
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+  <div class='text' >
+    <b>Results summary</b> </br>
+    Your results from the IPIP Big Five Factor Markers are in the table below. The table contains a raw score and also a percentile, what percent of other people who have taken this test that you score higher than.
+  </div>
+  <div id="graphic"></div>
+  <div class='text' >
+    <b>Check below what each of this factor tell about you</b> </br>
+  </div>
+  <div class="tab">
+    <button class="tablinks" onclick="openTrait(event, '_EXT')">EXT</button>
+    <button class="tablinks" onclick="openTrait(event, '_EST')">EST</button>
+    <button class="tablinks" onclick="openTrait(event, '_AGR')">AGR</button>
+    <button class="tablinks" onclick="openTrait(event, '_CSN')">CSN</button>
+    <button class="tablinks" onclick="openTrait(event, '_OPN')">OPN</button>
+  </div>
+  <div id="_EXT" class="tabcontent">
+    <h3>Extraversion</h3>
+    <p>Individuals who score high on this factor one are outgoing and social.
+       Individuals who score low tend to be shut ins.</p>
+  </div>
+
+  <div id="_EST" class="tabcontent">
+    <h3>Emotional stability</h3>
+    <p>This factor is often referred to by other names, such as Neruoticism or
+      Negative Emotionality (in these two cases interpretations are inverted,
+      as Neruoticism and Negative Emotionality can be though of as the opposite
+      of Emotional Stability).</p>
+  </div>
+
+  <div id="_AGR" class="tabcontent">
+    <h3>Agreeableness</h3>
+    <p>A person high in agreeableness is friendly and optimistic. Low scorers are critical and aggressive.</p>
+  </div>
+  <div id="_CSN" class="tabcontent">
+    <h3>Conscientiousness</h3>
+    <p>Individuals who score high on this factor are careful and diligent. Low scorers are impulsive and disorganized.</p>
+  </div>
+  <div id="_OPN" class="tabcontent">
+    <h3>Openness to Experience</h3>
+    <p>People who score low tend to be traditional and conventional.</p>
+  </div>
+  <button class="indexbutton" onclick="window.location.href ='../../index.html';" >Go back to menu</button>
+<script src="results.js"></script>
+</body>
+</html>

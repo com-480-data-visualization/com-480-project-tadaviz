@@ -4,12 +4,12 @@
 /**
  * Base styles
  */
-body,
-html {
-  /*background: #080616;*/
-  font-family: 'Roboto', sans-serif;
-  text-align: center;
-}
+ body,
+ html {
+   /*background: #080616;*/
+   font-family: 'Roboto', sans-serif;
+   text-align: center;
+ }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
@@ -22,27 +22,25 @@ h1 {
   color: #fff;
 }
 
-button {
-  background-color: #0D52E9;
-  position: relative;
-  color: #fff;
-  border: none;
-  padding: 1.25em 2em;
-  font-size: 0.75em;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  -webkit-transition: background 0.25s cubic-bezier(0.55, 0, 0.1, 1);
-  transition: background 0.25s cubic-bezier(0.55, 0, 0.1, 1);
-}
 
-button:hover {
-  background: #0c4ddb;
-}
-button:focus {
-  outline: none;
-}
 
+
+
+
+
+#resultbutton {
+  animation: 10s fadeIn;
+  animation-fill-mode: forwards;
+  visibility: hidden
+}
+@keyframes fadeIn {
+  99% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
 /**
  * Overlay
  * -- only show for tablet and up
@@ -64,7 +62,6 @@ button:focus {
     width: 100%;
     height: 100%;
     z-index: 5;
-    background-color: rgba(0, 0, 0, 0.6);
     opacity: 0;
     visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -80,7 +77,10 @@ button:focus {
 /**
  * Modal
  */
+
+
 .modal {
+  font-family: 'Baloo Paaji', cursive;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -91,13 +91,12 @@ button:focus {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
-  margin: 0 auto;
-  background-color: #0c4ddb;
-  width: 600px;
+  margin-top: 0 auto;
+  background-color: #1e90ff;
   max-width: 75rem;
-  min-height: 20rem;
+  min-height: 50rem;
   padding: 1rem;
-  border-radius: 3px;
+  border-radius: 30px;
   opacity: 0;
   overflow-y: auto;
   visibility: hidden;
@@ -177,3 +176,218 @@ button:focus {
     right: 20px !important;
   }
 }
+
+
+
+
+
+.container{
+  width: 800px;
+  height: 400px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+#first, #second{
+  font-size: 50px;
+
+}
+
+.text{
+  width: 100%;
+  float: left;
+  color: #ffffff;
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+  transform: translateY(-50px);
+  opacity: 0;
+  animation-name: titleAnimation;
+  animation-timing-function:ease;
+  animation-duration: 3s;
+}
+
+#first .text{
+  animation-delay: 0.6s;
+  -webkit-animation-fill-mode: forwards;
+
+  &:first-child{
+    animation-delay: 0.7s;
+
+  }
+
+  &:last-child{
+    color: #ffe221;
+    animation-delay: 0.5s;
+  }
+}
+
+#second{
+  position: absolute;
+}
+
+.text{
+  animation-delay: 4.1s;
+  -webkit-animation-fill-mode: forwards;
+
+  &:first-child{
+    animation-delay: 4.2s;
+
+  }
+
+  &:last-child{
+    color: #ffe221;
+    animation-delay: 4s;
+  }
+}
+
+
+
+@keyframes titleAnimation {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+      -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+  }
+  20% {
+      transform: translateY(0);
+      opacity: 1;
+      -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+  }
+  80% {
+       transform: translateY(0);
+       opacity: 1;
+      -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+  }
+  100% {
+       transform: translateY(50px);
+       opacity: 0;
+      -webkit-clip-path: polygon(100% 0, 100% -0%, 0 100%, 0 100%);
+      clip-path: polygon(100% 0, 100% -0%, 0 100%, 0 100%);
+
+  }
+}
+
+
+
+.animate {
+  text-align: center;
+}
+
+.animate b {
+	display: inline-block;
+}
+
+.animate b:nth-of-type(1) {
+	animation-delay: 8s;
+}
+.animate b:nth-of-type(2) {
+	animation-delay: 8.05s;
+}
+.animate b:nth-of-type(3) {
+	animation-delay: 8.1s;
+}
+.animate b:nth-of-type(4) {
+	animation-delay: 8.15s;
+}
+.animate b:nth-of-type(5) {
+	animation-delay: 8.2s;
+}
+.animate b:nth-of-type(6) {
+	animation-delay: 8.25s;
+}
+.animate b:nth-of-type(7) {
+	animation-delay: 8.3s;
+}
+.animate b:nth-of-type(8) {
+	animation-delay: 8.35s;
+}
+.animate b:nth-of-type(9) {
+	animation-delay:  8.4s;
+}
+.animate b:nth-of-type(10) {
+	animation-delay:  8.45s;
+}
+.animate b:nth-of-type(11) {
+	animation-delay:  8.5s;
+}
+.animate b:nth-of-type(12) {
+	animation-delay:  8.55s;
+}
+.animate b:nth-of-type(13) {
+	animation-delay:  8.6s;
+}
+.animate b:nth-of-type(14) {
+	animation-delay:  8.65s;
+}
+.animate b:nth-of-type(15) {
+	animation-delay:  8.7s;
+}
+.animate b:nth-of-type(16) {
+	animation-delay:  8.75s;
+}
+.animate b:nth-of-type(17) {
+	animation-delay:  8.8s;
+}
+.animate b:nth-of-type(18) {
+	animation-delay:  8.85s;
+}
+.animate b:nth-of-type(19) {
+	animation-delay: 8.9s;
+}
+.animate b:nth-of-type(20) {
+	animation-delay: 8.95s;
+}
+.animate b:nth-of-type(21) {
+	animation-delay: 9s;
+}
+.animate b:nth-of-type(22) {
+	animation-delay: 9.05s;
+}
+.animate b:nth-of-type(23) {
+	animation-delay: 9.1s;
+}
+.animate b:nth-of-type(24) {
+	animation-delay: 9.15s;
+}
+.animate b:nth-of-type(25) {
+	animation-delay: 9.2s;
+}
+.animate b:nth-of-type(26) {
+	animation-delay: 9.25s;
+}
+.animate b:nth-of-type(27) {
+	animation-delay: 9.3s;
+}
+.animate b:nth-of-type(28) {
+	animation-delay: 9.35s;
+}
+.animate b:nth-of-type(29) {
+	animation-delay:  9.4s;
+}
+.animate b:nth-of-type(30) {
+	animation-delay:  9.45s;
+}
+/* country name animation */
+
+.response b {
+  font-family: 'Baloo Paaji', cursive;
+  font-size: 80px;
+	color: #ddb40f;
+	opacity: 0;
+	transform: rotate(-180deg) translate(150px, 0);
+	animation: twister .5s forwards;
+}
+
+
+@keyframes twister {
+	10% {
+		opacity: 1;
+	}
+	100% {
+		transform: rotate(0deg) translate(0);
+		opacity: 1;
+	}
+}id="first"
