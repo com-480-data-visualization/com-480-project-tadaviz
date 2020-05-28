@@ -1,31 +1,4 @@
-/**
- * Variables
- */
-/**
- * Base styles
- */
- body{
-   font-family: 'Roboto', sans-serif;
-   text-align: center;
-
-   color: #fff;
- }
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
-}
-
-h1 {
-  font-size: 2rem;
-  font-weight: 300;
-  margin: 30 auto;
-}
-
-
-
-
-
-
+/*pop up window at the end of the quizz*/
 
 #resultbutton {
   animation: 10s fadeIn;
@@ -79,7 +52,7 @@ h1 {
 
 
 .modal {
-  font-family: 'Baloo Paaji', cursive;
+  font-family: 'Baloo Paaji', 'cursive';
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

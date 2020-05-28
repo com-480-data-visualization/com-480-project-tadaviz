@@ -1,3 +1,5 @@
+
+//code to handle popup window at the end of the quizz
 $(document).delegate(".submit-button",'click',async function(){
   await new Promise(r => setTimeout(r, 100));
   var elements = $('.modal-overlay, .modal');

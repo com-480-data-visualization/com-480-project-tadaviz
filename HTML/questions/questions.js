@@ -1,4 +1,4 @@
-//// VARIABLES
+//code to load the question
 
 const NBR_ANSWER = 5;
 const personalities = ["EXT", "EST", "AGR", "CSN", "OPN"];
@@ -170,7 +170,6 @@ async function submit(){
       best_distance = Math.sqrt(l2_distance);
     }
   }
-  //sessionStorage.setItem('label', 'value')
 Object.keys(scores).forEach((item, i) => {
   console.log(item)
   localStorage.setItem(item, scores[item])
@@ -199,7 +198,7 @@ matching_country.split("").forEach((item, i) => {
     '<div class="animate response">'+
 
   			country_to_display+'</br>'+
-        '<button id="resultbutton"onclick="window.location.href = '+"'results.html'"+';">Learn more </button>'+
+        '<button id="resultbutton" class = "qbutton" onclick="window.location.href = '+"'results/results.html'"+';">Learn more </button>'+
   	'</div>'+
 
   '</section>';
@@ -210,9 +209,4 @@ matching_country.split("").forEach((item, i) => {
   let submit_button = document.getElementById("submit_button");
   submit_button.onclick = function(){};
 
-  /*
-  // OR
-  document.getElementById("button-box").innerHTML =
-  '<button class="submit-button button trigger" id="submit_button">Submit</button>';
-  */
 }
