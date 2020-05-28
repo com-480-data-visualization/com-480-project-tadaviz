@@ -1,0 +1,366 @@
+/*pop up window at the end of the quizz*/
+
+#resultbutton {
+  margin-top: 30px;
+  animation: 10s fadeIn;
+  animation-fill-mode: forwards;
+  visibility: hidden
+}
+@keyframes fadeIn {
+  99% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+/**
+ * Overlay
+ * -- only show for tablet and up
+ */
+@media only screen and (min-width: 40em) {
+  .modal-overlay {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), visibility 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), visibility 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  }
+  .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+/**
+ * Modal
+ */
+
+
+.modal {
+  font-family: 'Baloo Paaji', 'cursive';
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  margin-top: 0 auto;
+  background-color: #1e90ff;
+  max-width: 75rem;
+  min-height: 50rem;
+  padding: 1rem;
+  border-radius: 30px;
+  opacity: 0;
+  overflow-y: auto;
+  visibility: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.modal .close-modal {
+  position: absolute;
+  cursor: pointer;
+  top: 5px;
+  right: 15px;
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), transform 0.6s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+.modal .close-modal svg {
+  width: 1.75em;
+  height: 1.75em;
+}
+.modal .modal-content {
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+.modal.active {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+.modal.active .modal-content {
+  opacity: 1;
+}
+.modal.active .close-modal {
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  opacity: 1;
+}
+
+/**
+ * Mobile styling
+ */
+@media only screen and (max-width: 39.9375em) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 0;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    padding: 0 !important;
+  }
+
+  .close-modal {
+    right: 20px !important;
+  }
+}
+
+
+
+
+
+.container{
+  width: 800px;
+  height: 400px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+#first, #second{
+  font-size: 50px;
+
+}
+
+.text{
+  width: 100%;
+  float: left;
+  color: #ffffff;
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+  transform: translateY(-50px);
+  opacity: 0;
+  animation-name: titleAnimation;
+  animation-timing-function:ease;
+  animation-duration: 3s;
+}
+
+#first .text{
+  animation-delay: 0.6s;
+  -webkit-animation-fill-mode: forwards;
+
+  &:first-child{
+    animation-delay: 0.7s;
+
+  }
+
+  &:last-child{
+    color: #ffe221;
+    animation-delay: 0.5s;
+  }
+}
+
+#second{
+  position: absolute;
+}
+
+.text{
+  animation-delay: 4.1s;
+  -webkit-animation-fill-mode: forwards;
+
+  &:first-child{
+    animation-delay: 4.2s;
+
+  }
+
+  &:last-child{
+    color: #ffe221;
+    animation-delay: 4s;
+  }
+}
+
+
+
+@keyframes titleAnimation {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+      -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+  }
+  20% {
+      transform: translateY(0);
+      opacity: 1;
+      -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+  }
+  80% {
+       transform: translateY(0);
+       opacity: 1;
+      -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+  }
+  100% {
+       transform: translateY(50px);
+       opacity: 0;
+      -webkit-clip-path: polygon(100% 0, 100% -0%, 0 100%, 0 100%);
+      clip-path: polygon(100% 0, 100% -0%, 0 100%, 0 100%);
+
+  }
+}
+
+
+
+.animate {
+  text-align: center;
+}
+
+.animate b {
+	display: inline-block;
+}
+
+.animate b:nth-of-type(1) {
+	animation-delay: 8s;
+}
+.animate b:nth-of-type(2) {
+	animation-delay: 8.05s;
+}
+.animate b:nth-of-type(3) {
+	animation-delay: 8.1s;
+}
+.animate b:nth-of-type(4) {
+	animation-delay: 8.15s;
+}
+.animate b:nth-of-type(5) {
+	animation-delay: 8.2s;
+}
+.animate b:nth-of-type(6) {
+	animation-delay: 8.25s;
+}
+.animate b:nth-of-type(7) {
+	animation-delay: 8.3s;
+}
+.animate b:nth-of-type(8) {
+	animation-delay: 8.35s;
+}
+.animate b:nth-of-type(9) {
+	animation-delay:  8.4s;
+}
+.animate b:nth-of-type(10) {
+	animation-delay:  8.45s;
+}
+.animate b:nth-of-type(11) {
+	animation-delay:  8.5s;
+}
+.animate b:nth-of-type(12) {
+	animation-delay:  8.55s;
+}
+.animate b:nth-of-type(13) {
+	animation-delay:  8.6s;
+}
+.animate b:nth-of-type(14) {
+	animation-delay:  8.65s;
+}
+.animate b:nth-of-type(15) {
+	animation-delay:  8.7s;
+}
+.animate b:nth-of-type(16) {
+	animation-delay:  8.75s;
+}
+.animate b:nth-of-type(17) {
+	animation-delay:  8.8s;
+}
+.animate b:nth-of-type(18) {
+	animation-delay:  8.85s;
+}
+.animate b:nth-of-type(19) {
+	animation-delay: 8.9s;
+}
+.animate b:nth-of-type(20) {
+	animation-delay: 8.95s;
+}
+.animate b:nth-of-type(21) {
+	animation-delay: 9s;
+}
+.animate b:nth-of-type(22) {
+	animation-delay: 9.05s;
+}
+.animate b:nth-of-type(23) {
+	animation-delay: 9.1s;
+}
+.animate b:nth-of-type(24) {
+	animation-delay: 9.15s;
+}
+.animate b:nth-of-type(25) {
+	animation-delay: 9.2s;
+}
+.animate b:nth-of-type(26) {
+	animation-delay: 9.25s;
+}
+.animate b:nth-of-type(27) {
+	animation-delay: 9.3s;
+}
+.animate b:nth-of-type(28) {
+	animation-delay: 9.35s;
+}
+.animate b:nth-of-type(29) {
+	animation-delay:  9.4s;
+}
+.animate b:nth-of-type(30) {
+	animation-delay:  9.45s;
+}
+/* country name animation */
+
+.response b {
+  font-family: 'Baloo Paaji', cursive;
+  font-size: 80px;
+	color: #ddb40f;
+	opacity: 0;
+	transform: rotate(-180deg) translate(150px, 0);
+	animation: twister .5s forwards;
+}
+
+
+@keyframes twister {
+	10% {
+		opacity: 1;
+	}
+	100% {
+		transform: rotate(0deg) translate(0);
+		opacity: 1;
+	}
+}id="first"
