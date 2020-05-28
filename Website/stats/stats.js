@@ -45,8 +45,12 @@ async function load_dropdown_menu(){
 		sub_HTML = '<menuitem><a>' + personalities[p] + '</a><menu>';
 		for(let i = 1; i < 11; i++){
 			sub_HTML += '<menuitem id = ' + personalities[p] + i.toString() +
-			' onclick = update_bar_plot("' + personalities[p] + i.toString() + '")><a>' +
-			personalities[p] + i.toString() + '</a></menuitem>';
+						' onclick = update_bar_plot("' + personalities[p] + i.toString()+'")'+
+						' onmouseleave=expand_not("' + personalities[p] + i.toString()+'")' +
+						' onmouseenter=expand("' + personalities[p] + i.toString() +
+						'")><a' +
+						 ' id="text'+personalities[p] + i.toString()+'">' +
+						personalities[p] + i.toString() + '</a></menuitem>';
 		}
 		sub_HTML += '</menu></menuitem>';
 		question_HTML += sub_HTML;
@@ -128,3 +132,18 @@ function update_bar_plot(question_id){
 		bar_plot.update_plot({"name": questions_corpus[data['id']], "id": data['id'], "distribution": data['distribution'], "x": xAxis});
 	}
 }
+
+function expand(question_id){
+	//commentaire important pour mon super-poto
+	 console.log("prout" + "Du love pour mon kenyu");
+	 let to_change_text=document.getElementById("text"+question_id);
+	 to_change_text.classList.add("expand");
+	 to_change_text.textContent=questions_corpus[question_id];
+}
+	function expand_not(question_id){
+
+	 let to_change_text=document.getElementById("text"+question_id);
+	 to_change_text.classList.remove("expand");
+	 to_change_text.textContent=question_id;
+
+	}
