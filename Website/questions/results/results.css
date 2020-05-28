@@ -1,0 +1,135 @@
+body {
+  text-align: center;
+  background-color: #EEEEEE;
+  font-family: 'nunito';
+}
+
+svg{
+  border-radius: 10px;
+  background-color: rgb(202, 211, 200);
+}
+
+/* Style the bar chart */
+.text{
+
+  display:inline-block;
+  width: 60%;
+  margin:20px auto
+}
+
+.active {
+  background-color: #ccc !important;
+}
+
+
+.bar {
+    fill: #5f89ad;
+}
+
+.axis {
+    font-size: 13px;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    display: none;
+}
+
+.label {
+    font-size: 13px;
+}
+
+#EXT{
+    fill:  #b71540;
+}
+
+#EST{
+  fill: #0a3d62;
+}
+
+#OPN{
+  fill: #e58e26;
+}
+
+#AGR{
+  fill: #079992;
+}
+
+#CSN{
+  fill: #1e3799;
+}
+
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  display: inline-block;
+  margin: auto;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab .tablinks {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab .tablinks:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 100px;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+/*Style the button*/
+.indexbutton {
+  margin-top:50px;
+  background-color: #0D52E9;
+  position: relative;
+  color: #fff;
+  border: none;
+  padding: 1.25em 2em;
+  font-size: 0.75em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  -webkit-transition: background 0.25s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: background 0.25s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.indexbutton:hover {
+  background: #0c4ddb;
+}
+.indexbutton:focus {
+  outline: none;
+}
