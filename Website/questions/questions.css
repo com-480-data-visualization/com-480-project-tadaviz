@@ -3,7 +3,6 @@
   color: #ECEFF1;
 }
 
-
 #qtitle {
  font-size: 2rem;
  font-weight: 300;
@@ -11,7 +10,7 @@
 }
 
 #intro{
-  text-align:justify;
+  text-align:center;
   position: relative;
   left:15%;
   width:70%;
@@ -45,13 +44,13 @@
     box-shadow 0.3s,
     transform 0.3s;
   cursor: pointer;
-  background: #546E7A;
+  background: #2F4A6D;
 }
 
 .qbutton:hover, .submit-button:hover {
   box-shadow: 0 3px 5px -5px rgba(0, 0, 0, 0.3);
   color:#CFD8DC ;
-  background:#455A64;
+  background:#2F4A6D;
 }
 
 
@@ -63,15 +62,15 @@
   padding: 1.3em;
   background: #292942;
   border-radius: .75em;
-  -webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,0,.3));
-  filter: drop-shadow(1px 2px 5px #03A9F4);
+  /*filter: drop-shadow(1px 2px 15px #2F4A6D);*/
+  filter: drop-shadow(1px 2px 15px rgba(243,49,128,.6));
   box-shadow:
-    0 2px 2px rgba(243,49,128,.5),
+/*    0 2px 2px rgba(243,49,128,.5),
     0 0px 5px rgba(243,49,128,.15),
     0 0px 4px rgba(0,0,0,.35),
-    0 5px 20px rgba(243,49,128,.25),
+    0 5px 20px rgba(243,49,128,.25),*/
     0 15px 50px rgba(243,49,128,.75),
-    inset 0 0 15px rgba(255,255,255,.05);
+    inset 0 0 15px rgba(255,255,255,.05);*/
 }
 
 
@@ -119,4 +118,43 @@
 
 .question_text{
   text-align:justify;
+}
+
+.main-content {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h1 {
+  cursor: pointer;
+}
+
+h1 {
+  position: center;
+  color: #fff;
+  font: 200 30px Montserrat;
+  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  letter-spacing: 25px;
+}
+
+.concept {
+  position: relative;
+  padding: 5em;
+  height: 100%;
+  scroll-snap-align: center;
+}
+
+.concept:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(#2F4A6D, transparent);
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.concept:hover:before {
+  opacity: 0.5;
 }
