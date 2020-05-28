@@ -81,9 +81,9 @@ function load_country_data(){
 
 	// Load the search dropdown menu and fill it
 	let country_menu = document.getElementById("country_list");
-	let country_menu_HTML = "<li>"+"GLOBAL"+"</li>";
+	let country_menu_HTML = "<li id=statsli>"+"GLOBAL"+"</li>";
 	for (let c_name of country_names){
-		country_menu_HTML += "<li>"+c_name+"</li>";
+		country_menu_HTML += "<li id=statsli>"+c_name+"</li>";
 	}
 	country_menu.innerHTML += country_menu_HTML;
 	refresh();

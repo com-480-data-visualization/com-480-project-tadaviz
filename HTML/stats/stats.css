@@ -1,97 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 
+/* style for country selection object*/
 
-#buttons {
-  position: relative;
-
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  min-width: 600px;
-  height: 100px;
+#stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex: center;
-  align-items: center;
-  justify-content: space-around;
-}
-button {
-  width: 163px;
-  height: 46.06px;
-  background: rgba(199, 248, 60, 0.6);
-  border-radius: 20px;
-
-  font-family: Reem Kufi;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 27px;
-  border: 2px solid rgba(199, 248, 60, 0.6);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  /*font-family: 'Ek Mukta';*/
+  font-weight: 600;
 }
 
-button:hover {
-  /*width: 163px;
-  height: 46.06px;*/
-  background: #d2fba4;
-  border: 2px solid #c7f83c;
-  box-sizing: border-box;
-  border-radius: 20px;
+#statstitle {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  max-width: 500px;
+  letter-spacing: 3px;
+  text-align: center;
+  line-height: 1.5;
+  font-family: 'Open Sans';
+  text-transform: capitalize;
+  font-weight: 800;
+  color: white;
 }
-button:active {
-  border: 2px solid #1d741b;
-}
-.separator {
-  width: 0px;
-  height: 60px;
-  border: 1px solid #000000;
+#effect1 {
+  color: #FF908B;
 }
 
-/**
-#graph{
-margin-top: auto;
-margin-left: auto;
-margin-right: auto;
-min-width: 500px;
-width: 70%;
-height: 600px;
-background: rgba(50, 100, 200, 0.80);
-border: 1px solid #000000;
-box-sizing: border-box;
-}
-**/
-
-/*
-
-.stat_buttons{
+#statsform {
   position: relative;
-  margin-top:2%;
-  margin-left:5px;
-  background-color:white;
-  height: 10%;
-  width:20%;
+  width: 18rem;
 }
-.stat_buttons:hover {
-  width: 163px;
-  height: 46.06px;
-  background: white;
-  border: 2px solid #c7f83c;
+
+.country,
+.country_list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.country {
+  /*font-family: 'Ek Mukta';*/
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 4px;
+  border-radius: 3px;
+  font-size: 1.1rem;
+  padding: 15.5px;
+  background-color: #FAFCFD;
+  border: 3px solid transparent;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  margin: 0;
+  margin-left: 13px;
   box-sizing: border-box;
-  border-radius: 20px;
 }
-.stat_buttons:active {
-  border: 2px solid #1d741b;
+.country::-webkit-input-placeholder {
+  color: #333;
 }
-#info{
+.country:hover {
+  background-color: #FF908B;
+  cursor: pointer;
+}
+.country:hover::-webkit-input-placeholder {
+  color: #333;
+}
+.country:focus, .country.open {
+  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  outline: 0;
+  background-color: #FF908B;
+  color: #000;
+}
+.country:focus::-webkit-input-placeholder, .country.open::-webkit-input-placeholder {
+  color: #000;
+}
+
+.country_list {
+  list-style: none;
+  margin-top: 4rem;
+  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.country_list.open {
+  max-height: 320px;
+  overflow: auto;
+}
+#statsli {
   position: relative;
-  margin-left : auto;
-  margin-top: auto;
-  transform : translate(-15%, -50%);
-  background-color: white;
-  width:20%;
-  height:20%;
-  border: 2px solid #1d741b;
+  height: 4rem;
+  background-color: #FAFCFD;
+  padding: 1rem;
+  font-size: 1.1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
+  opacity: 1;
+}
+#statsli:hover {
+  background-color: #FF908B;
+}
+#statsli.closed {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  opacity: 0;
+}
+
+
+
+/* style for question selection object*/
+#navstats {
+  width: 100%;
+  margin-top: 40px;
+}
+
+#question{
+  margin-left: 20px;
+}
+nav menuitem {
+   position:relative;
+   display:block;
+   opacity:0;
+   cursor:pointer;
 
 }
-.stat_text{
-  transform : translate(15%, -50%);
 
+nav menuitem > menu {
+   position: absolute;
+   pointer-events:none;
 }
-*/
+nav > menu { display:flex; }
+
+nav > menu > menuitem { pointer-events: all; opacity:1; }
+menu menuitem a { white-space:nowrap; display:block; }
+
+menuitem:hover > menu {
+   pointer-events:initial;
+}
+menuitem:hover > menu > menuitem,
+menu:hover > menuitem{
+   opacity:1;
+}
+nav > menu > menuitem menuitem menu {
+   transform:translateX(100%);
+   top:0; right:0;
+}
+/* User Styles Below Not Required */
+/* User Styles Below Not Required */
+/* User Styles Below Not Required */
+
+
+nav a {
+   background:#75F;
+   color:#FFF;
+   min-width:190px;
+   transition: background 0.5s, color 0.5s, transform 0.5s;
+   margin:0px 6px 6px 0px;
+   padding:20px 40px;
+   box-sizing:border-box;
+   border-radius:3px;
+   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+   position:relative;
+}
+
+nav a:hover:before {
+   content: '';
+   top:0;left:0;
+   position:absolute;
+   background:rgba(0, 0, 0, 0.2);
+   width:100%;
+   height:100%;
+}
+
+nav > menu > menuitem > a + menu:after{
+   content: '';
+   position:absolute;
+   border:10px solid transparent;
+   border-top: 10px solid white;
+   left:12px;
+   top: -40px;
+}
+nav menuitem > menu > menuitem > a + menu:after{
+   content: '';
+   position:absolute;
+   border:10px solid transparent;
+   border-left: 10px solid white;
+   top: 20px;
+   left:-180px;
+   transition: opacity 0.6, transform 0s;
+}
+
+nav > menu > menuitem > menu > menuitem{
+   transition: transform 0.6s, opacity 0.6s;
+   transform:translateY(150%);
+   opacity:0;
+}
+nav > menu > menuitem:hover > menu > menuitem,
+nav > menu > menuitem.hover > menu > menuitem{
+   transform:translateY(0%);
+   opacity: 1;
+}
+
+menuitem > menu > menuitem > menu > menuitem{
+   transition: transform 0.6s, opacity 0.6s;
+   transform:translateX(195px) translateY(0%);
+   opacity: 0;
+}
+menuitem > menu > menuitem:hover > menu > menuitem,
+menuitem > menu > menuitem.hover > menu > menuitem{
+   transform:translateX(0) translateY(0%);
+   opacity: 1;
+}

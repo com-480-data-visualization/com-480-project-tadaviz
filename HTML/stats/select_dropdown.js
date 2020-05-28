@@ -1,4 +1,4 @@
-'use strict';
+// Code for the country selection object
 
 // VARIABLES
 let inputField;
@@ -12,8 +12,6 @@ function refresh(){
   let dropdownArray = [... document.querySelectorAll('li')];
   inputField.value = "GLOBAL";
 
-  //dropdown.classList.add('open');
-  //inputField.focus(); // Demo purposes only
 
   let valueArray = [];
   dropdownArray.forEach(item => {

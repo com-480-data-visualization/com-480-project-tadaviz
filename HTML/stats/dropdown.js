@@ -1,4 +1,4 @@
-// For the thumbnail demo! :]
+// Code for the question selection object
 
 var count = 1
 setTimeout(demo, 500)

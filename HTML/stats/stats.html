@@ -4,14 +4,12 @@
   <meta charset="UTF-8">
   <title>Stats</title>
   <link rel="stylesheet" href="stats.css">
-  <link rel="stylesheet" href="select_dropdown.css">
-  <link rel="stylesheet" href="../barplot/bar_plot.css">
-  <link rel="stylesheet" href="dropdown.css">
+  <link rel="stylesheet" href="bar_plot.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <link rel="stylesheet" href="../menu.css">
 </head>
-<body>
+<body id= 'stats'>
   <div class="menu" id = 'menu'>
     <div class="card" name = 'card' onclick="window.location.href = '../map/map.html';" >
 
@@ -60,17 +58,20 @@
     </div>
 
   </div>
-<!--<h1><span>Visualize</span> answers from <span> the world</span> <br />select a country</h1>-->
-<form>
-  <input class="country" type="text" value="" placeholder="Country...">
-  <ul class="country_list" id="country_list">
-  </ul>
-</form>
+<h1 id='statstitle'><span id='effect1'>Visualize</span> answers from <span id='effect1'> the world</span></h1>
+
 
 <div id='layout'>
+
   <!--Drop down menu-->
-  <nav>
+  <nav id='navstats'>
+
 		<menu>
+      <form id='statsform'>
+        <input class="country" type="text" value="" placeholder="Country...">
+        <ul class="country_list" id="country_list">
+        </ul>
+      </form>
 			<menuitem id = "question">
 				<a>Question</a>
 			</menuitem>
@@ -82,7 +83,7 @@
 		</menu>
 	</nav>
   <!-- <h2>Bar chart example</h2> -->
-  <div id='container'>
+  <div id='chartcontainer'>
     <svg id='barplot' viewBox='0 0 800 600'/>
   </div>
 
@@ -104,7 +105,7 @@
 
 <!-- partial -->
 <script src="../menu.js"></script>
-<script src="../barplot/bar_plot.js"></script>
+<script src="bar_plot.js"></script>
 <script src="stats.js"></script>
 <script src="dropdown.js"></script>
 <script src="select_dropdown.js"></script>
