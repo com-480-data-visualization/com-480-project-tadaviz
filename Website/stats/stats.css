@@ -236,9 +236,6 @@ menuitem > menu > menuitem.hover > menu > menuitem{
 }
 
 
-
-
-
 .main-content {
   text-align: center;
   text-transform: uppercase;
@@ -270,7 +267,7 @@ h1 {
   height: 100%;
   top: 0;
   left: 0;
-  background: radial-gradient(rgba(50, 50, 150, 0.3), transparent);
+  background: radial-gradient(#2F4A6D, transparent);
   opacity: 0;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
