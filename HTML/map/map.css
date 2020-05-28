@@ -10,6 +10,13 @@
   width:50%;
 }
 
+.context {
+  margin:20px  auto;
+  width:80%;
+  text-align: left;
+  color:white;
+}
+
 .info {
 
   padding: 6px 8px;
@@ -41,7 +48,7 @@
 select {
   position: relative;
   display: flex;
-  width: 10em;
+  width: 13em;
   height: 3em;
   line-height: 3;
   background: rgba(255,255,255,0.8);

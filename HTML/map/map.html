@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../menu.css">
   </head>
   <body>
+
     <div class="menu" id = 'menu'>
       <div class="fixcard" name = 'card' >
 
@@ -61,12 +62,25 @@
       </div>
 
     </div>
+
+    <div class='context'>
+      Here you will be able to visualize different data about personality for each country.</br>
+      You can, for exemple, check if there is any relation between the dominant trait of a country
+      and its happiness score.
+    </div>
     <div id="mapid" ></div>
+
+    <div class='context'>
+      Note about the radar graph: If the score of a trait on the axis on the origin mean that the country had the small mean to this trait, but doesn't mean the score is zero
+    </br>
+      Note about Sensitive Trait: The sensitive trait correspond to the trait where the question related to it in the personality test take the longest time for the respondents of the given country
+    </div>
     <script src="../menu.js"></script>
     <script src="../../Data/jsoncountriesdata.js"></script>
     <script src="../../Data/respondents_count.js"></script>
     <script src="../../Data/country_sensitive_trait.js"></script>
     <script src="../../Data/country_trait.js"></script>
+    <script src="../../Data/country_happiness_level.js"></script>
     <script src="map-function.js"></script>
     <script src="map.js"></script>
     <script src="../lib/d3.min.js"></script>

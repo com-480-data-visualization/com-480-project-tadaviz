@@ -19,6 +19,15 @@ function getRespColor(d) {
                       '#f0f0f0';
 }
 
+function getHappyColor(d) {
+    return d > 7 ? '#558B2F' :
+           d > 6  ? '#7CB342' :
+           d > 5  ? '#FFC107' :
+           d > 4  ? '#FF6E40' :
+           d > 0   ? '#FF3D00' :
+                      '#f0f0f0';
+}
+
 function respondentstyle(feature) {
     return {
         fillColor: getRespColor(respondents_by_country[feature.properties.iso_a2]),
@@ -34,6 +43,20 @@ function dominantstyle(feature) {
     trait = (item? item["dominant trait"]:undefined)
     return {
         fillColor: getSensColor(trait),
+        weight: 1,
+        opacity: 1,
+        color: 'white',
+        fillOpacity: 0.7
+    };
+}
+
+function happystyle(feature) {
+  let score;
+  if (country_happiness_level[feature.properties.iso_a2]){
+    score = country_happiness_level[feature.properties.iso_a2]['score'];
+  }
+    return {
+        fillColor: getHappyColor(score),
         weight: 1,
         opacity: 1,
         color: 'white',
@@ -63,7 +86,7 @@ function defaultstyle() {
     };
 }
 
-codebook = {'EXT':'extraversion','EST':'emotional stability','CSN':'consciousness','AGR':'agreeableness','OPN':'openness to new experience'};
+codebook = {'EXT':'extraversion','EST':'emotional stability','CSN':'consciousness','AGR':'agreeableness','OPN':'openness to experience'};
 
 function show_instruction(container,props) {
   container.innerHTML = (props ?
@@ -155,7 +178,7 @@ function show_graph(container,props,acc) {
   }
 }
 
-function show_score(container, props){
+function show_happy(container, props){
   country_code=''
   if (props){
 
@@ -164,15 +187,13 @@ function show_score(container, props){
         country_code =item['Code']
       }
     });
-    if (country_score[country_code]){
+      console.log(country_code)
+    console.log(country_happiness_level[country_code])
+    if (country_happiness_level[country_code]){
       container.innerHTML ='<b>' + props.name + '</b> <br /><b>' +
-      codebook['EST'] + '</b>: ' + country_score[country_code]['EST'] + '<br /><b> '+
-      codebook['EXT']+' </b>: '  + country_score[country_code]['EXT'] + '<br /><b>' +
-      codebook['CSN']+' </b>: '  + country_score[country_code]['CSN'] + '<br /><b> '+
-      codebook['AGR']+' </b>: '  + country_score[country_code]['AGR'] + '<br /><b> '+
-      codebook['OPN']+' </b>: '  + country_score[country_code]['OPN']
+      'Happiness level</b>: ' + country_happiness_level[country_code]['score']
     } else {
-      container.innerHTML +=  'No data'
+      container.innerHTML =  '<b>' + props.name + '</b> <br />No data'
     }
 
   } else {
@@ -226,5 +247,16 @@ function trait_legend(container) {
       '<i style="background:' + getSensColor(labels[i] ) + '"></i>' +
       codebook[labels[i]] +'<br/>';
   }
+}
 
+function happy_legend(container) {
+  let grades = [0, 4,5, 6, 7];
+  container.innerHTML = '<b>Happiness level</b><br/><br/>'
+  container.innerHTML += '<i style="background:' + getHappyColor(grades[i] + 1) +
+  '"></i> ' +'No information' + '<br>'
+  for (var i = 0; i < grades.length; i++) {
+    container.innerHTML +=
+      '<i style="background:' + getHappyColor(grades[i] + 1) + '"></i> ' +
+      grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] +'<br>':'+');
+  }
 }

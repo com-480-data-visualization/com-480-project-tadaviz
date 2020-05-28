@@ -153,16 +153,14 @@ selection.onAdd = function (map) {
     option0.innerHTML = '-';
     option0.setAttribute('value','none');
     option1 = document.createElement('OPTION');
-    option1.innerHTML = 'Respondents';
+    option1.innerHTML = 'Number of respondents';
     option1.setAttribute('value','resp');
     option2 = document.createElement('OPTION');
     option2.innerHTML = 'Radar graph';
     option2.setAttribute('value','rgraph');
-    /*
     option3 = document.createElement('OPTION');
-    option3.innerHTML = 'Medium of trait';
-    option3.setAttribute('value','mtrait');
-    */
+    option3.innerHTML = 'Happiness level';
+    option3.setAttribute('value','hap');
     option4 = document.createElement('OPTION');
     option4.innerHTML = 'Sensitive trait';
     option4.setAttribute('value','strait');
@@ -170,7 +168,7 @@ selection.onAdd = function (map) {
     this._select.appendChild(option0);
     this._select.appendChild(option1);
     this._select.appendChild(option2);
-    //this._select.appendChild(option3);
+    this._select.appendChild(option3);
     this._select.appendChild(option4);
 
     this._div.appendChild(this._select);
@@ -234,8 +232,8 @@ info.update = function (props) {
     case 'rgraph':
       show_graph(this._datadiv, props, acc);
       break;
-    case 'mtrait':
-      show_score(this._datadiv, props)
+    case 'hap':
+      show_happy(this._datadiv, props)
       break;
     case 'strait':
       show_sensitive_trait(this._datadiv, props)
@@ -302,9 +300,10 @@ legend.update = function () {
       this._div.style.display = "block";
       trait_legend(this._div);
       break;
-    case 'mtrait':
-      geojson.setStyle(defaultstyle)
-      this._div.style.display = "none";
+    case 'hap':
+      geojson.setStyle(happystyle)
+      this._div.style.display = "block";
+      happy_legend(this._div)
       break;
     case 'strait':
       geojson.setStyle(sensitivitystyle);

@@ -47,8 +47,5 @@ p{
   width:70%;
   height:30%;
   padding-bottom:5%;
-}
-.welcome{
-  padding-top:5%;
-  padding-bottom:0%;
+  font-size: 1.5rem;
 }
