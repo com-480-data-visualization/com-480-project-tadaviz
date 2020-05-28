@@ -7,34 +7,62 @@
   <link rel="stylesheet" href="modal.css">
   <link rel="stylesheet" href="questions.css">
   <link rel="stylesheet" href="radio_buttons.css">
-
+  <link rel="stylesheet" href="../menu.css">
   <!--<link rel="stylesheet" href="../stats/select_dropdown.css">-->
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
 <script src="https://d3js.org/d3.v5.min.js"></script>
-<div class="margin left"></div>
-<div class="margin rigth"></div>
 <div>
 
-  <div id="buttons">
-    <div class="card">
-      <button>World Map</button>
-    </div>
-    <div class="separator">
+  <div class="menu" id = 'menu'>
+    <div class="card" name = 'card' onclick="window.location.href = '../map/map.html';" >
+
+          <div class="icon">
+            <svg class="bi bi-map" width="2em" height="2em" viewBox="0 0 16 16"
+            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M15.817.613A.5.5 0 0 1 16 1v13a.5.5
+                  0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 14.51l-4.902.98A.5.5
+                  0 0 1 0 15V2a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0l4.902.98
+                  4.902-.98a.5.5 0 0 1 .415.103zM10 2.41l-4-.8v11.98l4 .8V2.41zm1
+                  11.98l4-.8V1.61l-4 .8v11.98zm-6-.8V1.61l-4 .8v11.98l4-.8z"/>
+            </svg>
+          </div>
+          <p class="poputext">Map</p>
 
     </div>
-    <div class="card">
-      <button>Statistics</button>
+    <!-- end card -->
+    <!-- card -->
+    <div class="card" name = 'card' onclick="window.location.href = '../stats/stats.html';">
 
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+             width="2em" height="2em" viewBox="0 0 24 24">
+              <path d="M5 19h-4v-8h4v8zm6 0h-4v-18h4v18zm6 0h-4v-12h4v12zm6
+              0h-4v-4h4v4zm1 2h-24v2h24v-2z"/>
+            </svg>
+          </div>
+          <p class="poputext">Statistic</p>
     </div>
-    <div class="separator">
+    <!-- end card -->
+    <!-- card -->
+    <div class="fixcard" name = 'card' onclick="window.location.href = '../questions/questions.html';">
 
+          <div class="icon">
+            <svg class="bi bi-person-lines-fill" width="2em" height="2em" viewBox=
+            "0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1
+              1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5
+              0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0
+              1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5
+              0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5
+              -.5z"/>
+            </svg>
+          </div>
+          <p class="title">Take the test</p>
     </div>
-    <div class="card">
-      <button>Take the test!</button>
-    </div>
+
   </div>
   <h1 class="welcom intro">Hello there,</h1>
   <p class="intro"> Welcome to our TadaViz own Big Five personality test questionaire. You will have the pleasure to answer the questions and compare
@@ -54,6 +82,7 @@
 </div>
 
 <!-- partial -->
+<script src="../menu.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./modal.js"></script>
 <script  src="./radio_buttons.js"></script>

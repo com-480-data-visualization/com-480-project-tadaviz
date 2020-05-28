@@ -1,8 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body {
   display: -webkit-box;
@@ -21,10 +16,7 @@ body {
       -ms-flex-pack: start;
           justify-content: flex-start;
   /*font-family: 'Ek Mukta';*/
-  text-transform: uppercase;
   font-weight: 600;
-  /*letter-spacing: 4px;*/
-  background: #1D1F20;
 }
 
 h1 {
@@ -46,7 +38,6 @@ h1 span {
 form {
   position: relative;
   width: 18rem;
-  margin-top: 8vh;
 }
 
 .country,
@@ -69,6 +60,8 @@ form {
   border: 3px solid transparent;
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
+  margin: 0;
+  box-sizing: border-box;
 }
 .country::-webkit-input-placeholder {
   color: #333;

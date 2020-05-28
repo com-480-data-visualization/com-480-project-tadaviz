@@ -130,7 +130,7 @@ body {
    letter-spacing: 4px;
 }
 
-.card .text {
+.card .poputext {
   width: 100%;
   margin: 0;
   text-align: center;
@@ -161,7 +161,7 @@ body {
    height: 90%;
 }
 
-.card:hover .text {
+.card:hover .poputext {
    transition: all 0.3s ease;
    opacity: 1;
    max-height:40px;

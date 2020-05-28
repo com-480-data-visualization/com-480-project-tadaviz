@@ -4,7 +4,7 @@ class Barplot{
   // data must be smth like : 0: x0, 1:x1, 2:x2, ...
   constructor(data, margin, width, height){
 
-    this.svg = d3.select('svg');
+    this.svg = d3.select('#barplot');
     this.svgContainer = d3.select('#container');
 
     this.margin = margin;
