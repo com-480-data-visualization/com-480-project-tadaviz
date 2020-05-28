@@ -3,6 +3,7 @@
   width:80%;
   border-radius: 10px;
   margin: 0 auto;
+  margin-bottom: 50px;
  }
 
 .radar.radarChart{
@@ -11,10 +12,14 @@
 }
 
 .context {
-  margin:20px  auto;
-  width:80%;
-  text-align: left;
-  color:white;
+  text-align:justify;
+  position: relative;
+  left:15%;
+  width:70%;
+  height:30%;
+  padding-bottom:5%;
+  font-size: 1rem;
+  color: #ECEFF1;
 }
 
 .info {
@@ -85,4 +90,29 @@ select:hover::after {
 
 option{
   font-size: 15px;
+}
+
+.ttype{
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+#EXT{
+  background-color:  #b71540;
+}
+
+#EST{
+  background-color: #0a3d62;
+}
+
+#OPN{
+  background-color: #e58e26;
+}
+
+#AGR{
+  background-color: #079992;
+}
+
+#CSN{
+  background-color: #1e3799;
 }

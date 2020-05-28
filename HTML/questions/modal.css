@@ -1,6 +1,7 @@
 /*pop up window at the end of the quizz*/
 
 #resultbutton {
+  margin-top: 30px;
   animation: 10s fadeIn;
   animation-fill-mode: forwards;
   visibility: hidden
