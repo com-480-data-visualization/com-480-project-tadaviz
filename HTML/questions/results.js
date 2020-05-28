@@ -14,22 +14,21 @@ keys.forEach((item, i) => {
   }
 });
 
-
 //set up svg using margin conventions - we'll need plenty of room on the left for labels
 var margin = {
     top: 15,
-    right: 25,
+    right: 200,
     bottom: 15,
-    left: 60
+    left: 200
 };
 
-var width = 500 - margin.left - margin.right,
+var width = 800 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
 
 var svg = d3.select("#graphic").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .style({'display': 'block','margin': 'auto'})
+    .style({'display': 'block','margin': '0 auto'})
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 

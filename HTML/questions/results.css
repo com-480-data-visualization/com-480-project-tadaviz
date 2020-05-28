@@ -3,12 +3,22 @@ body {
   text-align: center;
 }
 
+svg{
+  border-radius: 10px;
+  background-color: rgb(202, 211, 200);
+}
 
 /* Style the bar chart */
-svg{
+.text{
 
-  margin: auto;
+  display:inline-block;
+  width: 60%;
 }
+
+.active {
+  background-color: #ccc !important;
+}
+
 
 .bar {
     fill: #5f89ad;
@@ -52,6 +62,9 @@ svg{
 /* Style the tab */
 .tab {
   overflow: hidden;
+  display: inline-block;
+  margin: auto;
+  border-radius: 10px;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
 }
@@ -73,14 +86,12 @@ svg{
 }
 
 /* Create an active/current tablink class */
-.tab .tablinks .active {
-  background-color: #ccc;
-}
+
 
 /* Style the tab content */
 .tabcontent {
   display: none;
-  padding: 6px 12px;
+  padding: 6px 100px;
   -webkit-animation: fadeEffect 1s;
   animation: fadeEffect 1s;
 }
@@ -108,6 +119,7 @@ svg{
   font-size: 0.75em;
   letter-spacing: 1px;
   text-transform: uppercase;
+  border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   -webkit-transition: background 0.25s cubic-bezier(0.55, 0, 0.1, 1);
   transition: background 0.25s cubic-bezier(0.55, 0, 0.1, 1);
