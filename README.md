@@ -140,3 +140,13 @@ Two new datasets :
 
 **80% of the final grade**
 
+### Technical emplamentation and intended usage 
+The project revolves around the answers of participants based on where they come from. The website is divided in 4 differentes pages based on what information is relevant.
+The first page is a general overview of the the different visualisation containing the three buttons leading to the map, statistics and the custom made questionnaire.
+#### Map page
+The map page is a location oriented approach where data of the number of participants, dominant trait and characteristics are shown when a country is clicked. To do so a map taken from leaflet was linked with the data. Radiographs are displayed whenever the user hovers or clicks on a country if he selected “principal traits”. The radiograph axes use min-max normalization to better render the differences between each country. The global average is used as a reference. The results can be compared to the global happiness level of each country, it is intended so that the user can make guesses and hypothesis for correlation. But no clear tool of comparison is provided to avoid any position taking from the developers in this regard. The number of users that have answered in each country is also made available to better understand the data and its weights. 
+#### General staitcs
+The statistics button is a question oriented approach where the answers of the participants are displayed in regards to each question under the hierarchy of the dominant trait they belong to (consciousness, extraversion, openness, agreeableness, emotional stability). It is also possible to filter the answers by a country. The data can therefore be based on the country of the respondent and a specific question. The bar plots are made with the d3 librairie and on hover a bar will compare itself to the others displaying the difference through a percent difference. 
+#### Custom questionaire
+After visiting the two pages the visitor might want to take the test himself so he can compare his answers to the world and see where his personality stands in the world. The questions clearly indicates to which trait they refer to. It is made so that if people want to try and match a personality from a specific country it is fully possible. 
+
