@@ -162,19 +162,11 @@ async function submit(){
       l2_distance += (s-c_s)**2;
     }
     if (Math.sqrt(l2_distance) < best_distance){
-      len = 0
-      c = ''
       ISO2_code.forEach((item, i) => {
         if (item['Code']==cs){
           matching_country = item['Name']
         }
-        if (item['Name'].length > len){
-          len = item['Name'].length
-          c = item['Name']
-        }
-      console.log(len)
       });
-      console.log(c)
       best_distance = Math.sqrt(l2_distance);
     }
   }
