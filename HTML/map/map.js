@@ -156,7 +156,7 @@ selection.onAdd = function (map) {
     option1.innerHTML = 'Number of respondents';
     option1.setAttribute('value','resp');
     option2 = document.createElement('OPTION');
-    option2.innerHTML = 'Radar graph';
+    option2.innerHTML = 'Dominant personality';
     option2.setAttribute('value','rgraph');
     option3 = document.createElement('OPTION');
     option3.innerHTML = 'Happiness level';

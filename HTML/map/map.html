@@ -63,17 +63,25 @@
 
     </div>
 
-    <div class='context'>
-      Here you will be able to visualize different data about personality for each country.</br>
-      You can, for exemple, check if there is any relation between the dominant trait of a country
-      and its happiness score.
+    <div class='context' style="font-family: 'nunito';">
+      In this section, you will be able to visualize data for each country with respect to the chosen criterion.</br>
+      The criterions are the following :
+      <ul>
+        <li><i>Number of respondents</i> : Shows the number of respondents in the dataset, at the scale of a country.</li>
+        <li><i>Dominant personality</i></li> : Shows the dominant personality trait of a given country,
+        accompanied by a radar graph which shows the distribution of the scores with respect to each personality trait.
+        The pink polygon represents the mean distribution at the scale of the world. A <i>min-max normalization</i> was applied to these distributions,
+        which explains that for some countries, their score for a given personality trait is equal to 0.
+        <li><i>Happiness level</i></li> : Shows the happiness level at the scale of a country.
+        <li><i>Sensitive trait</i></li> : Shows the sensitive trait at the scale of a country.
+        For a given country, the sensitive trait corresponds to the personality trait associated to the category of questions for which,
+        in average, the respondents took the most time to answer.
+      </ul>
     </div>
     <div id="mapid" ></div>
 
     <div class='context'>
-      Note about the radar graph: If the score of a trait on the axis on the origin mean that the country had the small mean to this trait, but doesn't mean the score is zero
     </br>
-      Note about Sensitive Trait: The sensitive trait correspond to the trait where the question related to it in the personality test take the longest time for the respondents of the given country
     </div>
     <script src="../menu.js"></script>
     <script src="../../Data/jsoncountriesdata.js"></script>

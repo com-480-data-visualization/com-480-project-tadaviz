@@ -10,8 +10,13 @@
  margin: 30 auto;
 }
 
+<<<<<<< HEAD
 #intro{
   text-align:justify;
+=======
+
+#buttons {
+>>>>>>> 4a21e8903b88302fc9dfabf9a1cd9991d0fb1a88
   position: relative;
   left:15%;
   width:70%;
@@ -119,4 +124,17 @@
 
 .question_text{
   text-align:justify;
+<<<<<<< HEAD
+=======
+  /*font-family: Reem Kufi;*/
+}
+.intro{
+  position: relative;
+  left:15%;
+  width:70%;
+  height:30%;
+  padding-bottom:5%;
+  font-size: 1.5rem;
+  font-family: 'nunito';
+>>>>>>> 4a21e8903b88302fc9dfabf9a1cd9991d0fb1a88
 }
