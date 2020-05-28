@@ -49,6 +49,7 @@ async function load_dropdown_menu(){
 						' onmouseleave=expand_not("' + personalities[p] + i.toString()+'")' +
 						' onmouseenter=expand("' + personalities[p] + i.toString() +
 						'")><a' +
+							' class="fixed"' +
 						 ' id="text'+personalities[p] + i.toString()+'">' +
 						personalities[p] + i.toString() + '</a></menuitem>';
 		}
@@ -134,16 +135,30 @@ function update_bar_plot(question_id){
 }
 
 function expand(question_id){
-	//commentaire important pour mon super-poto
-	 console.log("prout" + "Du love pour mon kenyu");
 	 let to_change_text=document.getElementById("text"+question_id);
+	 to_change_text.classList.remove("fixed");
 	 to_change_text.classList.add("expand");
+	 if (to_change_text.classList.contains("unexpand")){
+		 to_change_text.classList.remove("unexpand");
+	 }
+
 	 to_change_text.textContent=questions_corpus[question_id];
 }
 	function expand_not(question_id){
 
-	 let to_change_text=document.getElementById("text"+question_id);
-	 to_change_text.classList.remove("expand");
-	 to_change_text.textContent=question_id;
+	 // let to_change_text=document.getElementById("text"+question_id);
+	 // to_change_text.classList.add("fixed");
+	 // to_change_text.classList.add("unexpand");
+	 // to_change_text.classList.remove("expand");
+	 // to_change_text.textContent=question_id;
 
 	}
+
+function keep_fixed(question_id){
+	question_id=ques
+	for(i=1;i<11;i++){
+		i
+		document.getElementById("text"+question_id)
+	}
+
+}
