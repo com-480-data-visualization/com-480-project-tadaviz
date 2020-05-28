@@ -4,7 +4,7 @@ var bar_plot;
 var country_data;
 var current_question_id;
 const personalities = ["EXT", "EST", "AGR", "CSN", "OPN"];
-
+const xAxis = ["No answer", "Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly agree"];
 
 //// ON LOAD
 
@@ -97,7 +97,7 @@ function load_bar_plot(){
 		for (n in ["0.0", "1.0", "2.0", "3.0", "4.0", "5.0"]){
 			distribution.push(global_distributions[k][n.toString()+".0"]);
 		}
-		data.push({"name": questions_corpus[k], "id": k, "distribution": distribution, "x": ["0", "1", "2", "3", "4", "5"]});
+		data.push({"name": questions_corpus[k], "id": k, "distribution": distribution, "x": xAxis});
 	}
 	// Barplot for EXT1
 	current_question_id = "EXT1";
@@ -116,7 +116,7 @@ function update_bar_plot(question_id){
 		for (n in ["0.0", "1.0", "2.0", "3.0", "4.0", "5.0"]){
 			distribution.push(global_distributions[question_id][n.toString()+".0"]);
 		}
-		bar_plot.update_plot({"name": questions_corpus[question_id], "id": question_id, "distribution": distribution, "x": ["0", "1", "2", "3", "4", "5"]});
+		bar_plot.update_plot({"name": questions_corpus[question_id], "id": question_id, "distribution": distribution, "x": xAxis});
 	}
 
 	// If the user wants to display the data of a specific country
@@ -125,6 +125,6 @@ function update_bar_plot(question_id){
 		current_question_id = question_id;
 		const data = country_data.find(dict =>
 			(dict["id"]==question_id)&&(dict["country"]==country_name));
-		bar_plot.update_plot({"name": questions_corpus[data['id']], "id": data['id'], "distribution": data['distribution'], "x": ["0", "1", "2", "3", "4", "5"]});
+		bar_plot.update_plot({"name": questions_corpus[data['id']], "id": data['id'], "distribution": data['distribution'], "x": xAxis});
 	}
 }
