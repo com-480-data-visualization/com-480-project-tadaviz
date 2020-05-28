@@ -2,6 +2,7 @@
 
 /*style of the three top buttons*/
 
+
 #buttons {
   position: relative;
   margin-left: auto;
@@ -48,4 +49,5 @@ p{
   height:30%;
   padding-bottom:5%;
   font-size: 1.5rem;
+  font-family: 'nunito';
 }

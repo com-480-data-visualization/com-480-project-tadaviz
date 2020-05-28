@@ -5,7 +5,7 @@
  * Base styles
  */
  body{
-   font-family: 'Roboto', sans-serif;
+  font-family: 'nunito';
    text-align: center;
 
    color: #fff;
@@ -20,11 +20,6 @@ h1 {
   font-weight: 300;
   margin: 30 auto;
 }
-
-
-
-
-
 
 
 #resultbutton {
