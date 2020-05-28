@@ -1,3 +1,4 @@
+
 * {
   padding: 0;
   margin: 0;
@@ -19,6 +20,14 @@ a {
 
 .btn {
   text-decoration: none;
+  /*
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(146, 148, 248, 0.4),
+    transparent
+  );
+  */
   border: 1px solid rgb(146, 148, 248);
   position: relative;
   overflow: hidden;
@@ -47,7 +56,9 @@ a {
 .btn:hover:before {
   left: 100%;
 }
-/*
+
+
+
 footer {
   text-align: center;
   padding: 1em;
@@ -91,14 +102,23 @@ footer a .icons {
 
 .hover,
 .word,
+
 h1 {
   cursor: pointer;
 }
 
 h1 {
-  position: relative;
+  position:relative;
   color: #fff;
   font: 900 60px Montserrat;
+  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.description {
+  bottom:50px;
+  position:relative;
+  color: #fff;
+  font-size: 40px;
   text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
@@ -126,9 +146,9 @@ h1 {
 
 .concept-two {
   display: grid;
-  grid: 100%/repeat(6, 1fr);
+  grid: 100%/repeat(15, 1fr);
   padding: 5em 15em;
-  background: url(https://meowlivia.s3.us-east-2.amazonaws.com/codepen/background/forest.jpg) center center/cover;
+  /*background: url(https://meowlivia.s3.us-east-2.amazonaws.com/codepen/background/forest.jpg) center center/cover;*/
 }
 
 .concept-two .hover {
@@ -149,4 +169,13 @@ h1 {
   -webkit-text-stroke: 2px transparent;
   text-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-*/
+
+.right{
+  left: 420%;
+  bottom: 30%;
+}
+
+.left{
+  right: 300%;
+  bottom: 30%;
+}

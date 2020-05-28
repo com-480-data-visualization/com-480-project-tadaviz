@@ -1,8 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
+
 body {
   margin: 0;
   overflow: hidden;
   padding: 0;
+  background: #8ac5c3;
 }
 
 body h2, body span {
@@ -289,7 +291,4 @@ body .easytransitions section .center {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-}
-body .easytransitions section:nth-of-type(1) {
-  background: #8ac5c3;
 }
