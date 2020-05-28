@@ -82,6 +82,5 @@ function refresh(){
 };
 
 function get_search_value(){
-  console.log(inputField.value);
   return inputField.value;
 }

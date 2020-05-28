@@ -20,7 +20,6 @@ function whenDocumentLoaded(action) {
 whenDocumentLoaded(() => {
 	// Load the search bar & country data
 	country_data = load_country_data();
-	console.log(country_data);
 	// Load the dropdown menu
 	load_dropdown_menu();
 

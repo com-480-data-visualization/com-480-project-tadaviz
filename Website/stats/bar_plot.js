@@ -235,8 +235,6 @@ class Barplot{
       .transition()
       .call(d3.axisLeft(yScale));
 
-    console.log("okok");
-
     chart.selectAll(".grid")
       .transition()
       .attr('class', 'grid')
