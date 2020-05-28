@@ -38,7 +38,7 @@
   color: white;
 }
 #effect1 {
-  color: #2F4A6D;
+  color: #4F8AAD;
 }
 
 #statsform {
@@ -121,7 +121,7 @@
   opacity: 1;
 }
 #statsli:hover {
-  background-color: #8ac5c3;
+  background-color: #4F8AAD;
 }
 #statsli.closed {
   max-height: 0;
@@ -233,4 +233,47 @@ menuitem > menu > menuitem:hover > menu > menuitem,
 menuitem > menu > menuitem.hover > menu > menuitem{
    transform:translateX(0) translateY(0%);
    opacity: 1;
+}
+
+
+
+
+
+.main-content {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h1 {
+  cursor: pointer;
+}
+
+h1 {
+  position: center;
+  color: #fff;
+  font: 200 30px Montserrat;
+  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  letter-spacing: 25px;
+}
+
+.concept {
+  position: relative;
+  padding: 5em;
+  height: 100vh;
+  scroll-snap-align: center;
+}
+
+.concept:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(rgba(50, 50, 150, 0.3), transparent);
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.concept:hover:before {
+  opacity: 0.5;
 }
