@@ -6,18 +6,25 @@
   margin-bottom: 50px;
  }
 
+ #intro{
+
+   text-align:justify;
+   border-radius: 10px;
+ }
+
 .radar.radarChart{
   height: 50%;
   width:50%;
 }
 
 .context {
+  padding: 3rem;
+  margin:2rem;
   text-align:justify;
   position: relative;
   left:15%;
-  width:70%;
+  width:50%;
   height:30%;
-  padding-bottom:5%;
   font-size: 1rem;
   color: #ECEFF1;
 }

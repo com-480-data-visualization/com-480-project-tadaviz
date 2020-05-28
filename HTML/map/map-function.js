@@ -86,7 +86,7 @@ function defaultstyle() {
     };
 }
 
-codebook = {'EXT':'extraversion','EST':'emotional stability','CSN':'consciousness','AGR':'agreeableness','OPN':'openness to experience'};
+codebook = {'EXT':'Extraversion','EST':'Emotional Stability','CSN':'Conscientiousness','AGR':'Agreeableness','OPN':'Openness to Experience'};
 
 function show_instruction(container,props) {
   container.innerHTML = (props ?
@@ -164,11 +164,6 @@ function show_graph(container,props,acc) {
       container.innerHTML +=
       '<br />Respondents from this country show a <br /> strong ' +
       codebook[trait]+'<br />';
-      let note_link = document.createElement('A');
-      onclick = "window.location.href = '../stats/stats.html';"
-      note_link.innerHTML = '<a  href="../stats/stats.html" style="pointer-events: all;">Note about scale normalization</a>';
-      note_link.setAttribute('href',"javascript:;");
-      container.appendChild(note_link);
     } else {
       container.innerHTML = '<b>' + props.name + '</b> <br />' + 'No data'
     }

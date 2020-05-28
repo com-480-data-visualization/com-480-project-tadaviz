@@ -92,7 +92,7 @@ body {
    width: 60px;
    height: 60px;
    max-width:80px;
-   background: linear-gradient(90deg, rgba(0, 0, 0, 0.28) 0% 40%,#4a69bd 60%, #FF4848 90% );
+   background: linear-gradient(90deg, rgba(0, 0, 0, 0.28) 0% 40%,#8ac5c3 60%, #1DE9B6 90% );
    border-radius: 100%;
    display: flex;
    justify-content: center;
@@ -108,7 +108,7 @@ body {
    width: 60px;
    height: 60px;
    max-width:80px;
-   background: linear-gradient(90deg, #4a69bd 0%, #FF4848 40%, rgba(0, 0, 0, 0.28) 60%);
+   background: linear-gradient(90deg,  #8ac5c3 0%, #1DE9B6 40%, rgba(0, 0, 0, 0.28) 60%);
    border-radius: 100%;
    display: flex;
    justify-content: center;
