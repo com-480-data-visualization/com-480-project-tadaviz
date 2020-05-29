@@ -138,6 +138,10 @@ function expand(question_id){
 	 let to_change_text=document.getElementById("text"+question_id);
 	 to_change_text.classList.remove("fixed");
 	 to_change_text.classList.add("expand");
+	 if (to_change_text.classList.contains("unexpand")){
+		 to_change_text.classList.remove("unexpand");
+	 }
+
 	 to_change_text.textContent=questions_corpus[question_id];
 	 if (to_change_text.classList.contains("unexpand")){
 		 to_change_text.classList.remove("unexpand");
