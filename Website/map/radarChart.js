@@ -19,8 +19,8 @@ function RadarChart(id, data, options) {
 	if('undefined' !== typeof options){
 	  for(var i in options){
 		if('undefined' !== typeof options[i]){ cfg[i] = options[i]; }
-	  }//for i
-	}//if
+	  }
+	}
 
 	//If the supplied maxValue is smaller than the actual one, replace by the max in the data
 	var maxValue = Math.max(cfg.maxValue, d3.max(data, function(i){return d3.max(i.map(function(o){return o.value;}))}));
@@ -37,10 +37,6 @@ function RadarChart(id, data, options) {
 		.range([0, radius])
 		.domain([0, maxValue]);
 
-	/////////////////////////////////////////////////////////
-	//////////// Create the container SVG and g /////////////
-	/////////////////////////////////////////////////////////
-
 	//Remove whatever chart with the same id/class was present before
 	d3.select(id).select("svg").remove();
 
@@ -54,9 +50,6 @@ function RadarChart(id, data, options) {
 	var g = svg.append("g")
 			.attr("transform", "translate(" + (cfg.w/2 + cfg.margin.left) + "," + (cfg.h/2 + cfg.margin.top) + ")");
 
-	/////////////////////////////////////////////////////////
-	////////// Glow filter for some extra pizzazz ///////////
-	/////////////////////////////////////////////////////////
 
 	//Filter for the outside glow
 	var filter = g.append('defs').append('filter').attr('id','glow'),
@@ -65,9 +58,6 @@ function RadarChart(id, data, options) {
 		feMergeNode_1 = feMerge.append('feMergeNode').attr('in','coloredBlur'),
 		feMergeNode_2 = feMerge.append('feMergeNode').attr('in','SourceGraphic');
 
-	/////////////////////////////////////////////////////////
-	/////////////// Draw the Circular grid //////////////////
-	/////////////////////////////////////////////////////////
 
 	//Wrapper for the grid & axes
 	var axisGrid = g
@@ -89,31 +79,16 @@ function RadarChart(id, data, options) {
 				var y = Math.sin(-angle) * l;
 				points = points.concat(x.toString(),",", y.toString()," ");
 			}
-			//return "10,10 30,50 800,50";
 			return points;
 		})
 		.style("fill", "#CDCDCD")
 		.style("stroke", "#CDCDCD")
 		.style("fill-opacity", cfg.opacityCircles)
 		.style("filter" , "url(#glow)");
-/*		.transition()
-		.duration(100);*/
 
 
-	/***
-	//Draw the background circles
-	axisGrid.selectAll(".levels")
-	   .data(d3.range(1,(cfg.levels+1)).reverse())
-	   .enter()
-		.append("circle")
-		.attr("class", "gridCircle")
-		.attr("r", function(d, i){return radius/cfg.levels*d;})
-		.style("fill", "#CDCDCD")
-		.style("stroke", "#CDCDCD")
-		.style("fill-opacity", cfg.opacityCircles)
-		.style("filter" , "url(#glow)");**/
 
-	//Text indicating at what % each level is
+
 	axisGrid.selectAll(".axisLabel")
 	   .data(d3.range(1,(cfg.levels+1)).reverse())
 	   .enter().append("text")
@@ -123,11 +98,6 @@ function RadarChart(id, data, options) {
 	   .attr("dy", "0.4em")
 	   .style("font-size", "10px")
 	   .attr("fill", "#737373")
-	   //.text(function(d,i) { return Format(maxValue * d/cfg.levels); });
-
-	/////////////////////////////////////////////////////////
-	//////////////////// Draw the axes //////////////////////
-	/////////////////////////////////////////////////////////
 
 	//Create the straight lines radiating outward from the center
 	var axis = axisGrid.selectAll(".axis")
@@ -146,9 +116,7 @@ function RadarChart(id, data, options) {
 		.style("stroke", "white")
 		.style("stroke-width", "2px")
 		.style("stroke-opacity", .5)
-		.style("stroke-linecap", "round")
-		/*.style("stroke-dasharray", ("10,3"))*/
-		;
+		.style("stroke-linecap", "round");
 
 	//Append the labels at each axis
 	axis.append("text")
@@ -162,9 +130,6 @@ function RadarChart(id, data, options) {
 		.text(function(d){return d})
 		.call(wrap, cfg.wrapWidth);
 
-	/////////////////////////////////////////////////////////
-	///////////// Draw the radar chart blobs ////////////////
-	/////////////////////////////////////////////////////////
 
 	//The radial line function
 	var radarLine = d3.svg.line.radial()
@@ -190,10 +155,7 @@ function RadarChart(id, data, options) {
 		.style("fill", function(d,i) { return cfg.color(i); })
 		.style("fill-opacity", cfg.opacityArea)
 		.on('mouseover', function (d,i){
-			//Dim all blobs
-		/*			
-		console.log("mouse over");
-		*/
+
 			d3.selectAll(".radarArea")
 				.transition().duration(200)
 				.style("fill-opacity", 0.1);
@@ -217,7 +179,6 @@ function RadarChart(id, data, options) {
 		.style("stroke", function(d,i) { return cfg.color(i); })
 		.style("fill", "none")
 		.style("filter" , "url(#glow)");
-		/*.transition();*/
 
 	//Append the circles
 	blobWrapper.selectAll(".radarCircle")
@@ -229,10 +190,6 @@ function RadarChart(id, data, options) {
 		.attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
 		.style("fill", function(d,i,j) { return cfg.color(j); })
 		.style("fill-opacity", 0.8);
-
-	/////////////////////////////////////////////////////////
-	//////// Append invisible circles for tooltip ///////////
-	/////////////////////////////////////////////////////////
 
 	//Wrapper for the invisible circles on top
 	var blobCircleWrapper = g.selectAll(".radarCircleWrapper")
@@ -251,9 +208,7 @@ function RadarChart(id, data, options) {
 		.style("fill", "none")
 		.style("pointer-events", "all")
 		.on("mouseover", function(d,i) {
-			/*
-			console.log("mouse over");
-			*/
+
 			newX =  parseFloat(d3.select(this).attr('cx')) - 10;
 			newY =  parseFloat(d3.select(this).attr('cy')) - 10;
 
@@ -273,10 +228,6 @@ function RadarChart(id, data, options) {
 	var tooltip = g.append("text")
 		.attr("class", "tooltip")
 		.style("opacity", 0);
-
-	/////////////////////////////////////////////////////////
-	/////////////////// Helper Function /////////////////////
-	/////////////////////////////////////////////////////////
 
 	//Taken from http://bl.ocks.org/mbostock/7555321
 	//Wraps SVG text
@@ -304,6 +255,6 @@ function RadarChart(id, data, options) {
 		  }
 		}
 	  });
-	}//wrap
+	}
 
-}//RadarChart
+}

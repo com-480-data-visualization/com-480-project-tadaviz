@@ -1,4 +1,3 @@
-// Modal
 
 var elements = $('.explanation_modal-overlay, .explanation_modal');
 

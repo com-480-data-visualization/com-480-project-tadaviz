@@ -64,14 +64,8 @@
   background: #1F3A5D;
   border-radius: .75em;
   filter: drop-shadow(1px 2px 15px #2F4A6D);
-  /*filter: drop-shadow(1px 2px 15px #8ac5c3);*/
   box-shadow:
-/*    0 2px 2px rgba(243,49,128,.5),
-    0 0px 5px rgba(243,49,128,.15),
-    0 0px 4px rgba(0,0,0,.35),
-    0 5px 20px rgba(243,49,128,.25),*/
-    /*0 15px 50px #8ac5c3,*/
-    inset 0 0 15px rgba(255,255,255,.05);*/
+    inset 0 0 15px rgba(255,255,255,.05);
 }
 
 .rb {
@@ -141,7 +135,6 @@ h1 {
   position: relative;
   padding: 5em;
   height: 100%;
-  scroll-snap-align: center;
 }
 
 .concept:before {

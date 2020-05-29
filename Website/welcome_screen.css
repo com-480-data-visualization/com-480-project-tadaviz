@@ -5,7 +5,6 @@
   overflow: hidden;
   padding: 0;
   background: #8ac5c3;
-  /*background-image: radial-gradient(closest-side at 50% 25%, #8ac5c3 50% , #2F4A6D);*/
 }
 
 * {
@@ -28,15 +27,6 @@ a {
 
 .btn {
   text-decoration: none;
-  /*
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(146, 148, 248, 0.4),
-    transparent
-  );
-  */
-  /*border: 1px solid rgb(146, 148, 248);*/
   position: relative;
   overflow: hidden;
 }
@@ -154,7 +144,6 @@ h1 {
   display: grid;
   grid: 100%/repeat(15, 1fr);
   padding: 5em 15em;
-  /*background: url(https://meowlivia.s3.us-east-2.amazonaws.com/codepen/background/forest.jpg) center center/cover;*/
 }
 
 .concept-two .hover {

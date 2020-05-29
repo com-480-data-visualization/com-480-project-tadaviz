@@ -2,7 +2,7 @@ let westbound = L.latLng(180, -180),
 eastbound = L.latLng(-70,180),
 bounds = L.latLngBounds(westbound, eastbound);
 
-//options to desactivate zoom and navigation
+//options for th map
 let mapoptions = {
   zoomSnap: 0.05,
   zoomControl:false,
@@ -70,7 +70,6 @@ function clickFeature(e){
   current_layer = e.target;
   //check if the selected country is the same as previous selection
   if (old_layer){
-    //resetHighlight(old_layer)
     let current_country= current_layer.feature.properties.admin
     let old_country = old_layer.feature.properties.admin
     second_click = (current_country == old_country)
@@ -198,13 +197,6 @@ info.onAdd = function (map) {
     this._datadiv = L.DomUtil.create('div');
     this._div.appendChild(this._datadiv)
 
-
-    /*L.DomEvent.on(this._div,'mouseover',function(){
-      console.log('caskouille')
-    })
-    L.DomEvent.on(this._div,'mouseout',function(){
-      console.log('caskouille2')
-    })*/
     this.update();
 
     return this._div;
@@ -231,29 +223,6 @@ info.update = function (props) {
     default:
   }
 };
-
-
-// a method to display or hide element of info panel element
-info._display = function (options) {
-/*
-  if (options == 'none') {
-    this._div.style.display = "none";
-    if (current_layer !=undefined){
-      this.update(current_layer.feature.properties)
-    }else {
-      this.update()
-    }
-  } else {
-    this._div.style.display = "block";
-
-    if (current_layer !=undefined){
-      this.update(current_layer.feature.properties)
-    }else {
-      this.update()
-    }
-  }
-  */
-}
 
 info.addTo(map);
 ////////////////////////////////////////////////////////////////////////////////

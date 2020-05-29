@@ -1,5 +1,5 @@
 // Code for the button of the quizz part
-var survey = []; //Bidimensional array: [ [1,3], [2,4] ]
+var survey = [];
 
 
 $(document).delegate(".rb-tab",'click',function(){
@@ -14,17 +14,6 @@ $(document).delegate(".trigger",'click',function(){
     var rb = "rb" + (i-1);
     var rbValue = parseInt($("#rb-"+(i-1)).find(".rb-tab-active").attr("data-value"));
     //Bidimensional array push:
-    survey.push([i + (questions_step - 1)*10, rbValue]); //Bidimensional array: [ [1,3], [2,4] ]
+    survey.push([i + (questions_step - 1)*10, rbValue]);
   };
-  /*debug();*/
 });
-
-
-//Debug:
-function debug(){
-  var debug = "";
-  for (i=0; i<survey.length; i++) {
-    debug += "Nº " + survey[i][0] + " = " + survey[i][1] + "\n";
-  };
-  alert(debug);
-};
