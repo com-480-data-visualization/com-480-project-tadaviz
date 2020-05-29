@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
 
 * {
   padding: 0;
@@ -8,7 +9,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 a {
@@ -28,7 +28,7 @@ a {
     transparent
   );
   */
-  border: 1px solid rgb(146, 148, 248);
+  /*border: 1px solid rgb(146, 148, 248);*/
   position: relative;
   overflow: hidden;
 }
@@ -56,8 +56,6 @@ a {
 .btn:hover:before {
   left: 100%;
 }
-
-
 
 footer {
   text-align: center;
@@ -171,11 +169,11 @@ h1 {
 }
 
 .right{
-  left: 350%;
+  left: 230%;
   bottom: 30%;
 }
 
 .left{
-  right: 270%;
+  right: 150%;
   bottom: 30%;
 }

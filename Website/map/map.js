@@ -2,7 +2,6 @@ let westbound = L.latLng(180, -180),
 eastbound = L.latLng(-70,180),
 bounds = L.latLngBounds(westbound, eastbound);
 
-
 //options to desactivate zoom and navigation
 let mapoptions = {
   zoomSnap: 0.05,
@@ -37,14 +36,10 @@ let info = L.control({position: 'topright'});
 // panel that will show the legend of selected option, if there is one
 let legend = L.control({position: 'bottomleft'});
 
-
-
 //Interactive layer
 ////////////////////////////////////////////////////////////////////////////////
 
 var acc = 0
-
-
 
 function resetFeature(layer) {
   if (!click){
@@ -131,8 +126,6 @@ function onOceanClick() {
 // reset current selected layer if a click happen outside a layer
 map.on('click',onOceanClick);
 
-
-
 geojson= L.geoJson(countries_shape, {
     style: defaultstyle,
     onEachFeature: onEachFeature
@@ -141,7 +134,6 @@ geojson= L.geoJson(countries_shape, {
 
 //selection panel
 ////////////////////////////////////////////////////////////////////////////////
-
 
 selection.onAdd = function (map) {
     // define the option of the selection element here
@@ -190,8 +182,6 @@ selection.onAdd = function (map) {
       legend.update()
     })
 
-
-
     return this._div
 }
 
@@ -215,6 +205,7 @@ info.onAdd = function (map) {
     L.DomEvent.on(this._div,'mouseout',function(){
       console.log('caskouille2')
     })*/
+
     this.update();
 
     return this._div;
@@ -240,10 +231,6 @@ info.update = function (props) {
       break
     default:
   }
-
-
-
-
 };
 
 
@@ -274,7 +261,6 @@ info.addTo(map);
 
 //Legend panel
 ////////////////////////////////////////////////////////////////////////////////
-
 
 legend.onAdd = function (map) {
 
@@ -323,7 +309,6 @@ legend.update = function () {
         fillOpacity: 0.7
     });
   }
-
 };
 
 legend.addTo(map);

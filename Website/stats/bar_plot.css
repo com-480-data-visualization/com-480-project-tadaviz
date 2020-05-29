@@ -1,8 +1,8 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
 
 #layout {
   text-align: center;
   text-transform: uppercase;
-
 }
 
 #chartcontainer {
@@ -24,6 +24,7 @@
 
 text {
   font-size: 12px;
+  font-family : Nunito;
   fill: #fff;
 }
 
@@ -36,7 +37,7 @@ line#barplot {
 }
 
 line#limit {
-  stroke: #606a9f;
+  stroke: gold;
   stroke-width: 3;
   stroke-dasharray: 3 6;
 }

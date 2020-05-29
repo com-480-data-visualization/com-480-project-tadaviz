@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
+
 /*pop up window at the end of the quizz*/
 
 #resultbutton {
@@ -53,7 +55,7 @@
 
 
 .modal {
-  font-family: 'Baloo Paaji', 'cursive';
+  font-family: 'Nunito', 'cursive';
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -65,7 +67,7 @@
           justify-content: center;
   position: relative;
   margin-top: 0 auto;
-  background-color: #1e90ff;
+  background-color: #3F5A7D;
   max-width: 75rem;
   min-height: 50rem;
   padding: 1rem;
@@ -150,20 +152,15 @@
   }
 }
 
-
-
-
-
 .container{
   width: 800px;
-  height: 400px;
+  height: 350px;
   position: relative;
   text-transform: uppercase;
 }
 
 #first, #second{
   font-size: 50px;
-
 }
 
 .text{
@@ -213,8 +210,6 @@
   }
 }
 
-
-
 @keyframes titleAnimation {
     0% {
       transform: translateY(-50px);
@@ -242,8 +237,6 @@
 
   }
 }
-
-
 
 .animate {
   text-align: center;
@@ -346,14 +339,13 @@
 /* country name animation */
 
 .response b {
-  font-family: 'Baloo Paaji', cursive;
+  font-family: 'Nunito', cursive;
   font-size: 80px;
-	color: #ddb40f;
+	color: #8ac5c3;
 	opacity: 0;
 	transform: rotate(-180deg) translate(150px, 0);
 	animation: twister .5s forwards;
 }
-
 
 @keyframes twister {
 	10% {

@@ -5,15 +5,29 @@
   <title>Questions</title>
   <link href='https://fonts.googleapis.com/css?family=Baloo+Paaji' rel="stylesheet">
   <link rel="stylesheet" href="modal.css">
+  <link rel="stylesheet" href="explanation_modal.css">
   <link rel="stylesheet" href="questions.css">
   <link rel="stylesheet" href="../menu.css">
-  <!--<link rel="stylesheet" href="../stats/select_dropdown.css">-->
+  <link rel="stylesheet" href="../page_transitions/page_transitions_only.css">
 
 </head>
 <body id='qbody'>
 <!-- partial:index.partial.html -->
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <div>
+
+<div class='easytransitions'>
+  <!--  Transition List  -->
+  <div class='easytransitions_transition'>
+    <div class='div easytransitions_transition__part-1 none'></div>
+    <div class='div easytransitions_transition__part-2 none'></div>
+    <div class='div easytransitions_transition__part-3 none'></div>
+    <div class='div easytransitions_transition__part-4 none'></div>
+    <div class='div easytransitions_transition__part-5 none'></div>
+    <div class='div easytransitions_transition__part-6 none'></div>
+    <div class='div easytransitions_transition__part-7 none'></div>
+    <div class='div easytransitions_transition__part-8 none'></div>
+  </div>
 
   <div class="menu" id = 'menu'>
     <div class="card" name = 'card' onclick="window.location.href = '../map/map.html';" >
@@ -66,12 +80,30 @@
 
   <div class="concept main-content">
     <h1>Who are you ?</h1>
+    <button class="explanation_button">Explanations</button>
   </div>
 
-  <p id="intro"> - Hello there - </br>
-  Welcome to our TadaViz own Big Five personality test questionaire. Here, you will be pleased to take the test yourself, and compare
-  your answers to the rest of the world. Please answer each question based on how much you agree with the statement. </br> The range goes from 1 to 5 from left to right.
-  Answer 1, if you strongly disagree. On the contrary, if you strongly agree, answer 5. </p>
+  <!--Explanations-->
+  <!-- modal -->
+  <div class="explanation_modal-overlay">
+    <div class="explanation_modal">
+      <a class="close-explanation_modal">
+        <svg viewBox="0 0 20 20">
+          <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+        </svg>
+      </a><!-- close modal -->
+      <div class="explanation_modal-content">
+        <p id="intro" style="  text-align:center;"> - Hello there - </p>
+        <p id="intro">
+        Welcome to our TadaViz own Big Five personality test questionaire. Here, you will be pleased to take the test <i>yourself</i>, and <b>compare</b>
+        your answers to the <b>rest of the world</b>. </br></br>
+        Please answer each question based on how much you agree with the statement. </br></br>
+        If you <b>strongly disagree</b>, answer <i>1</i>. On the other hand, if you <b>strongly agree</b>, answer <i>5</i>.
+        </p>
+      </div><!-- content -->
+    </div><!-- modal -->
+  </div><!-- overlay -->
+
   <div id="questions">
     <div class="rb-box" id="placeholder">
     <!--
@@ -86,9 +118,12 @@
 </div>
 
 <!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="../page_transitions/page_transitions.js"></script>
 <script src="../menu.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./modal.js"></script>
+<script src="./explanation_modal.js"></script>
 <script  src="./radio_buttons.js"></script>
 <script  src="./questions.js"></script>
 <script src="../../Data/questions_corpus.js"></script>
