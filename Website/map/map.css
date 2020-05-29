@@ -2,6 +2,7 @@
 
 *{
   font-family: 'Nunito';
+  justify-content: center;
 }
 
 #mapid {
@@ -16,8 +17,27 @@
  #intro{
    text-align:justify;
    border-radius: 10px;
+   align-items: stretch;
  }
 
+#exptext{
+  position: relative;
+  width: 80%;
+  padding: 0;
+  margin: 0 auto;
+  margin-right: auto;
+  list-style: none;
+
+  display: flex;
+  justify-content: center;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
 
 .radar.radarChart{
   height: 50%;
@@ -25,8 +45,7 @@
 }
 
 .context {
-  padding: 1rem;
-  /*margin:2rem;*/
+
   text-align:justify;
   position: relative;
   margin-left:auto;
@@ -110,10 +129,9 @@ option{
 .ttype{
   padding: 2rem;
   border-radius: 10px;
-  width :50%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
+  width :300px;
+  margin:3rem 1.4rem;
+
   color:#fff;
 }
 
@@ -202,17 +220,4 @@ h4{
 }
 .concept:hover:before {
   opacity: 0.5;
-}
-footer{
-  background-color: gold;
-  width:100%;
-  height: :2%;
-}
-img{
-  margin-left: 50%;
-  margin-top: 0.5%;
-  margin-right: auto;
-  transform: translate(-50%,0);
-  width: 30px;
-  height: 30px;
 }
