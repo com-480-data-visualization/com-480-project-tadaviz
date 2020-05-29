@@ -205,7 +205,6 @@ info.onAdd = function (map) {
     L.DomEvent.on(this._div,'mouseout',function(){
       console.log('caskouille2')
     })*/
-
     this.update();
 
     return this._div;
