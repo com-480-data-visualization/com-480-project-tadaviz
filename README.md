@@ -127,10 +127,6 @@ For all these visualizations, notes from lectures 6 and 7 about channels, design
 
 - We could also run a 5-dimension clustering algorithm over all the answers to the test (by computing the average value for each personality trait for each test), and make a 2D visualization to see whether there are some patterns or not
 
-#### Project prototype preview
-
-The project prototype is available [here](https://com-480-data-visualization.github.io/com-480-project-tadaviz)
-
 ## Milestone 3 (Thursday 28th May, 5pm)
 
 To carry out this final milestone, two other datasets were added:
@@ -149,3 +145,4 @@ The statistics page approaches the data in a _question-oriented paradigm_. The a
 #### Custom questionary
 After visiting the two principle visualization pages, the visitor might want to take the test himself, so that he __compares__ his answers to the ones from the rest of the world, and __see__ where his personality __stands__ in the world. This questionary asks the same questions as the real test. After answering the 50 questions, the user can see his dominant character traits, and also see to which country his personality is the __closest__ to, according to our data. Each question clearly indicates to which trait they refer to. This was intended so that if people want to try and match a personality from a specific country, it is completely possible. 
 
+The website is available [here](https://com-480-data-visualization.github.io/com-480-project-tadaviz/Website/welcome_screen.html#)
