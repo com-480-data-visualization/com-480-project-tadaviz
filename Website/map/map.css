@@ -113,6 +113,10 @@ option{
   color:#fff;
 }
 
+#:hover{
+  box-shadow: 0px 3px 12px;
+}
+
 #EXT{
   /* border: 2px solid #b71540; */
     /* background-color:  #292929; */
@@ -126,22 +130,30 @@ option{
   /* background-color: #0a3d62; */
   box-shadow: 0px 2px 10px #0a3d62;
 }
-
+#EST:hover{
+  box-shadow: 0px 3px 12px #0a3d62;
+}
 #OPN{
   /* background-color: #e58e26; */
   box-shadow: 0px 2px 10px #e58e26;
 }
-
+#OPN:hover{
+  box-shadow: 0px 3px 12px #e58e26;
+}
 #AGR{
   /* background-color: #079992; */
   box-shadow: 0px 2px 10px #079992;
 }
-
+#AGR:hover{
+  box-shadow: 0px 3px 12px #079992;
+}
 #CSN{
   /* background-color: #1e3799; */
     box-shadow: 0px 2px 10px #1e3799;
 }
-
+#CSN:hover{
+  box-shadow: 0px 3px 12px #1e3799;
+}
 
 .main-content {
   text-align: center;
@@ -158,6 +170,13 @@ h1 {
   font: 200 30px Nunito;
   text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   letter-spacing: 25px;
+}
+
+h4{
+  margin:15px auto;
+  margin-bottom: 5px;
+
+  text-align: center;
 }
 
 .concept {
