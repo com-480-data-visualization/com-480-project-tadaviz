@@ -261,7 +261,6 @@ body .easytransitions_navigation i {
 }
 body .easytransitions_navigation_next {
   float: center;
-  margin-top: 200px;
   /*position: absolute;*/
 }
 body .easytransitions .active_page {
