@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
 
-/*pop up window at the end of the quizz*/
+/*button in pop up window at the end of the quizz*/
 
 #resultbutton {
   margin-top: 30px;
@@ -56,9 +56,6 @@
     visibility: visible;
   }
 }
-/**
- * Modal
- */
 
 
 .modal {

@@ -14,7 +14,6 @@ keys.forEach((item, i) => {
   }
 });
 
-//set up svg using margin conventions - we'll need plenty of room on the left for labels
 var margin = {
     top: 15,
     right: 200,

@@ -110,7 +110,6 @@ function show_respondents(container,props) {
       : 'Click on a country');
 }
 function show_graph(container,props,acc) {
-  //container.innerHTML = '<div class="radarChart"></div>';
   if (props){
     ISO2_code.forEach((item, i) => {
       if (item['Name']==props.name){
@@ -157,9 +156,7 @@ function show_graph(container,props,acc) {
       };
 
       //Call function to draw the Radar chart
-      //container.innerHTML = '<div class="radarChart"></div>';
       RadarChart(".radarChart", data, radarChartOptions);
-      //var country = document.createTextNode('<b>' + props.name + '</b> <br />');
       trait = country_trait[country_code]["dominant trait"]
       container.innerHTML +=
       '<br />Respondents from this country show a <br /> strong ' +

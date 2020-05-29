@@ -55,7 +55,6 @@ function whenDocumentLoaded(action) {
 	if (document.readyState === "loading") {
 		document.addEventListener("DOMContentLoaded", action);
 	} else {
-		// `DOMContentLoaded` already fired
 		action();
 	}
 }
@@ -110,7 +109,6 @@ async function next_questions(){
     '<div class="modal-overlay">'+
       '<div class="modal">'+
         '<a class="close-modal">'+
-        //'<path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path></svg>'+
         '<svg class="bi bi-x-circle" viewBox="0 0 16 16" fill="black" xmlns="http://www.w3.org/2000/svg">'+
           '<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>'+
           '<path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>'+
@@ -126,10 +124,7 @@ async function next_questions(){
 
 async function submit(){
 
-  /*
-  // Save the last answers
-  save_data();
-  */
+
 
   // Let the other js file compute the last answers
   await new Promise(r => setTimeout(r, 50));

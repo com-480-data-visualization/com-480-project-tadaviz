@@ -12,7 +12,6 @@ function whenDocumentLoaded(action) {
 	if (document.readyState === "loading") {
 		document.addEventListener("DOMContentLoaded", action);
 	} else {
-		// `DOMContentLoaded` already fired
 		action();
 	}
 }
@@ -145,11 +144,6 @@ function expand(question_id){
 }
 
 function expand_not(question_id){
-	// let to_change_text=document.getElementById("text"+question_id);
- 	 // to_change_text.classList.add("fixed");
- 	 // to_change_text.classList.add("unexpand");
- 	 // to_change_text.classList.remove("expand");
- 	 // to_change_text.textContent=question_id;
 }
 
 function keep_fixed(question_id){

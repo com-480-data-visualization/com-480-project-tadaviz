@@ -1,5 +1,4 @@
-// Modal
-
+//function to handle the popup about the map
 var modalelem = $('.modal-overlay, .modal');
 var mapelem = $('#mapid');
 $('#expbutton').click(function(){

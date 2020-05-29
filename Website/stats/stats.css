@@ -58,7 +58,6 @@
 }
 
 .country {
-  /*font-family: 'Ek Mukta';*/
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 4px;
@@ -171,9 +170,6 @@ nav > menu > menuitem menuitem menu {
    transform:translateX(100%);
    top:0; right:0;
 }
-/* User Styles Below Not Required */
-/* User Styles Below Not Required */
-/* User Styles Below Not Required */
 
 .fixed{
   width:190px;
