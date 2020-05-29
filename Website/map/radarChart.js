@@ -191,7 +191,9 @@ function RadarChart(id, data, options) {
 		.style("fill-opacity", cfg.opacityArea)
 		.on('mouseover', function (d,i){
 			//Dim all blobs
-			console.log("mouse over");
+		/*			
+		console.log("mouse over");
+		*/
 			d3.selectAll(".radarArea")
 				.transition().duration(200)
 				.style("fill-opacity", 0.1);
@@ -249,7 +251,9 @@ function RadarChart(id, data, options) {
 		.style("fill", "none")
 		.style("pointer-events", "all")
 		.on("mouseover", function(d,i) {
+			/*
 			console.log("mouse over");
+			*/
 			newX =  parseFloat(d3.select(this).attr('cx')) - 10;
 			newY =  parseFloat(d3.select(this).attr('cy')) - 10;
 

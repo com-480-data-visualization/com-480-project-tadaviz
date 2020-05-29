@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
+
 #mapid {
   height: 65%;
   width:80%;
@@ -7,7 +9,6 @@
  }
 
  #intro{
-  display: none;
    text-align:justify;
    border-radius: 10px;
  }
@@ -27,13 +28,13 @@
   width:50%;
   /* height:30%; */
   font-size: 1rem;
-  color: #ECEFF1;
+  color: #000;
 }
 
 .info {
 
   padding: 6px 8px;
-  font: 14px/16px Arial, Helvetica, sans-serif;
+  font: 14px/16px Arial, Nunito, sans-serif;
   background: rgba(255,255,255,0.8);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
@@ -151,7 +152,7 @@ h1 {
 h1 {
   position: center;
   color: #fff;
-  font: 200 30px Montserrat;
+  font: 200 30px Nunito;
   text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   letter-spacing: 25px;
 }

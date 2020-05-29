@@ -86,10 +86,10 @@ function add_questions(data){
   container.innerHTML = questions_HTML.join('');
 }
 
-
 async function next_questions(){
+  set_transition("split_horizontal");
   // Update the questions
-  await new Promise(r => setTimeout(r, 50));
+  await new Promise(r => setTimeout(r, 600));
   questions_step += 1;
   let data = [];
   for (k in questions_corpus){
@@ -187,12 +187,12 @@ matching_country.split("").forEach((item, i) => {
   '<section class="container">'+
 
     '<div id="first" class="title">'+
-      "<span class='text'>Congratulation!</span>"+
+      "<span class='text'>Congratulations !</span>"+
     '</div>'+
 
     '<div id="second" class="title">'+
       "<span class='text'>The country</span>"+
-      "<span class='text'>That fit you best</span>"+
+      "<span class='text'>That fits you best</span>"+
       "<span class='text'>is ...</span>"+
     '</div>'+
     '<div class="animate response">'+

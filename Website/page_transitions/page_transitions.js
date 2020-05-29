@@ -18,8 +18,6 @@ wipe_bottom
 */
 
 async function transition(page_id){
-  console.log("okok");
-  console.log(page_id);
   set_transition("split_diamond");
   //await new Promise(r => setTimeout(r, 600));
   //window.location.href = "index.html";
@@ -30,6 +28,9 @@ async function transition(page_id){
 };
 
 // Set transition type
-function set_transition(transition_type){
+async function set_transition(transition_type){
   $('.easytransitions_transition div').addClass(transition_type);
+  await new Promise(r => setTimeout(r, 1200));
+  $('.easytransitions_transition div').removeClass(transition_type);
+
 };

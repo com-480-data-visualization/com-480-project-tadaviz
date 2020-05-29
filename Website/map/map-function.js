@@ -182,8 +182,6 @@ function show_happy(container, props){
         country_code =item['Code']
       }
     });
-      console.log(country_code)
-    console.log(country_happiness_level[country_code])
     if (country_happiness_level[country_code]){
       container.innerHTML ='<b>' + props.name + '</b> <br /><b>' +
       'Happiness level</b>: ' + country_happiness_level[country_code]['score']

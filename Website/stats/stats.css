@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
+
 * {
   margin: 0;
   padding: 0;
@@ -22,6 +24,7 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   /*font-family: 'Ek Mukta';*/
+  font-family : 'Nunito';
   font-weight: 600;
 }
 
@@ -32,7 +35,7 @@
   letter-spacing: 3px;
   text-align: center;
   line-height: 1.5;
-  font-family: 'Open Sans';
+  font-family: 'Nunito';
   text-transform: capitalize;
   font-weight: 800;
   color: white;
@@ -171,6 +174,7 @@ nav > menu > menuitem menuitem menu {
 /* User Styles Below Not Required */
 /* User Styles Below Not Required */
 /* User Styles Below Not Required */
+
 .fixed{
   width:190px;
   max-width: 190px;
@@ -202,6 +206,7 @@ nav > menu > menuitem menuitem menu {
       background: gold;
     }
 }
+
 nav a {
    background:#4F8AAD;
    color:#FFF;
@@ -277,7 +282,7 @@ h1 {
 h1 {
   position: center;
   color: #fff;
-  font: 200 30px Montserrat;
+  font: 200 30px Nunito;
   text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   letter-spacing: 25px;
 }
