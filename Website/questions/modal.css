@@ -4,7 +4,7 @@
 
 #resultbutton {
   margin-top: 30px;
-  animation: 10s fadeIn;
+  animation: 8s fadeIn;
   animation-fill-mode: forwards;
   visibility: hidden
 }
@@ -173,21 +173,21 @@
   opacity: 0;
   animation-name: titleAnimation;
   animation-timing-function:ease;
-  animation-duration: 3s;
+  animation-duration: 2.1s;
 }
 
 #first .text{
-  animation-delay: 0.6s;
+  animation-delay: 0.42s;
   -webkit-animation-fill-mode: forwards;
 
   &:first-child{
-    animation-delay: 0.7s;
+    animation-delay: 0.49s;
 
   }
 
   &:last-child{
     color: #ffe221;
-    animation-delay: 0.5s;
+    animation-delay: 0.35s;
   }
 }
 
@@ -196,17 +196,17 @@
 }
 
 .text{
-  animation-delay: 4.1s;
+  animation-delay: 2.87s;
   -webkit-animation-fill-mode: forwards;
 
   &:first-child{
-    animation-delay: 4.2s;
+    animation-delay: 2.94s;
 
   }
 
   &:last-child{
     color: #ffe221;
-    animation-delay: 4s;
+    animation-delay: 2.8s;
   }
 }
 
@@ -247,64 +247,64 @@
 }
 
 .animate b:nth-of-type(1) {
-	animation-delay: 8s;
+	animation-delay: 6s;
 }
 .animate b:nth-of-type(2) {
-	animation-delay: 8.05s;
+	animation-delay: 6.05s;
 }
 .animate b:nth-of-type(3) {
-	animation-delay: 8.1s;
+	animation-delay: 6.1s;
 }
 .animate b:nth-of-type(4) {
-	animation-delay: 8.15s;
+	animation-delay: 6.15s;
 }
 .animate b:nth-of-type(5) {
-	animation-delay: 8.2s;
+	animation-delay: 6.2s;
 }
 .animate b:nth-of-type(6) {
-	animation-delay: 8.25s;
+	animation-delay: 6.25s;
 }
 .animate b:nth-of-type(7) {
-	animation-delay: 8.3s;
+	animation-delay: 6.3s;
 }
 .animate b:nth-of-type(8) {
-	animation-delay: 8.35s;
+	animation-delay: 6.35s;
 }
 .animate b:nth-of-type(9) {
-	animation-delay:  8.4s;
+	animation-delay:  6.4s;
 }
 .animate b:nth-of-type(10) {
-	animation-delay:  8.45s;
+	animation-delay:  6.45s;
 }
 .animate b:nth-of-type(11) {
-	animation-delay:  8.5s;
+	animation-delay:  6.5s;
 }
 .animate b:nth-of-type(12) {
-	animation-delay:  8.55s;
+	animation-delay:  6.55s;
 }
 .animate b:nth-of-type(13) {
-	animation-delay:  8.6s;
+	animation-delay:  6.6s;
 }
 .animate b:nth-of-type(14) {
-	animation-delay:  8.65s;
+	animation-delay:  6.65s;
 }
 .animate b:nth-of-type(15) {
-	animation-delay:  8.7s;
+	animation-delay:  6.7s;
 }
 .animate b:nth-of-type(16) {
-	animation-delay:  8.75s;
+	animation-delay:  6.75s;
 }
 .animate b:nth-of-type(17) {
-	animation-delay:  8.8s;
+	animation-delay:  6.8s;
 }
 .animate b:nth-of-type(18) {
-	animation-delay:  8.85s;
+	animation-delay:  6.85s;
 }
 .animate b:nth-of-type(19) {
-	animation-delay: 8.9s;
+	animation-delay: 6.9s;
 }
 .animate b:nth-of-type(20) {
-	animation-delay: 8.95s;
+	animation-delay: 6.95s;
 }
 .animate b:nth-of-type(21) {
 	animation-delay: 9s;

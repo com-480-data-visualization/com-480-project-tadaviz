@@ -6,16 +6,14 @@
   border-radius: 10px;
   margin: 0 auto;
   margin-bottom: 50px;
-  z-index: -1;
  }
 
  #intro{
    text-align:justify;
    border-radius: 10px;
 
-
  }
- 
+
 
 .radar.radarChart{
   height: 50%;
@@ -112,6 +110,7 @@ option{
   margin-left: auto;
   margin-right: auto;
   margin-top: auto;
+  color:#fff;
 }
 
 #EXT{
