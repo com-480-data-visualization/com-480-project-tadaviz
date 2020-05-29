@@ -4,7 +4,7 @@ var bar_plot;
 var country_data;
 var current_question_id;
 const personalities = ["EXT", "EST", "AGR", "CSN", "OPN"];
-const xAxis = ["No answer", "Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly agree"];
+const xAxis = ["No answer", "Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly \r agree"];
 
 //// ON LOAD
 
