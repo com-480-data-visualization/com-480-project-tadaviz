@@ -171,11 +171,11 @@ selection.onAdd = function (map) {
     //depending on the option selected
     L.DomEvent.on(this._select,'click',function(){
       if (selection._select){
-        selection._option= selection._select.value;
+        selection._option = selection._select.value;
       };
       if (current_layer){
         info.update(current_layer.feature.properties)
-        blockoceanclick=true
+        blockoceanclick = true
       }else {
         info.update()
       }

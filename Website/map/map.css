@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
 
+*{
+  font-family: 'Nunito';
+}
+
 #mapid {
   height: 65%;
   width:80%;
@@ -37,7 +41,7 @@
 .info {
 
   padding: 6px 8px;
-  font: 14px/16px Arial, Nunito, sans-serif;
+  font: 14px/16px Nunito;
   background-color: rgba(255,255,255,1);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
