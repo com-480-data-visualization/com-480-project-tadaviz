@@ -133,20 +133,19 @@ The project prototype is available [here](https://com-480-data-visualization.git
 
 ## Milestone 3 (Thursday 28th May, 5pm)
 
-Two new datasets : 
+To carry out this final milestone, two other datasets were added:
 
 - World Happiness dataset : https://www.kaggle.com/unsdsn/world-happiness#2019.csv
 - Population by countries & country codes : https://www.kaggle.com/erikbruin/countries-of-the-world-iso-codes-and-population#countries_by_population_2019.csv
 
 **80% of the final grade**
 
-### Technical emplamentation and intended usage 
-The project revolves around the answers of participants based on where they come from. The website is divided in 4 differentes pages based on what information is relevant.
-The first page is a general overview of the the different visualisation containing the three buttons leading to the map, statistics and the custom made questionnaire.
+### Technical implementation and intended usage 
+The project revolves around the answers of participants to the Big Five Personality Test, based on where they come from. The website is divided in 4 principal pages. The HTML, CSS and JS files of each of these pages are stored in separate folders. The first page serves as a menu, which can lead to one of the __three different visualizations__ that were implemented in the context of this milestone.
 #### Map page
-The map page is a location oriented approach where data of the number of participants, dominant trait and characteristics are shown when a country is clicked. To do so a map taken from leaflet was linked with the data. Radiographs are displayed whenever the user hovers or clicks on a country if he selected “principal traits”. The radiograph axes use min-max normalization to better render the differences between each country. The global average is used as a reference. The results can be compared to the global happiness level of each country, it is intended so that the user can make guesses and hypothesis for correlation. But no clear tool of comparison is provided to avoid any position taking from the developers in this regard. The number of users that have answered in each country is also made available to better understand the data and its weights. 
-#### General staitcs
-The statistics button is a question oriented approach where the answers of the participants are displayed in regards to each question under the hierarchy of the dominant trait they belong to (consciousness, extraversion, openness, agreeableness, emotional stability). It is also possible to filter the answers by a country. The data can therefore be based on the country of the respondent and a specific question. The bar plots are made with the d3 librairie and on hover a bar will compare itself to the others displaying the difference through a percent difference. 
-#### Custom questionaire
-After visiting the two pages the visitor might want to take the test himself so he can compare his answers to the world and see where his personality stands in the world. The questions clearly indicates to which trait they refer to. It is made so that if people want to try and match a personality from a specific country it is fully possible. 
+The map page approaches the data in a _location-oriented paradigm_. Through this page, data regarding the number of respondents, the dominant trait and other characteristics are shown when a country is hovered over. To do so, a map taken from _leaflet.js_ was linked with the data. Radar graphs are displayed whenever the user hovers or clicks on a country if the chose criterion is “dominant personality”. A min-max normalization was applied to the scores of each country to emphasize the differences between each country. The global average is used as a reference, and is represented by the pink polygon. The results can then be compared to the global happiness level of each country. This was intended so that the user can make guesses and hypothesis for correlations between the dominant personality trait and the happiness level of a given country. However, no clear tool of comparison is provided to avoid any position taking from the developers in this regard. The number of users that have answered in each country is also made available to better understand the data and its weights. 
+#### General statistics
+The statistics page approaches the data in a _question-oriented paradigm_. The answers of the participants are displayed with respect to each question under the hierarchy of the dominant trait they belong to (consciousness, extraversion, openness, agreeableness and emotional stability). It is also possible to visualize the answers within a chosen country. Therefore, the visualized data is a function of chosen country and question. The bar plots are made with the _d3.js_ library. When the user hovers over a bar, this latter can be compared to the others with displays of the percentage difference that appear. 
+#### Custom questionary
+After visiting the two principle visualization pages, the visitor might want to take the test himself, so that he __compares__ his answers to the ones from the rest of the world, and __see__ where his personality __stands__ in the world. This questionary asks the same questions as the real test. After answering the 50 questions, the user can see his dominant character traits, and also see to which country his personality is the __closest__ to, according to our data. Each question clearly indicates to which trait they refer to. This was intended so that if people want to try and match a personality from a specific country, it is completely possible. 
 
