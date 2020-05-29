@@ -75,8 +75,8 @@
   position: relative;
   margin-top: 0 auto;
   background-color: #3F5A7D;
-  max-width: 75rem;
-  min-height: 50rem;
+  max-width: 50rem;
+  min-height: 30rem;
   padding: 1rem;
   border-radius: 30px;
   opacity: 0;

@@ -1,4 +1,6 @@
 
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
+
 .explanation_button {
   top:7px;
   background-color: #2F4A6D;
@@ -7,6 +9,7 @@
   border: none;
   padding: 1em;
   font-size: 0.9em;
+  font-family: 'Nunito';
   letter-spacing: 1px;
   text-transform: uppercase;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -72,10 +75,10 @@
   position: relative;
   margin: 0 auto;
   background-color: #fff;
-  width: 600px;
+  width: 800px;
   max-width: 75rem;
-  min-height: 20rem;
-  padding: 1rem;
+  min-height: 5rem;
+  padding: 0rem;
   border-radius: 3px;
   opacity: 0;
   overflow-y: auto;

@@ -16,7 +16,6 @@
  #intro{
    text-align:justify;
    border-radius: 10px;
-
  }
 
 
@@ -26,14 +25,14 @@
 }
 
 .context {
-  padding: 3rem;
-  margin:2rem;
+  padding: 1rem;
+  /*margin:2rem;*/
   text-align:justify;
   position: relative;
   margin-left:auto;
   margin-right: auto;
-  width:50%;
-  /* height:30%; */
+  width:90%;
+  height:100%;
   font-size: 1rem;
   color: #000;
 }
