@@ -20,11 +20,11 @@ function getRespColor(d) {
 }
 
 function getHappyColor(d) {
-    return d > 7 ? '#558B2F' :
-           d > 6  ? '#7CB342' :
-           d > 5  ? '#FFC107' :
-           d > 4  ? '#FF6E40' :
-           d > 0   ? '#FF3D00' :
+    return d > 7 ? '#0868ac' :
+           d > 6  ? '#43a2ca' :
+           d > 5  ? '#7bccc4' :
+           d > 4  ? '#bae4bc' :
+           d > 0   ? '#f0f9e8' :
                       '#f0f0f0';
 }
 
