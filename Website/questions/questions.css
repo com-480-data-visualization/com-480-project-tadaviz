@@ -41,7 +41,7 @@
   border: none;
   outline: none;
   border-radius: 5em;
-  box-shadow: 0 15px 20px -10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 20px -10px #616161;
   transition:
     color 0.6s,
     box-shadow 0.3s,
@@ -51,9 +51,9 @@
 }
 
 .qbutton:hover, .submit-button:hover {
-  box-shadow: 0 3px 5px -5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 5px -5px #616161;
   color:#CFD8DC ;
-  background:#2F4A6D;
+  background:#4F6A8D;
 }
 
 /*quizz*/

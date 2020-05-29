@@ -115,7 +115,7 @@ svg{
 /*Style the button*/
 .indexbutton {
   margin-top:50px;
-  background-color: #0D52E9;
+  background-color: #2F4A6D;
   position: relative;
   color: #fff;
   border: none;
@@ -130,7 +130,7 @@ svg{
 }
 
 .indexbutton:hover {
-  background: #0c4ddb;
+  background: #1e3799;
 }
 .indexbutton:focus {
   outline: none;

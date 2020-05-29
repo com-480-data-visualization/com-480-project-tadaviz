@@ -6,6 +6,7 @@
   border-radius: 10px;
   margin: 0 auto;
   margin-bottom: 50px;
+
  }
 
  #intro{
@@ -37,7 +38,7 @@
 
   padding: 6px 8px;
   font: 14px/16px Arial, Nunito, sans-serif;
-  background-color: : rgba(255,255,255,1);
+  background-color: rgba(255,255,255,1);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
   pointer-events: none;

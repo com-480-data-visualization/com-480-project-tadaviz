@@ -6,7 +6,9 @@
   margin-top: 30px;
   animation: 8s fadeIn;
   animation-fill-mode: forwards;
-  visibility: hidden
+  visibility: hidden;
+  box-shadow: 0 15px 20px -10px rgba(0, 0, 0, 0.3);
+
 }
 @keyframes fadeIn {
   99% {
@@ -16,6 +18,11 @@
     visibility: visible;
   }
 }
+
+#resultbutton:hover{
+  box-shadow:  0 3px 5px -5px rgba(0, 0, 0, 0.3);
+}
+
 /**
  * Overlay
  * -- only show for tablet and up
