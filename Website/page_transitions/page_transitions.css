@@ -1,12 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
 
-.welcome_body {
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  background: #2F4A6D;
-}
-
 body h2, body span {
   font-size: 15px;
   font-family: 'nunito';

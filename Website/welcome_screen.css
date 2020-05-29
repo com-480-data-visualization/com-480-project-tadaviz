@@ -1,5 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
 
+.welcome_body {
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  background: #8ac5c3;
+  /*background-image: radial-gradient(closest-side at 50% 25%, #8ac5c3 50% , #2F4A6D);*/
+}
+
 * {
   padding: 0;
   margin: 0;

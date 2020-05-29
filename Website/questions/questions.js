@@ -89,7 +89,7 @@ function add_questions(data){
 async function next_questions(){
   set_transition("split_horizontal");
   // Update the questions
-  await new Promise(r => setTimeout(r, 600));
+  await new Promise(r => setTimeout(r, 400));
   questions_step += 1;
   let data = [];
   for (k in questions_corpus){
